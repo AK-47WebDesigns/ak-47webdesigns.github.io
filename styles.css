@@ -1,0 +1,53 @@
+html, body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.5);
+    padding: 6px 0px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    background-color: rgba(0, 0, 255, 0.5);
+    padding: 5px 0px;
+}
+
+main {
+    display: flex;
+    /* flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center; */
+    width: 100vw;
+    height: 100vh;
+    /* margin-top: 20px; */
+     overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; 
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+    /* margin-top: 20px; */
+    height: 100vh;
+    flex: 0 0 100vw;
+
+}
+
+#hero {
+    background-color: rgba(0, 255, 0, 0.5);
+}
