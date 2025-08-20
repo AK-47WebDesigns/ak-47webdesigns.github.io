@@ -1,8 +1,10 @@
 :root {
     --nav-bg-image-width: 3456; 
     --nav-bg-image-height: 224; 
-    --navbar-height: 125px;
+    --navbar-height: 200px;
     --footer-height: 30px;
+    --main-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
 }
 
 @font-face {
@@ -57,12 +59,12 @@ nav::before {
     background-image: url("assets/images/contra-background.png");   /* https://www.spriters-resource.com/nes/contra/sheet/7680/ */
     background-repeat: no-repeat;
     background-size: auto 100%;
-    animation: scroll-bg 30s linear 1s infinite alternate;
+    animation: scroll-bg 30s linear infinite alternate;
 }
 
 @keyframes scroll-bg {
     0%   { background-position: 0 0; }
-    100% { background-position: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height)))) 0; }
+    100% { background-position: var(--nav-bg-scroll) 0; }
 }
 
 .btns-container {
@@ -101,12 +103,16 @@ footer span a:hover {
 }
 
 main {
-    width: 100vw;
-    height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    /* width: 100vw; */
+    height: var(--main-height);
     overflow-x: auto;
     /* scrollbar-width: none; 
     -ms-overflow-style: none; 
     position: relative; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 main::-webkit-scrollbar {
@@ -116,18 +122,17 @@ main::-webkit-scrollbar {
 
 
 section {
-    position: relative;
-    height: 100vh;
+    height: 100%;
     flex: 0 0 100vw;
-    z-index: 1;
 
-    color: white;
-}
-
-#hero {
-    background-color: rgba(0, 255, 0, 0.5);
+    color: black;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+}
+
+#hero {
+    background-color: rgba(0, 255, 0, 0.5);
+
 }
