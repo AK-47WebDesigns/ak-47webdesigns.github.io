@@ -4,23 +4,37 @@ const SCROLL_LEFT_ZERO = 0;
 const main = document.querySelector("main"); 
 
 const restart = document.getElementById("restart");
-restart.addEventListener('click', () => { main.scrollLeft = SCROLL_LEFT_ZERO; isRunning = false; });
+restart.addEventListener('click', () => { 
+  // main.scrollLeft = SCROLL_LEFT_ZERO; 
+  isRunning = false; 
+  main.scroll({
+    left: hero.offsetLeft, 
+    behavior: 'smooth'
+  });
+});
 
 const pause = document.getElementById("pause");
 pause.addEventListener('click', () => { isRunning = false; });
 
+const end = document.getElementById("end");
+end.addEventListener('click', () => {
+  isRunning = false;
+  main.scroll({
+    left: contact.offsetLeft, 
+    behavior: 'smooth'
+  });
+});
 
-const playScroll = () => {
+
+const play = document.getElementById("play");
+play.addEventListener('click', () => {
   if (rafId !== null) {
     cancelAnimationFrame(rafId); 
   }
 
   isRunning = true; 
   rafId = requestAnimationFrame(autoScrollRight);
-}
-
-const play = document.getElementById("play");
-play.addEventListener('click', playScroll);
+});
 
 
 window.onload = () => {

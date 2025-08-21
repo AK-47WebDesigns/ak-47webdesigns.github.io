@@ -1,0 +1,250 @@
+@font-face {
+  font-family: "Contra";
+  src: url("../fonts/Contra.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Zyborgs 3D";
+  src: url("../fonts/Zyborgs 3D.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SuperMario256";
+  src: url("../fonts/SuperMario256.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --nav-bg-image-width: 3456;
+  --nav-bg-image-height: 224;
+  --navbar-height: 150px;
+  --footer-height: 30px;
+  --main-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
+}
+
+html, body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+html nav, body nav {
+  position: relative;
+  width: 100vw;
+  height: var(--navbar-height);
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+html nav #background-container, body nav #background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/contra-background.png"); /* https://www.spriters-resource.com/nes/contra/sheet/7680/ */
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  animation: background-scroll 30s linear infinite alternate;
+}
+html nav #left-logo, html nav #right-logo, body nav #left-logo, body nav #right-logo {
+  height: calc(var(--navbar-height) - 10%);
+  transition: transform 0.1s ease-in-out;
+  cursor: pointer;
+  width: auto;
+  z-index: 2;
+}
+html nav #left-logo:hover, html nav #right-logo:hover, body nav #left-logo:hover, body nav #right-logo:hover {
+  transform: scale(1.2);
+}
+html nav #left-logo, body nav #left-logo {
+  animation: 0.25s ease-out slide-from-below;
+  margin-left: 25px;
+}
+html nav #right-logo, body nav #right-logo {
+  animation: 0.75s ease-out slide-from-right;
+  margin-right: 25px;
+}
+html nav #letters-container, body nav #letters-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  font-family: "SuperMario256", monospace;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px #BBB;
+  text-shadow: 5px 5px 0px #000, 5px 5px 0px #333, 6px 6px 0px #666;
+  margin: 0;
+  z-index: 2;
+  align-self: center;
+  padding: 10px 30px;
+  border-radius: 35px;
+  background-color: rgba(255, 0, 0, 0.15);
+  outline: 1px solid #999;
+  border: 10px solid #e71e07;
+  border-style: ridge;
+  box-shadow: 0px 1px 0px #881104, 0px 1px 0px #999;
+}
+html nav #letters-container span, body nav #letters-container span {
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+html nav #letters-container span:hover, body nav #letters-container span:hover {
+  transform: rotate(360deg); /* Rotates the letter 360 degrees on hover */
+}
+html nav #letters-container .blue, body nav #letters-container .blue {
+  color: #009cda;
+}
+html nav #letters-container .red, body nav #letters-container .red {
+  color: #e71e07;
+}
+html nav #letters-container .green, body nav #letters-container .green {
+  color: #42b132;
+}
+html nav #letters-container .yellow, body nav #letters-container .yellow {
+  color: #fcd000;
+}
+html nav::before, body nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+html main, body main {
+  /* width: 100vw; */
+  height: var(--main-height);
+  overflow-x: auto;
+  /* scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  position: relative; */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+html main #buttons-container, body main #buttons-container {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  z-index: 2;
+}
+html main #buttons-container button, body main #buttons-container button {
+  cursor: pointer;
+}
+html main section, body main section {
+  height: 100%;
+  flex: 0 0 100vw;
+  color: black;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+html main #hero, body main #hero {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+html main::-webkit-scrollbar, body main::-webkit-scrollbar {
+  display: none;
+}
+html footer, body footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+  background-color: rgba(0, 0, 255, 0.5);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: var(--footer-height);
+  font-size: 10px;
+  font-family: "Contra", monospace;
+  text-transform: uppercase;
+}
+html footer span a, body footer span a {
+  color: blue;
+  animation: blink 0.5s steps(1, start) infinite;
+  text-shadow: 2px 2px 0px #000;
+  text-decoration: none;
+}
+html footer span a:hover, body footer span a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0px 0px 5px red;
+}
+
+@keyframes background-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: var(--nav-bg-scroll) 0;
+  }
+}
+@keyframes blink {
+  0% {
+    color: blue;
+  }
+  50% {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    color: blue;
+  }
+}
+@keyframes slide-from-below {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes slide-from-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(-10%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
