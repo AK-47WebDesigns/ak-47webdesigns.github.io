@@ -49,28 +49,52 @@ html nav #background-container, body nav #background-container {
   height: 100%;
   background-image: url("../images/contra-background.png"); /* https://www.spriters-resource.com/nes/contra/sheet/7680/ */
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
   animation: background-scroll 30s linear infinite alternate;
 }
-html nav #left-logo, html nav #right-logo, body nav #left-logo, body nav #right-logo {
+html nav #left-mario, html nav #right-mario, body nav #left-mario, body nav #right-mario {
   height: calc(var(--navbar-height) - 10%);
   transition: transform 0.1s ease-in-out;
   cursor: pointer;
   width: auto;
   z-index: 2;
 }
-html nav #left-logo:hover, html nav #right-logo:hover, body nav #left-logo:hover, body nav #right-logo:hover {
-  transform: scale(1.2);
+html nav #left-mario:hover, html nav #right-mario:hover, body nav #left-mario:hover, body nav #right-mario:hover {
+  transform: scale(1.1);
 }
-html nav #left-logo, body nav #left-logo {
+html nav #left-mario:active, html nav #right-mario:active, body nav #left-mario:active, body nav #right-mario:active {
+  transform: scale(0.9);
+  transform: translateY(10px);
+  filter: brightness(125%);
+  opacity: 0.9;
+}
+html nav #left-mario, body nav #left-mario {
   animation: 0.25s ease-out slide-from-below;
   margin-left: 25px;
 }
-html nav #right-logo, body nav #right-logo {
+html nav #right-mario, body nav #right-mario {
   animation: 0.75s ease-out slide-from-right;
   margin-right: 25px;
 }
-html nav #letters-container, body nav #letters-container {
+html nav .flash, body nav .flash {
+  animation: flash 0.1s linear;
+}
+html nav #bullet-holes-container, body nav #bullet-holes-container {
+  width: 100%;
+  height: var(--navbar-height);
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+html nav #bullet-holes-container .bullet-hole, body nav #bullet-holes-container .bullet-hole {
+  position: absolute;
+  width: 30px;
+  height: auto;
+  z-index: 3;
+}
+html nav #bullet-holes-container #letters-container, body nav #bullet-holes-container #letters-container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -93,23 +117,23 @@ html nav #letters-container, body nav #letters-container {
   border-style: ridge;
   box-shadow: 0px 1px 0px #881104, 0px 1px 0px #999;
 }
-html nav #letters-container span, body nav #letters-container span {
+html nav #bullet-holes-container #letters-container span, body nav #bullet-holes-container #letters-container span {
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
-html nav #letters-container span:hover, body nav #letters-container span:hover {
-  transform: rotate(360deg); /* Rotates the letter 360 degrees on hover */
+html nav #bullet-holes-container #letters-container span:hover, body nav #bullet-holes-container #letters-container span:hover {
+  transform: rotate(360deg);
 }
-html nav #letters-container .blue, body nav #letters-container .blue {
+html nav #bullet-holes-container #letters-container .blue, body nav #bullet-holes-container #letters-container .blue {
   color: #009cda;
 }
-html nav #letters-container .red, body nav #letters-container .red {
+html nav #bullet-holes-container #letters-container .red, body nav #bullet-holes-container #letters-container .red {
   color: #e71e07;
 }
-html nav #letters-container .green, body nav #letters-container .green {
+html nav #bullet-holes-container #letters-container .green, body nav #bullet-holes-container #letters-container .green {
   color: #42b132;
 }
-html nav #letters-container .yellow, body nav #letters-container .yellow {
+html nav #bullet-holes-container #letters-container .yellow, body nav #bullet-holes-container #letters-container .yellow {
   color: #fcd000;
 }
 html nav::before, body nav::before {
@@ -128,20 +152,34 @@ html main, body main {
   height: var(--main-height);
   overflow-x: auto;
   /* scrollbar-width: none; 
-  -ms-overflow-style: none; 
-  position: relative; */
+  -ms-overflow-style: none; */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
 }
 html main #buttons-container, body main #buttons-container {
-  position: absolute;
-  top: 50%;
-  right: 20%;
+  position: fixed;
+  top: calc(var(--navbar-height) + 2%);
+  right: 2%;
   z-index: 2;
+  border: 2px solid red;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px 10px;
 }
-html main #buttons-container button, body main #buttons-container button {
+html main #buttons-container span, body main #buttons-container span {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+html main #buttons-container span img, body main #buttons-container span img {
+  width: 25px;
+  height: auto;
   cursor: pointer;
 }
 html main section, body main section {
@@ -186,6 +224,17 @@ html footer span a:hover, body footer span a:hover {
   text-shadow: 0px 0px 5px red;
 }
 
+@keyframes flash {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(300%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
 @keyframes background-scroll {
   0% {
     background-position: 0 0;

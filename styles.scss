@@ -20,8 +20,13 @@
 }
 
 :root {
+   // contra-background dimensions
    --nav-bg-image-width: 3456; 
    --nav-bg-image-height: 224; 
+   // mario-background dimensions
+   // --nav-bg-image-width: 2624; 
+   // --nav-bg-image-height: 240; 
+
    --navbar-height: 150px;
    --footer-height: 30px;
    --main-height: calc(100vh - var(--navbar-height) - var(--footer-height));
@@ -53,12 +58,13 @@ html, body {
          width: 100%;    
          height: 100%;
          background-image: url("../images/contra-background.png");   /* https://www.spriters-resource.com/nes/contra/sheet/7680/ */
+         // background-image: url("../images/mario-background.png");  
          background-repeat: no-repeat;
-         background-size: auto 100%;
+         background-size: cover;
          animation: background-scroll 30s linear infinite alternate;
       }
 
-      #left-logo, #right-logo {
+      #left-mario, #right-mario {
          height: calc(var(--navbar-height) - 10%);
          transition: transform .1s ease-in-out; 
          cursor: pointer;
@@ -66,64 +72,88 @@ html, body {
          z-index: 2;
       }
 
-      #left-logo:hover, #right-logo:hover {
-         transform: scale(1.2);
+      #left-mario:hover, #right-mario:hover {
+         transform: scale(1.1);
       }
       
-      #left-logo:active, #right-logo:active {
-         // animation: shake 1s linear;
+      #left-mario:active, #right-mario:active {
+         transform: scale(0.9);
+         transform: translateY(10px);
+         filter: brightness(125%);
+         opacity: 0.9;
       }
 
-      #left-logo {
+      #left-mario {
          animation: .25s ease-out slide-from-below;
          // animation-fill-mode: forwards; 
          margin-left: 25px;
       }
 
-      #right-logo {
+      #right-mario {
          animation: .75s ease-out slide-from-right;
          // animation-fill-mode: forwards; 
          margin-right: 25px;
       }
 
-      #letters-container {
+      .flash {
+         animation: flash 0.1s linear;
+      }
+
+      #bullet-holes-container {
+         width: 100%;
+         height: var(--navbar-height);
+         position: relative;
          display: flex;
          flex-flow: row nowrap;
          justify-content: center;
          align-items: center;
 
-         font-size: 48px;
-         font-weight: 400;
-         letter-spacing: 5px;
-         font-family: 'SuperMario256', monospace;
-         text-transform: uppercase;
-         -webkit-text-stroke: 1px #BBB;
-         text-shadow: 5px 5px 0px #000, 5px 5px 0px #333, 6px 6px 0px #666;
-
-         margin: 0;
-         z-index: 2;
-         align-self: center;
-         padding: 10px 30px;
-         border-radius: 35px;
-         background-color: rgba(255, 0, 0, 0.15);
-         outline: 1px solid #999;
-         border: 10px solid rgba(#E71E07, 1.0);
-         border-style: ridge;
-         box-shadow: 0px 1px 0px #881104, 0px 1px 0px #999;
-
-         span {
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
+         .bullet-hole {
+            position: absolute;
+            width: 30px;
+            height: auto;
+            z-index: 3;
          }
 
-         span:hover {
-            transform: rotate(360deg); /* Rotates the letter 360 degrees on hover */
+         #letters-container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: 5px;
+            font-family: 'SuperMario256', monospace;
+            text-transform: uppercase;
+            -webkit-text-stroke: 1px #BBB;
+            text-shadow: 5px 5px 0px #000, 5px 5px 0px #333, 6px 6px 0px #666;
+
+            margin: 0;
+            z-index: 2;
+            align-self: center;
+            padding: 10px 30px;
+            border-radius: 35px;
+            background-color: rgba(255, 0, 0, 0.15);
+            outline: 1px solid #999;
+            border: 10px solid rgba(#E71E07, 1.0);
+            border-style: ridge;
+            box-shadow: 0px 1px 0px #881104, 0px 1px 0px #999;
+
+            span {
+               transition: transform 0.3s ease-in-out;
+               cursor: pointer;
+            }
+
+            span:hover {
+               transform: rotate(360deg); 
+            }
+            
+            .blue   { color: rgba(#009CDA, 1.0) }
+            .red    { color: rgba(#E71E07, 1.0) }
+            .green  { color: rgba(#42B132, 1.0) }
+            .yellow { color: rgba(#FCD000, 1.0) }
          }
-         
-         .blue   { color: rgba(#009CDA, 1.0) }
-         .red    { color: rgba(#E71E07, 1.0) }
-         .green  { color: rgba(#42B132, 1.0) }
-         .yellow { color: rgba(#FCD000, 1.0) }
       }
    }
 
@@ -144,8 +174,8 @@ html, body {
       height: var(--main-height);
       overflow-x: auto;
       /* scrollbar-width: none; 
-      -ms-overflow-style: none; 
-      position: relative; */
+      -ms-overflow-style: none; */
+      // position: relative; 
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
@@ -153,13 +183,31 @@ html, body {
 
       
       #buttons-container {
-         position: absolute;
-         top: 50%;
-         right: 20%; 
+         position: fixed;
+         top: calc(var(--navbar-height) + 2%);
+         right: 2%; 
          z-index: 2;
 
-         button {
-            cursor: pointer;
+         border: 2px solid red;
+         border-radius: 15px;
+
+         display: flex;
+         flex-flow: row nowrap;
+         justify-content: space-evenly;
+         align-items: center;
+         padding: 5px 10px;
+
+         span {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+
+            img {
+               width: 25px;
+               height: auto;
+               cursor: pointer;
+            }
          }
       }
 
@@ -182,7 +230,6 @@ html, body {
    main::-webkit-scrollbar {
       display: none;
    }
-
 
    footer {
       position: fixed;
@@ -214,6 +261,11 @@ html, body {
    }
 }
 
+@keyframes flash {
+   0%   { filter: brightness(100%); }
+   50%  { filter: brightness(300%); }
+   100% { filter: brightness(100%); }
+}
 
 @keyframes background-scroll {
    0%   { background-position: 0 0; }
