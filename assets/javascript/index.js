@@ -1,61 +1,87 @@
 let rafId = null;
 let isRunning = false;
-const SCROLL_LEFT_ZERO = 0;
+let currentIndex = 0;
 const main = document.querySelector("main"); 
-
-const first = document.getElementById("first");
-first.addEventListener('click', () => { 
-  // main.scrollLeft = SCROLL_LEFT_ZERO; 
-  isRunning = false; 
-  main.scroll({
-    left: hero.offsetLeft, 
-    behavior: 'smooth'
-  });
-});
-
-const pause = document.getElementById("pause");
-pause.addEventListener('click', () => { isRunning = false; });
-
-const last = document.getElementById("last");
-last.addEventListener('click', () => {
-  isRunning = false;
-  main.scroll({
-    left: contact.offsetLeft, 
-    behavior: 'smooth'
-  });
-});
-
-
-const play = document.getElementById("play");
-play.addEventListener('click', () => {
-  if (rafId !== null) {
-    cancelAnimationFrame(rafId); 
-  }
-
-  isRunning = true; 
-  rafId = requestAnimationFrame(autoScrollRight);
-});
-
-
-window.onload = () => {
-  main.scrollLeft = SCROLL_LEFT_ZERO;
-};
-
+const sections = document.querySelectorAll('section');
 
 // main.clientWidth -> width of main element (1383 px)
 // main.scrollWidth -> width of main element's content (i.e. - all of the horizontal sections; total = 5532 px)
 const autoScrollRight = () => {
-    console.log(main.scrollLeft, main.scrollWidth, main.clientWidth)
   if (isRunning) {
     if (main.scrollLeft >= (main.scrollWidth - main.clientWidth)) {
+      isRunning = false;
+      cancelAnimationFrame(rafId);
       console.warn("End of horizontal scroll.");
       return;
     }
 
     main.scrollLeft += 10;
+    currentIndex = Math.floor(main.scrollLeft / main.clientWidth);
     rafId = requestAnimationFrame(autoScrollRight);
   }
 }
+
+function scrollToSection(index) {
+  if (index >= 0 && index < sections.length) {
+    currentIndex = index;
+    const offset = sections[index].offsetLeft;
+
+    const wasRunning = isRunning;
+    isRunning = false;
+    cancelAnimationFrame(rafId);
+    main.scrollTo({ left: offset, behavior: 'smooth' });
+
+    // stops auto-scroll (if running)
+    // checks if scrolling has finished before restarting auto-scroll (if it was running)
+    // used instead of "scrollend" event (due to lack of cross-browser support)
+    const check = () => {
+      const dx = Math.abs(main.scrollLeft - offset);
+      if (dx <= 1) {
+        if (wasRunning) {
+          isRunning = true;
+          autoScrollRight();
+        }
+      } else {
+        requestAnimationFrame(check);
+      }
+    };
+
+    requestAnimationFrame(check);
+  }
+}
+
+document.querySelector('#first').addEventListener('click', () => {
+  scrollToSection(0);
+});
+
+document.querySelector('#last').addEventListener('click', () => {
+  scrollToSection(sections.length - 1);
+});
+
+document.querySelector('#previous').addEventListener('click', () => {
+  let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex - 1 : Math.floor(main.scrollLeft / main.clientWidth);
+  scrollToSection(index);
+});
+
+document.querySelector('#next').addEventListener('click', () => {
+  let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex + 1 : Math.ceil(main.scrollLeft / main.clientWidth);
+  scrollToSection(index);
+});
+
+document.querySelector('#play').addEventListener('click', () => {
+  if (!isRunning) {
+    isRunning = true;
+    autoScrollRight();
+  }
+});
+
+document.querySelector('#pause').addEventListener('click', () => {
+  isRunning = false;
+  cancelAnimationFrame(rafId);
+});
+
+
+
 
 let fadeTimeout;
 const marios = document.getElementsByClassName("mario");
@@ -94,9 +120,5 @@ for(const mario of marios) {
         });
       });
     }, 2000);
-    
-    // container.addEventListener('animationend', () => {
-    //   container.classList.remove('flash');
-    // }, { once: true });
   });
 };

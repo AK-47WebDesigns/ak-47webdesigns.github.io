@@ -21,7 +21,7 @@
   --nav-bg-image-height: 224;
   --navbar-height: 150px;
   --footer-height: 30px;
-  --main-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  --main-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 8px);
   --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
 }
 
@@ -40,6 +40,7 @@ html nav, body nav {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-end;
+  border-bottom: 4px ridge #888;
 }
 html nav #background-container, body nav #background-container {
   position: absolute;
@@ -90,7 +91,7 @@ html nav #bullet-holes-container, body nav #bullet-holes-container {
 }
 html nav #bullet-holes-container .bullet-hole, body nav #bullet-holes-container .bullet-hole {
   position: absolute;
-  width: 30px;
+  width: 40px;
   height: auto;
   z-index: 3;
 }
@@ -191,8 +192,17 @@ html main section, body main section {
   justify-content: center;
   align-items: center;
 }
-html main #hero, body main #hero {
+html main #intro, body main #intro {
   background-color: rgba(0, 255, 0, 0.5);
+}
+html main #skills, body main #skills {
+  background-color: rgba(255, 122, 122, 0.5);
+}
+html main #projects, body main #projects {
+  background-color: rgba(0, 122, 122, 0.5);
+}
+html main #contact, body main #contact {
+  background-color: rgba(255, 0, 255, 0.5);
 }
 html main::-webkit-scrollbar, body main::-webkit-scrollbar {
   display: none;
@@ -203,7 +213,7 @@ html footer, body footer {
   left: 0;
   width: 100vw;
   text-align: center;
-  background-color: rgba(0, 0, 255, 0.5);
+  background-color: rgba(25, 0, 255, 0.5);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -212,6 +222,7 @@ html footer, body footer {
   font-size: 10px;
   font-family: "Contra", monospace;
   text-transform: uppercase;
+  border-top: 4px ridge #888;
 }
 html footer span a, body footer span a {
   color: blue;

@@ -29,7 +29,7 @@
 
    --navbar-height: 150px;
    --footer-height: 30px;
-   --main-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+   --main-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 8px);  // 8px -> total height for navbar and footer borders
    --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
 }
 
@@ -50,6 +50,7 @@ html, body {
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: flex-end;
+      border-bottom: 4px ridge #888;
 
       #background-container {
          position: absolute;  
@@ -110,7 +111,7 @@ html, body {
 
          .bullet-hole {
             position: absolute;
-            width: 30px;
+            width: 40px;
             height: auto;
             z-index: 3;
          }
@@ -222,8 +223,20 @@ html, body {
          align-items: center;
       }
 
-      #hero {
+      #intro {
          background-color: rgba(0, 255, 0, 0.5);
+      }
+
+      #skills {
+         background-color: rgba(255, 122, 122, 0.5);
+      }
+
+      #projects {
+         background-color: rgba(0, 122, 122, 0.5);
+      }
+
+      #contact {
+         background-color: rgba(255, 0, 255, 0.5);
       }
    }
 
@@ -237,7 +250,7 @@ html, body {
       left: 0;
       width: 100vw;   
       text-align: center;
-      background-color: rgba(0, 0, 255, 0.5);
+      background-color: rgba(25, 0, 255, 0.5);
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
@@ -246,6 +259,7 @@ html, body {
       font-size: 10px;
       font-family: 'Contra', monospace;
       text-transform: uppercase;
+      border-top: 4px ridge #888;
 
       span a {
          color: blue;
