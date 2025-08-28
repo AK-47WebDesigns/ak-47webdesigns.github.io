@@ -1,3 +1,29 @@
+let offsetX = 0;
+let offsetY = 0;
+let isDragging = false;
+
+const controller = document.getElementById('controller-container');
+controller.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - controller.offsetLeft;
+  offsetY = e.clientY - controller.offsetTop;
+  controller.classList.add('dragging');
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  controller.style.left = `${e.clientX - offsetX}px`;
+  controller.style.top = `${e.clientY - offsetY}px`;
+  controller.style.right = 'auto'; 
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  controller.classList.remove('dragging');
+});
+
+
+
 let rafId = null;
 let isRunning = false;
 let currentIndex = 0;
@@ -50,25 +76,25 @@ function scrollToSection(index) {
   }
 }
 
-document.querySelector('#first').addEventListener('click', () => {
-  scrollToSection(0);
-});
+// document.querySelector('#first').addEventListener('click', () => {
+//   scrollToSection(0);
+// });
 
-document.querySelector('#last').addEventListener('click', () => {
-  scrollToSection(sections.length - 1);
-});
+// document.querySelector('#last').addEventListener('click', () => {
+//   scrollToSection(sections.length - 1);
+// });
 
-document.querySelector('#previous').addEventListener('click', () => {
-  let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex - 1 : Math.floor(main.scrollLeft / main.clientWidth);
-  scrollToSection(index);
-});
+// document.querySelector('#previous').addEventListener('click', () => {
+//   let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex - 1 : Math.floor(main.scrollLeft / main.clientWidth);
+//   scrollToSection(index);
+// });
 
-document.querySelector('#next').addEventListener('click', () => {
-  let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex + 1 : Math.ceil(main.scrollLeft / main.clientWidth);
-  scrollToSection(index);
-});
+// document.querySelector('#next').addEventListener('click', () => {
+//   let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex + 1 : Math.ceil(main.scrollLeft / main.clientWidth);
+//   scrollToSection(index);
+// });
 
-document.querySelector('#play').addEventListener('click', () => {
+document.querySelector('#start').addEventListener('click', () => {
   if (!isRunning) {
     isRunning = true;
     autoScrollRight();
@@ -85,10 +111,12 @@ document.querySelector('#pause').addEventListener('click', () => {
 
 let fadeTimeout;
 const marios = document.getElementsByClassName("mario");
+const baButtons = document.getElementsByClassName("ba-button");
 const container = document.getElementById("bullet-holes-container");
 
-for(const mario of marios) {
-  mario.addEventListener('click', () => {
+for(const baButton of baButtons) {
+  baButton.addEventListener('click', () => {
+    console.log(baButton.id)
     const width = container.offsetWidth;
     const height = container.offsetHeight;
 
@@ -101,6 +129,7 @@ for(const mario of marios) {
     img.alt = `bullet-hole-${randPic}`;
     img.className = 'bullet-hole';
     img.classList.add('flash');
+    marios[0].classList.add('flash')
     img.style.left = `${randX}px`;
     img.style.top = `${randY}px`;
     img.style.opacity = '1';

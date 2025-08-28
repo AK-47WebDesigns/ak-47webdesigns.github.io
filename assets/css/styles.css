@@ -16,6 +16,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/Orbitron-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --nav-bg-image-width: 3456;
   --nav-bg-image-height: 224;
@@ -159,29 +165,183 @@ html main, body main {
   justify-content: space-between;
   align-items: center;
 }
-html main #buttons-container, body main #buttons-container {
+html main #controller-container, body main #controller-container {
   position: fixed;
-  top: calc(var(--navbar-height) + 2%);
-  right: 2%;
+  bottom: calc(var(--footer-height) + 2%);
+  left: 2%;
   z-index: 2;
-  border: 2px solid red;
-  border-radius: 15px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
   padding: 5px 10px;
+  cursor: grab;
+  user-select: none;
+  width: 425px;
+  height: 176px;
+  background-color: #e0ded4;
+  border: 2px solid #4B4E43;
+  border-radius: 4px;
 }
-html main #buttons-container span, body main #buttons-container span {
+html main #controller-container #controller, body main #controller-container #controller {
+  width: 425px;
+  height: 176px;
+  position: relative;
+}
+html main #controller-container #controller #buttons-container, body main #controller-container #controller #buttons-container {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  height: 138px;
+  background-color: #464646;
+  background: linear-gradient(to bottom, #3a3e3b 0%, #232624 100%);
+  box-shadow: inset 0px 1px 2px 1px rgba(0, 10, 0, 0.91);
+}
+html main #controller-container #controller #buttons-container #buttons, body main #controller-container #controller #buttons-container #buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+html main #controller-container #controller #buttons-container #buttons #left, html main #controller-container #controller #buttons-container #buttons #middle, html main #controller-container #controller #buttons-container #buttons #right, body main #controller-container #controller #buttons-container #buttons #left, body main #controller-container #controller #buttons-container #buttons #middle, body main #controller-container #controller #buttons-container #buttons #right {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 4px;
+}
+html main #controller-container #controller #buttons-container #buttons #left, body main #controller-container #controller #buttons-container #buttons #left {
+  width: 30%;
+}
+html main #controller-container #controller #buttons-container #buttons #middle, body main #controller-container #controller #buttons-container #buttons #middle {
+  width: 36%;
+}
+html main #controller-container #controller #buttons-container #buttons #middle .stripe, body main #controller-container #controller #buttons-container #buttons #middle .stripe {
+  width: 100%;
+  height: 20%;
+  background-color: rgba(123, 131, 108, 0.8);
+  border-radius: 5px;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container {
+  position: absolute;
+  bottom: 17px;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 4px;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-labels, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-labels {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-labels span, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-labels span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #DF2015;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons {
+  background-color: #e0ded4;
+  border-radius: 6px;
+  border: 4px solid #e0ded4;
+  box-shadow: inset 0px 0px 3px 4px rgba(50, 50, 50, 0.3);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 96%;
+  height: 2rem;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #start, html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #pause, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #start, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #pause {
+  width: 40px;
+  height: 50%;
+  background-color: #464646;
+  border-radius: 10px;
+  border: 1px solid #272723;
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.51);
+  cursor: pointer;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #start:active, html main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #pause:active, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #start:active, body main #controller-container #controller #buttons-container #buttons #middle #start-pause-container #start-pause-buttons #pause:active {
+  box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.51);
+}
+html main #controller-container #controller #buttons-container #buttons #right, body main #controller-container #controller #buttons-container #buttons #right {
+  position: relative;
+  height: 100%;
+  width: 30%;
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container {
+  position: absolute;
+  bottom: 1px;
+  left: 10px;
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  background-color: #e0ded4;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
 }
-html main #buttons-container span img, body main #buttons-container span img {
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #b-button, html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #a-button, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #b-button, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #a-button {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(to bottom, #DF2015 0%, #f84936 100%);
+  border-radius: 50%;
+  border: 1px rgba(0, 0, 0, 0.51) solid;
+  box-shadow: inset 0px 1px 2px 0px #FBFBFB, 0px 1px 1px 0px rgba(0, 0, 0, 0.71);
+  cursor: pointer;
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #b-button:active, html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #a-button:active, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #b-button:active, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #a-button:active {
+  border: 1px rgba(0, 0, 0, 0.5) solid;
+  box-shadow: inset 0px 0px 1px 0px #FBFBFB, 0px 1px 1px 0px rgba(0, 0, 0, 0.21);
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ab-labels, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ab-labels {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 8px;
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ab-labels span, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ab-labels span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #DF2015;
+  width: 50%;
+  display: block;
+  text-align: right;
+}
+html main #controller-container span, body main #controller-container span {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+html main #controller-container span img, body main #controller-container span img {
   width: 25px;
   height: auto;
   cursor: pointer;
+}
+html main #controller.dragging, body main #controller.dragging {
+  cursor: grabbing;
 }
 html main section, body main section {
   height: 100%;
