@@ -110,13 +110,14 @@ document.querySelector('#pause').addEventListener('click', () => {
 
 
 let fadeTimeout;
+let activeTimeout;
 const marios = document.getElementsByClassName("mario");
 const baButtons = document.getElementsByClassName("ba-button");
 const container = document.getElementById("bullet-holes-container");
+const letters = document.querySelectorAll(".letter");
 
 for(const baButton of baButtons) {
   baButton.addEventListener('click', () => {
-    console.log(baButton.id)
     const width = container.offsetWidth;
     const height = container.offsetHeight;
 
@@ -129,12 +130,80 @@ for(const baButton of baButtons) {
     img.alt = `bullet-hole-${randPic}`;
     img.className = 'bullet-hole';
     img.classList.add('flash');
-    marios[0].classList.add('flash')
     img.style.left = `${randX}px`;
     img.style.top = `${randY}px`;
     img.style.opacity = '1';
     img.style.transition = 'opacity 3s ease'; 
     container.appendChild(img);
+
+    const bulletRect = img.getBoundingClientRect();
+    const bulletX = bulletRect.left + bulletRect.width / 2;
+    const bulletY = bulletRect.top + bulletRect.height / 2;
+
+    letters.forEach(letter => {
+      const letterRect = letter.getBoundingClientRect();
+      const shrinkX = letterRect.width * 0.05;   
+      const shrinkY = letterRect.height * 0.05; 
+
+      const hitbox = {
+        left: letterRect.left + shrinkX,
+        right: letterRect.right - shrinkX,
+        top: letterRect.top + shrinkY,
+        bottom: letterRect.bottom - shrinkY
+      };
+
+      const inside =
+        bulletX >= hitbox.left &&
+        bulletX <= hitbox.right &&
+        bulletY >= hitbox.top &&
+        bulletY <= hitbox.bottom;
+
+      if (inside) {
+        const minDeg = 180;
+        const maxDeg = 540;
+        const direction = Math.random() < 0.5 ? 1 : -1;
+        // const deg = direction * (Math.random() * (maxDeg - minDeg) + minDeg);
+        const deg = (Math.floor(Math.random() * 6) + 1) * 360;
+        const duration = (Math.floor(Math.random() * 11) + 5) / 10;
+
+        console.log(deg)
+        letter.style.setProperty('--spin-deg', `${direction * deg}deg`);
+
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+          @keyframes spinYDir {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(${direction * deg}deg); }
+          }
+        `, styleSheet.cssRules.length);
+
+        letter.style.animation = `spinYDir ${duration}s ease`;
+
+        // letter.classList.add("spin");
+
+        // letter.style.transition = 'transform 0.6s ease';
+        // letter.style.transform = `rotateY(${deg}deg)`;
+
+        letter.addEventListener("animationend", () => {
+          // letter.classList.remove("spin");
+          // letter.style.transform = '';
+          letter.style.animation = '';
+        }, { once: true });
+      }
+    });
+
+    const targetId = baButton.dataset.target;
+    const targetImg = document.getElementById(targetId);
+    targetImg.style.transform = `translateX(${targetId === 'left-mario' ? '-' : ''}10px)`;
+    targetImg.style.filter = 'brightness(125%)';
+    targetImg.style.opacity = '0.9';
+
+    clearTimeout(activeTimeout);
+    activeTimeout = setTimeout(() => {
+      targetImg.style.transform = ''; 
+      targetImg.style.filter = '';
+      targetImg.style.opacity = '';
+    }, 75);
 
     clearTimeout(fadeTimeout);
     fadeTimeout = setTimeout(() => {
