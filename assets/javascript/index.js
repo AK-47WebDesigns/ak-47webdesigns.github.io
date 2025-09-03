@@ -26,6 +26,7 @@ document.addEventListener('mouseup', () => {
 
 let rafId = null;
 let isRunning = false;
+let isPaused = false;
 let currentIndex = 0;
 const main = document.querySelector("main"); 
 const sections = document.querySelectorAll('section');
@@ -76,23 +77,32 @@ function scrollToSection(index) {
   }
 }
 
-// document.querySelector('#first').addEventListener('click', () => {
-//   scrollToSection(0);
-// });
+function togglePause() {
+  isPaused = !isPaused;
+  if (isPaused) {
+    main.classList.add('paused');
+  } else {
+    main.classList.remove('paused');
+  }
+}
 
-// document.querySelector('#last').addEventListener('click', () => {
-//   scrollToSection(sections.length - 1);
-// });
+document.querySelector('#up-arrow').addEventListener('click', () => {
+  scrollToSection(0);
+});
 
-// document.querySelector('#previous').addEventListener('click', () => {
-//   let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex - 1 : Math.floor(main.scrollLeft / main.clientWidth);
-//   scrollToSection(index);
-// });
+document.querySelector('#down-arrow').addEventListener('click', () => {
+  scrollToSection(sections.length - 1);
+});
 
-// document.querySelector('#next').addEventListener('click', () => {
-//   let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex + 1 : Math.ceil(main.scrollLeft / main.clientWidth);
-//   scrollToSection(index);
-// });
+document.querySelector('#left-arrow').addEventListener('click', () => {
+  let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex - 1 : Math.floor(main.scrollLeft / main.clientWidth);
+  scrollToSection(index);
+});
+
+document.querySelector('#right-arrow').addEventListener('click', () => {
+  let index = main.scrollLeft % main.clientWidth == 0 ? currentIndex + 1 : Math.ceil(main.scrollLeft / main.clientWidth);
+  scrollToSection(index);
+});
 
 document.querySelector('#start').addEventListener('click', () => {
   if (!isRunning) {
@@ -104,6 +114,7 @@ document.querySelector('#start').addEventListener('click', () => {
 document.querySelector('#pause').addEventListener('click', () => {
   isRunning = false;
   cancelAnimationFrame(rafId);
+  // togglePause();  
 });
 
 
@@ -159,34 +170,21 @@ for(const baButton of baButtons) {
         bulletY <= hitbox.bottom;
 
       if (inside) {
-        const minDeg = 180;
-        const maxDeg = 540;
         const direction = Math.random() < 0.5 ? 1 : -1;
-        // const deg = direction * (Math.random() * (maxDeg - minDeg) + minDeg);
         const deg = (Math.floor(Math.random() * 6) + 1) * 360;
         const duration = (Math.floor(Math.random() * 11) + 5) / 10;
-
-        console.log(deg)
-        letter.style.setProperty('--spin-deg', `${direction * deg}deg`);
+        // letter.style.setProperty('--spin-deg', `${direction * deg}deg`);
 
         const styleSheet = document.styleSheets[0];
         styleSheet.insertRule(`
-          @keyframes spinYDir {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(${direction * deg}deg); }
+          @keyframes rotateY {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(${direction * deg}deg); }
           }
         `, styleSheet.cssRules.length);
 
-        letter.style.animation = `spinYDir ${duration}s ease`;
-
-        // letter.classList.add("spin");
-
-        // letter.style.transition = 'transform 0.6s ease';
-        // letter.style.transform = `rotateY(${deg}deg)`;
-
+        letter.style.animation = `rotateY ${duration}s ease`;
         letter.addEventListener("animationend", () => {
-          // letter.classList.remove("spin");
-          // letter.style.transform = '';
           letter.style.animation = '';
         }, { once: true });
       }
