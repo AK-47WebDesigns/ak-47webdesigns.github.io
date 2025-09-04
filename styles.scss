@@ -70,6 +70,7 @@ html, body {
          background-repeat: no-repeat;
          background-size: cover;
          animation: background-scroll 30s linear infinite alternate;
+         z-index: 5;
       }
 
       #left-mario, #right-mario {
@@ -77,7 +78,7 @@ html, body {
          transition: transform .1s ease-in-out, filter 0.1s ease, opacity 0.1s ease;
          cursor: pointer;
          width: auto;
-         z-index: 2;
+         z-index: 6;
       }
 
       #left-mario:hover, #right-mario:hover {
@@ -85,7 +86,7 @@ html, body {
       }
 
       #left-mario {
-         animation: .25s ease-out slide-from-below;
+         animation: .75s ease-out slide-from-left;
          // animation-fill-mode: forwards; 
          margin-left: 25px;
       }
@@ -113,7 +114,7 @@ html, body {
             position: absolute;
             width: 30px;
             height: auto;
-            z-index: 3;
+            z-index: 7;
          }
 
          #letters-container {
@@ -129,9 +130,9 @@ html, body {
             text-transform: uppercase;
             -webkit-text-stroke: 1px #BBB;
             text-shadow: 5px 5px 0px #000, 5px 5px 0px #333, 6px 6px 0px #666;
-
+            animation: .25s ease-out slide-from-below;
             margin: 0;
-            z-index: 2;
+            z-index: 6;
             align-self: center;
             padding: 10px 30px;
             border-radius: 35px;
@@ -139,7 +140,7 @@ html, body {
             outline: 1px solid #999;
             border: 10px solid rgba(#E71E07, 1.0);
             border-style: ridge;
-            box-shadow: 0px 1px 0px #881104, 0px 1px 0px #999;
+            box-shadow: 0px 2px 0px #881104, 0px 2px 0px #999;
 
             span {
                transition: transform 0.75s ease-in-out;
@@ -188,12 +189,22 @@ html, body {
       justify-content: space-between;
       align-items: center;
       transition: filter 0.3s ease;
+
+      .pause-mask {
+         position: absolute;
+         inset: 0;
+         background: rgba(200, 200, 200, 0.6); 
+         pointer-events: none; 
+         opacity: 0;
+         transition: opacity 0.3s ease;
+         z-index: 2; 
+      }
       
       #controller-container {
          position: fixed;
          bottom: calc(var(--footer-height) + 2%);
          left: 2%; 
-         z-index: 2;
+         z-index: 7;
 
          display: flex;
          flex-flow: row nowrap;
@@ -253,7 +264,7 @@ html, body {
                         width: 110px;
                         height: 90px;
 
-                        .circle {
+                        #circle {
                            position: absolute;
                            width: 25px;
                            height: 25px;
@@ -284,7 +295,6 @@ html, body {
 
                         #vertical-front, #vertical-back {
                            transform: rotate(90deg);
-                           // box-shadow: inset 3px 0px 0px 0px rgba(255, 255, 255, 0.61);
                         }
 
                         #horizontal-back, #vertical-back { 
@@ -301,40 +311,100 @@ html, body {
                         }
 
                         #left-arrow, #right-arrow {
-                           top: 30px;
+                           top: 28px;
+                           padding: 0px 2px;
 
                            img {
-                              width: 25px;
-                              height: 30px;
+                              width: 28px;
+                              height: 35px;
                               cursor: pointer;
                            }
                         }
 
                         #left-arrow { 
-                           left: 7px; 
+                           left: 5px; 
+                           width: 28px;
+                           height: 35px;
                         }
 
                         #right-arrow {
-                           right: 7px;                        
+                           right: 5px;                        
                         }
 
                         #up-arrow, #down-arrow {
-                           left: 40px;
+                           left: 38px;
 
                            img {
-                              width: 30px;
-                              height: 25px;
                               cursor: pointer;
                            }
                         }
 
                         #up-arrow {
-                           top: -1px;
-                           
+                           top: -4px;
+                           padding: 2px 0px;
+
+                           img {
+                              width: 34px;
+                              height: 24px;
+                           }
                         }
 
                         #down-arrow {
-                           top: 67px;
+                           top: 63px;
+                           padding: 4px 0px 0px 0px;
+
+                           img {
+                              width: 34px;
+                              height: 24px;
+                           }
+                        }
+
+                        #left-arrow:hover {
+                           background: linear-gradient(to right, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+                        }
+
+                        #left-arrow:active {
+                           background: linear-gradient(to right, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+
+                           img {
+                              transform: scale(0.8);
+                           }
+                        }
+
+                        #right-arrow:hover {
+                           background: linear-gradient(to left, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+                        }
+
+                        #right-arrow:active {
+                           background: linear-gradient(to left, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+
+                           img {
+                              transform: scale(0.8);
+                           }
+                        }
+
+                        #up-arrow:hover {
+                           background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+                        }
+
+                        #up-arrow:active {
+                           background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+
+                           img {
+                              transform: scale(0.8);
+                           }
+                        }
+
+                        #down-arrow:hover {
+                           background: linear-gradient(to top, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+                        }
+
+                        #down-arrow:active {
+                           background: linear-gradient(to top, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+
+                           img {
+                              transform: scale(0.8);
+                           }
                         }
                      }
                   }
@@ -388,19 +458,28 @@ html, body {
                            align-items: center;
                            width: 96%;
                            height: 2rem;
-                           
-                           #pause, #start {
-                              width: 40px;
-                              height: 50%;
-                              background-color: #464646;
-                              border-radius: 10px;
-                              border: 1px solid #272723;
-                              box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.51);
+
+                           span {
+                              height: 100%;
                               cursor: pointer;
+
+                              #pause, #start {
+                                 width: 40px;
+                                 height: 50%;
+                                 background-color: #464646;
+                                 border-radius: 10px;
+                                 border: 1px solid #272723;
+                                 box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.51);
+                                 cursor: pointer;
+                              }
+
+                              #pause:active, #start:active {
+                                 box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.51);
+                              }
                            }
 
-                           #pause:active, #start:active {
-                              box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.51);
+                           span:hover #pause, span:hover #start {
+                              box-shadow: 0px 0px 1px 4px rgba(0, 255, 127, 0.7);
                            }
                         }
                      }
@@ -447,6 +526,14 @@ html, body {
                                  border: 1px rgba(0, 0, 0, 0.5) solid;
                                  box-shadow: inset 0px 0px 1px 0px #FBFBFB, 0px 1px 1px 0px rgba(0, 0, 0, 0.21);
                               }
+                           }
+
+                           .button-container:has(#b-button:hover) {
+                              box-shadow: 0 0 1px 4px rgba(255, 127, 0, 0.7);
+                           }
+
+                           .button-container:has(#a-button:hover) {
+                              box-shadow: 0 0 1px 4px rgba(255, 127, 0, 0.7);
                            }
                         }
 
@@ -523,8 +610,9 @@ html, body {
       display: none;
    }
 
-   .paused {
+   main.paused .pause-mask{
       filter: brightness(60%); 
+      opacity: 1.0;
       /* optional: add a subtle overlay effect */
    }
 
@@ -587,16 +675,14 @@ html, body {
    100% { transform: translateY(0%); opacity: 1; }
 }
 
+@keyframes slide-from-left {
+   0%  { transform: translateX(-100%); opacity: 0; }
+   25% { transform: translateX(10%); opacity: 1; }
+   50% { transform: translateX(0%); opacity: 1; }
+}
+
 @keyframes slide-from-right {
    0%  { transform: translateX(100%); opacity: 0; }
    25% { transform: translateX(-10%); opacity: 1; }
    50% { transform: translateX(0%); opacity: 1; }
-}
-
-@keyframes shake {
-   0%   { transform: rotate(-5deg); }
-   25%  { transform: rotate(5deg); }
-   50%  { transform: rotate(5deg); }
-   75%  { transform: rotate(-5deg); }
-   100% { transform: rotate(0deg); }
 }

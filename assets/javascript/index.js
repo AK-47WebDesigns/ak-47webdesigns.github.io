@@ -26,7 +26,6 @@ document.addEventListener('mouseup', () => {
 
 let rafId = null;
 let isRunning = false;
-let isPaused = false;
 let currentIndex = 0;
 const main = document.querySelector("main"); 
 const sections = document.querySelectorAll('section');
@@ -77,15 +76,6 @@ function scrollToSection(index) {
   }
 }
 
-function togglePause() {
-  isPaused = !isPaused;
-  if (isPaused) {
-    main.classList.add('paused');
-  } else {
-    main.classList.remove('paused');
-  }
-}
-
 document.querySelector('#up-arrow').addEventListener('click', () => {
   scrollToSection(0);
 });
@@ -104,17 +94,20 @@ document.querySelector('#right-arrow').addEventListener('click', () => {
   scrollToSection(index);
 });
 
-document.querySelector('#start').addEventListener('click', () => {
+document.querySelector('#start-span').addEventListener('click', () => {
   if (!isRunning) {
     isRunning = true;
     autoScrollRight();
+    main.classList.remove('paused');
   }
 });
 
-document.querySelector('#pause').addEventListener('click', () => {
+document.querySelector('#pause-span').addEventListener('click', () => {
+  if (isRunning) {
+    main.classList.add('paused');
+  }
   isRunning = false;
   cancelAnimationFrame(rafId);
-  // togglePause();  
 });
 
 

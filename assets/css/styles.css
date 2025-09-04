@@ -58,19 +58,20 @@ html nav #background-container, body nav #background-container {
   background-repeat: no-repeat;
   background-size: cover;
   animation: background-scroll 30s linear infinite alternate;
+  z-index: 5;
 }
 html nav #left-mario, html nav #right-mario, body nav #left-mario, body nav #right-mario {
   height: calc(var(--navbar-height) - 10%);
   transition: transform 0.1s ease-in-out, filter 0.1s ease, opacity 0.1s ease;
   cursor: pointer;
   width: auto;
-  z-index: 2;
+  z-index: 6;
 }
 html nav #left-mario:hover, html nav #right-mario:hover, body nav #left-mario:hover, body nav #right-mario:hover {
   transform: scale(1.1);
 }
 html nav #left-mario, body nav #left-mario {
-  animation: 0.25s ease-out slide-from-below;
+  animation: 0.75s ease-out slide-from-left;
   margin-left: 25px;
 }
 html nav #right-mario, body nav #right-mario {
@@ -93,7 +94,7 @@ html nav #bullet-holes-container .bullet-hole, body nav #bullet-holes-container 
   position: absolute;
   width: 30px;
   height: auto;
-  z-index: 3;
+  z-index: 7;
 }
 html nav #bullet-holes-container #letters-container, body nav #bullet-holes-container #letters-container {
   display: flex;
@@ -107,8 +108,9 @@ html nav #bullet-holes-container #letters-container, body nav #bullet-holes-cont
   text-transform: uppercase;
   -webkit-text-stroke: 1px #BBB;
   text-shadow: 5px 5px 0px #000, 5px 5px 0px #333, 6px 6px 0px #666;
+  animation: 0.25s ease-out slide-from-below;
   margin: 0;
-  z-index: 2;
+  z-index: 6;
   align-self: center;
   padding: 10px 30px;
   border-radius: 35px;
@@ -116,7 +118,7 @@ html nav #bullet-holes-container #letters-container, body nav #bullet-holes-cont
   outline: 1px solid #999;
   border: 10px solid #e71e07;
   border-style: ridge;
-  box-shadow: 0px 1px 0px #881104, 0px 1px 0px #999;
+  box-shadow: 0px 2px 0px #881104, 0px 2px 0px #999;
 }
 html nav #bullet-holes-container #letters-container span, body nav #bullet-holes-container #letters-container span {
   transition: transform 0.75s ease-in-out;
@@ -165,11 +167,20 @@ html main, body main {
   align-items: center;
   transition: filter 0.3s ease;
 }
+html main .pause-mask, body main .pause-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(200, 200, 200, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
 html main #controller-container, body main #controller-container {
   position: fixed;
   bottom: calc(var(--footer-height) + 2%);
   left: 2%;
-  z-index: 2;
+  z-index: 7;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
@@ -224,7 +235,7 @@ html main #controller-container #controller #buttons-container #buttons #left #c
   width: 110px;
   height: 90px;
 }
-html main #controller-container #controller #buttons-container #buttons #left #cross .circle, body main #controller-container #controller #buttons-container #buttons #left #cross .circle {
+html main #controller-container #controller #buttons-container #buttons #left #cross #circle, body main #controller-container #controller #buttons-container #buttons #left #cross #circle {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -266,32 +277,79 @@ html main #controller-container #controller #buttons-container #buttons #left #c
   z-index: 3;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow, html main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow {
-  top: 30px;
+  top: 28px;
+  padding: 0px 2px;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow img, html main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow img, body main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow img, body main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow img {
-  width: 25px;
-  height: 30px;
+  width: 28px;
+  height: 35px;
   cursor: pointer;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow {
-  left: 7px;
+  left: 5px;
+  width: 28px;
+  height: 35px;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow {
-  right: 7px;
+  right: 5px;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow, html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow {
-  left: 40px;
+  left: 38px;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow img, html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow img, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow img, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow img {
-  width: 30px;
-  height: 25px;
   cursor: pointer;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow {
-  top: -1px;
+  top: -4px;
+  padding: 2px 0px;
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow img, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow img {
+  width: 34px;
+  height: 24px;
 }
 html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow {
-  top: 67px;
+  top: 63px;
+  padding: 4px 0px 0px 0px;
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow img, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow img {
+  width: 34px;
+  height: 24px;
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow:hover, body main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow:hover {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow:active, body main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow:active {
+  background: linear-gradient(to right, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow:active img, body main #controller-container #controller #buttons-container #buttons #left #cross #left-arrow:active img {
+  transform: scale(0.8);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow:hover, body main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow:hover {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow:active, body main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow:active {
+  background: linear-gradient(to left, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow:active img, body main #controller-container #controller #buttons-container #buttons #left #cross #right-arrow:active img {
+  transform: scale(0.8);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow:hover, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow:hover {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow:active, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow:active {
+  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow:active img, body main #controller-container #controller #buttons-container #buttons #left #cross #up-arrow:active img {
+  transform: scale(0.8);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow:hover, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow:hover {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow:active, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow:active {
+  background: linear-gradient(to top, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.05) 100%);
+}
+html main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow:active img, body main #controller-container #controller #buttons-container #buttons #left #cross #down-arrow:active img {
+  transform: scale(0.8);
 }
 html main #controller-container #controller #buttons-container #buttons #middle, body main #controller-container #controller #buttons-container #buttons #middle {
   width: 36%;
@@ -338,7 +396,11 @@ html main #controller-container #controller #buttons-container #buttons #middle 
   width: 96%;
   height: 2rem;
 }
-html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #pause, html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #start, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #pause, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #start {
+html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span {
+  height: 100%;
+  cursor: pointer;
+}
+html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #pause, html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #start, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #pause, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #start {
   width: 40px;
   height: 50%;
   background-color: #464646;
@@ -347,8 +409,11 @@ html main #controller-container #controller #buttons-container #buttons #middle 
   box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.51);
   cursor: pointer;
 }
-html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #pause:active, html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #start:active, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #pause:active, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons #start:active {
+html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #pause:active, html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #start:active, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #pause:active, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span #start:active {
   box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.51);
+}
+html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #pause, html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #start, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #pause, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #start {
+  box-shadow: 0px 0px 1px 4px rgba(0, 255, 127, 0.7);
 }
 html main #controller-container #controller #buttons-container #buttons #right, body main #controller-container #controller #buttons-container #buttons #right {
   position: relative;
@@ -389,6 +454,12 @@ html main #controller-container #controller #buttons-container #buttons #right #
 html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #b-button:active, html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #a-button:active, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #b-button:active, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container #a-button:active {
   border: 1px rgba(0, 0, 0, 0.5) solid;
   box-shadow: inset 0px 0px 1px 0px #FBFBFB, 0px 1px 1px 0px rgba(0, 0, 0, 0.21);
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container:has(#b-button:hover), body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container:has(#b-button:hover) {
+  box-shadow: 0 0 1px 4px rgba(255, 127, 0, 0.7);
+}
+html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container:has(#a-button:hover), body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ba-buttons .button-container:has(#a-button:hover) {
+  box-shadow: 0 0 1px 4px rgba(255, 127, 0, 0.7);
 }
 html main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ab-labels, body main #controller-container #controller #buttons-container #buttons #right #ba-buttons-container #ab-labels {
   display: flex;
@@ -444,8 +515,9 @@ html main #contact, body main #contact {
 html main::-webkit-scrollbar, body main::-webkit-scrollbar {
   display: none;
 }
-html .paused, body .paused {
+html main.paused .pause-mask, body main.paused .pause-mask {
   filter: brightness(60%);
+  opacity: 1;
   /* optional: add a subtle overlay effect */
 }
 html footer, body footer {
@@ -524,6 +596,20 @@ html footer span a:hover, body footer span a:hover {
     opacity: 1;
   }
 }
+@keyframes slide-from-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
 @keyframes slide-from-right {
   0% {
     transform: translateX(100%);
@@ -536,23 +622,6 @@ html footer span a:hover, body footer span a:hover {
   50% {
     transform: translateX(0%);
     opacity: 1;
-  }
-}
-@keyframes shake {
-  0% {
-    transform: rotate(-5deg);
-  }
-  25% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
-  75% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
   }
 }
 

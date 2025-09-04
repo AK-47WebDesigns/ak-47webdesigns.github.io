@@ -38,6 +38,7 @@
     </nav>
     
     <main>   
+      <div class="pause-mask"></div>
       <div id="controller-container">
         <div id="controller">
           <div id="buttons-container">
@@ -45,7 +46,7 @@
 
               <div id="left">
                 <div id="cross">
-                  <div class="circle"></div>
+                  <div id="circle"></div>
 
                   <div id="horizontal-front"></div>
                   <div id="horizontal-back"></div>
@@ -71,8 +72,8 @@
                     <span>START</span>
                   </div>
                   <div id="pause-start-buttons">
-                    <button id="pause"></button>
-                    <button id="start"></button>
+                    <span id="pause-span"><button id="pause"></button></span>
+                    <span id="start-span"><button id="start"></button></span>
                   </div>
                 </div> 
 
