@@ -413,7 +413,7 @@ html main #controller-container #controller #buttons-container #buttons #middle 
   box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.51);
 }
 html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #pause, html main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #start, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #pause, body main #controller-container #controller #buttons-container #buttons #middle #pause-start-container #pause-start-buttons span:hover #start {
-  box-shadow: 0px 0px 1px 4px rgba(0, 255, 127, 0.7);
+  box-shadow: 0px 0px 1px 4px rgba(0, 187, 50, 0.7);
 }
 html main #controller-container #controller #buttons-container #buttons #right, body main #controller-container #controller #buttons-container #buttons #right {
   position: relative;
@@ -507,10 +507,141 @@ html main #skills, body main #skills {
   background-color: rgba(255, 122, 122, 0.5);
 }
 html main #projects, body main #projects {
-  background-color: rgba(0, 122, 122, 0.5);
+  background-color: rgba(21, 95, 217, 0.5);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+html main #projects #project-block-3, body main #projects #project-block-3 {
+  bottom: 25%;
+  left: 25%;
+}
+html main #projects #project-block-4, body main #projects #project-block-4 {
+  bottom: 25%;
+  right: 25%;
+}
+html main #projects .projects-background-row, body main #projects .projects-background-row {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+html main #projects .projects-background-row .project-block-box, body main #projects .projects-background-row .project-block-box {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html main #projects .projects-background-row .project-block-box .project-block-title, body main #projects .projects-background-row .project-block-box .project-block-title {
+  background-color: red;
+  position: absolute;
+  top: -50px;
+  left: 10px;
+}
+html main #projects .projects-background-row .project-block-box .project-block, body main #projects .projects-background-row .project-block-box .project-block {
+  background-image: url("../images/project-block-background.png");
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
+  background-size: cover;
+  background-color: #000;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+html main #projects .projects-background-row .project-block-box:first-of-type, body main #projects .projects-background-row .project-block-box:first-of-type {
+  top: 0px;
+  left: 0px;
+}
+html main #projects .projects-background-row .project-block-box:last-of-type, body main #projects .projects-background-row .project-block-box:last-of-type {
+  top: 0px;
+  right: 0px;
+}
+html main #projects .projects-background-row .projects-background-border, body main #projects .projects-background-row .projects-background-border {
+  width: 100%;
+}
+html main #projects .projects-background-row #border-top-1, body main #projects .projects-background-row #border-top-1 {
+  background-color: white;
+  min-height: 3px;
+}
+html main #projects .projects-background-row #border-top-2, body main #projects .projects-background-row #border-top-2 {
+  background-color: #64b0ff;
+  height: 5px;
+}
+html main #projects .projects-background-row #border-top-3, body main #projects .projects-background-row #border-top-3 {
+  background-color: #155fd9;
+  height: 5px;
+}
+html main #projects .projects-background-row #border-top-4, body main #projects .projects-background-row #border-top-4 {
+  background-color: black;
+  height: 4px;
+}
+html main #projects .projects-background-row #border-center-1, body main #projects .projects-background-row #border-center-1 {
+  background-color: #155fd9;
+  height: 8px;
+}
+html main #projects .projects-background-row #border-center-2, body main #projects .projects-background-row #border-center-2 {
+  background-color: #64b0ff;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-center-3, body main #projects .projects-background-row #border-center-3 {
+  background-color: #155fd9;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-center-4, body main #projects .projects-background-row #border-center-4 {
+  background-color: #64b0ff;
+  height: 6px;
+}
+html main #projects .projects-background-row #border-center-5, body main #projects .projects-background-row #border-center-5 {
+  background-color: white;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-center-6, body main #projects .projects-background-row #border-center-6 {
+  background-color: #64b0ff;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-center-7, body main #projects .projects-background-row #border-center-7 {
+  background-color: white;
+  height: 5px;
+}
+html main #projects .projects-background-row #border-center-8, body main #projects .projects-background-row #border-center-8 {
+  background-color: #64b0ff;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-center-9, body main #projects .projects-background-row #border-center-9 {
+  background-color: white;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-center-10, body main #projects .projects-background-row #border-center-10 {
+  background-color: #155fd9;
+  height: 5px;
+}
+html main #projects .projects-background-row #border-bottom-1, body main #projects .projects-background-row #border-bottom-1 {
+  background-color: white;
+  height: 3px;
+}
+html main #projects .projects-background-row #border-bottom-2, body main #projects .projects-background-row #border-bottom-2 {
+  background-color: #64b0ff;
+  height: 5px;
+}
+html main #projects .projects-background-row #border-bottom-3, body main #projects .projects-background-row #border-bottom-3 {
+  background-color: #155fd9;
+  height: 5px;
+}
+html main #projects .projects-background-row #border-bottom-4, body main #projects .projects-background-row #border-bottom-4 {
+  background-color: black;
+  height: 4px;
 }
 html main #contact, body main #contact {
-  background-color: rgba(255, 0, 255, 0.5);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.95);
 }
 html main::-webkit-scrollbar, body main::-webkit-scrollbar {
   display: none;
