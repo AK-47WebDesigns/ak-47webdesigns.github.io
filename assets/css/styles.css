@@ -509,10 +509,165 @@ html main #skills, body main #skills {
 html main #projects, body main #projects {
   background-color: rgba(21, 95, 217, 0.5);
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
   position: relative;
+}
+html main #projects .project-block, body main #projects .project-block {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+html main #projects .project-block .project-background-stripe, body main #projects .project-block .project-background-stripe {
+  width: 100%;
+}
+html main #projects .project-block .project-background-stripe #border-top-1, body main #projects .project-block .project-background-stripe #border-top-1 {
+  background-color: white;
+  min-height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-top-2, body main #projects .project-block .project-background-stripe #border-top-2 {
+  background-color: #64b0ff;
+  height: 5px;
+}
+html main #projects .project-block .project-background-stripe #border-top-3, body main #projects .project-block .project-background-stripe #border-top-3 {
+  background-color: #155fd9;
+  height: 5px;
+}
+html main #projects .project-block .project-background-stripe #border-top-4, body main #projects .project-block .project-background-stripe #border-top-4 {
+  background-color: black;
+  height: 4px;
+}
+html main #projects .project-block .project-background-stripe #border-center-1, body main #projects .project-block .project-background-stripe #border-center-1 {
+  background-color: #155fd9;
+  height: 8px;
+}
+html main #projects .project-block .project-background-stripe #border-center-2, body main #projects .project-block .project-background-stripe #border-center-2 {
+  background-color: #64b0ff;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-center-3, body main #projects .project-block .project-background-stripe #border-center-3 {
+  background-color: #155fd9;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-center-4, body main #projects .project-block .project-background-stripe #border-center-4 {
+  background-color: #64b0ff;
+  height: 6px;
+}
+html main #projects .project-block .project-background-stripe #border-center-5, body main #projects .project-block .project-background-stripe #border-center-5 {
+  background-color: white;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-center-6, body main #projects .project-block .project-background-stripe #border-center-6 {
+  background-color: #64b0ff;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-center-7, body main #projects .project-block .project-background-stripe #border-center-7 {
+  background-color: white;
+  height: 5px;
+}
+html main #projects .project-block .project-background-stripe #border-center-8, body main #projects .project-block .project-background-stripe #border-center-8 {
+  background-color: #64b0ff;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-center-9, body main #projects .project-block .project-background-stripe #border-center-9 {
+  background-color: white;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-center-10, body main #projects .project-block .project-background-stripe #border-center-10 {
+  background-color: #155fd9;
+  height: 5px;
+}
+html main #projects .project-block .project-background-stripe #border-bottom-1, body main #projects .project-block .project-background-stripe #border-bottom-1 {
+  background-color: white;
+  height: 3px;
+}
+html main #projects .project-block .project-background-stripe #border-bottom-2, body main #projects .project-block .project-background-stripe #border-bottom-2 {
+  background-color: #64b0ff;
+  height: 5px;
+}
+html main #projects .project-block .project-background-stripe #border-bottom-3, body main #projects .project-block .project-background-stripe #border-bottom-3 {
+  background-color: #155fd9;
+  height: 5px;
+}
+html main #projects .project-block .project-background-stripe #border-bottom-4, body main #projects .project-block .project-background-stripe #border-bottom-4 {
+  background-color: black;
+  height: 4px;
+}
+html main #projects .project-block .project-wrapper, body main #projects .project-block .project-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 75%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  border: 10px ridge #155FD9;
+  border-radius: 25px;
+}
+html main #projects .project-block .project-wrapper .project-icon, body main #projects .project-block .project-wrapper .project-icon {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  background-color: white;
+  border: 10px ridge #155FD9;
+  border-radius: 25px;
+  z-index: 5;
+}
+html main #projects .project-block .project-wrapper .project-icon img, body main #projects .project-block .project-wrapper .project-icon img {
+  width: 100px;
+  height: 100px;
+}
+html main #projects .project-block .project-wrapper .project-container, body main #projects .project-block .project-wrapper .project-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+html main #projects .project-block .project-wrapper .project-container .project-title, body main #projects .project-block .project-wrapper .project-container .project-title {
+  width: 100%;
+  border-bottom: 10px ridge #155FD9;
+  background-color: rgba(100, 176, 255, 0.35);
+  border-top-right-radius: 10px;
+}
+html main #projects .project-block .project-wrapper .project-container .project-title h3, body main #projects .project-block .project-wrapper .project-container .project-title h3 {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Contra", monospace;
+  text-shadow: 2px 2px 3px black;
+  font-size: 1rem;
+  text-align: right;
+  padding: 0px 25px 0px 0px;
+  margin: 5px 0px;
+}
+html main #projects .project-block .project-wrapper .project-container .project-links, body main #projects .project-block .project-wrapper .project-container .project-links {
+  width: 100%;
+  border-top: 10px ridge #155FD9;
+  background-color: rgba(199, 199, 199, 0.95);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+html main #projects .project-block .project-wrapper .project-container .project-links a, body main #projects .project-block .project-wrapper .project-container .project-links a {
+  text-decoration: none;
+  font-family: "Contra", monospace;
+  font-weight: 200;
+  font-size: 0.55rem;
+  display: inline-block;
+  padding: 5px 0px 0px 25px;
+  width: 100%;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+}
+html main #projects .project-block .project-wrapper .project-container .project-links a:first-of-type, body main #projects .project-block .project-wrapper .project-container .project-links a:first-of-type {
+  padding: 10px 0px 0px 25px;
+}
+html main #projects .project-block .project-wrapper .project-container .project-links a:last-of-type, body main #projects .project-block .project-wrapper .project-container .project-links a:last-of-type {
+  padding: 5px 0px 10px 25px;
 }
 html main #projects #project-block-3, body main #projects #project-block-3 {
   bottom: 25%;
@@ -531,6 +686,23 @@ html main #projects .projects-background-row, body main #projects .projects-back
   align-items: center;
   position: relative;
 }
+html main #projects .projects-background-row .project-container, body main #projects .projects-background-row .project-container {
+  height: 100%;
+  width: 25%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  background-color: red;
+}
+html main #projects .projects-background-row .project-container .project-title, body main #projects .projects-background-row .project-container .project-title {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+}
+html main #projects .projects-background-row .project-container:first-of-type, body main #projects .projects-background-row .project-container:first-of-type {
+  top: 0px;
+  left: 0px;
+}
 html main #projects .projects-background-row .project-block-box, body main #projects .projects-background-row .project-block-box {
   height: 100%;
   width: 50%;
@@ -546,98 +718,8 @@ html main #projects .projects-background-row .project-block-box .project-block-t
   top: -50px;
   left: 10px;
 }
-html main #projects .projects-background-row .project-block-box .project-block, body main #projects .projects-background-row .project-block-box .project-block {
-  background-image: url("../images/project-block-background.png");
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: center; /* Centers the image */
-  background-size: cover;
-  background-color: #000;
-  width: 200px;
-  height: 200px;
-  position: relative;
-}
-html main #projects .projects-background-row .project-block-box:first-of-type, body main #projects .projects-background-row .project-block-box:first-of-type {
-  top: 0px;
-  left: 0px;
-}
-html main #projects .projects-background-row .project-block-box:last-of-type, body main #projects .projects-background-row .project-block-box:last-of-type {
-  top: 0px;
-  right: 0px;
-}
 html main #projects .projects-background-row .projects-background-border, body main #projects .projects-background-row .projects-background-border {
   width: 100%;
-}
-html main #projects .projects-background-row #border-top-1, body main #projects .projects-background-row #border-top-1 {
-  background-color: white;
-  min-height: 3px;
-}
-html main #projects .projects-background-row #border-top-2, body main #projects .projects-background-row #border-top-2 {
-  background-color: #64b0ff;
-  height: 5px;
-}
-html main #projects .projects-background-row #border-top-3, body main #projects .projects-background-row #border-top-3 {
-  background-color: #155fd9;
-  height: 5px;
-}
-html main #projects .projects-background-row #border-top-4, body main #projects .projects-background-row #border-top-4 {
-  background-color: black;
-  height: 4px;
-}
-html main #projects .projects-background-row #border-center-1, body main #projects .projects-background-row #border-center-1 {
-  background-color: #155fd9;
-  height: 8px;
-}
-html main #projects .projects-background-row #border-center-2, body main #projects .projects-background-row #border-center-2 {
-  background-color: #64b0ff;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-center-3, body main #projects .projects-background-row #border-center-3 {
-  background-color: #155fd9;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-center-4, body main #projects .projects-background-row #border-center-4 {
-  background-color: #64b0ff;
-  height: 6px;
-}
-html main #projects .projects-background-row #border-center-5, body main #projects .projects-background-row #border-center-5 {
-  background-color: white;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-center-6, body main #projects .projects-background-row #border-center-6 {
-  background-color: #64b0ff;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-center-7, body main #projects .projects-background-row #border-center-7 {
-  background-color: white;
-  height: 5px;
-}
-html main #projects .projects-background-row #border-center-8, body main #projects .projects-background-row #border-center-8 {
-  background-color: #64b0ff;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-center-9, body main #projects .projects-background-row #border-center-9 {
-  background-color: white;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-center-10, body main #projects .projects-background-row #border-center-10 {
-  background-color: #155fd9;
-  height: 5px;
-}
-html main #projects .projects-background-row #border-bottom-1, body main #projects .projects-background-row #border-bottom-1 {
-  background-color: white;
-  height: 3px;
-}
-html main #projects .projects-background-row #border-bottom-2, body main #projects .projects-background-row #border-bottom-2 {
-  background-color: #64b0ff;
-  height: 5px;
-}
-html main #projects .projects-background-row #border-bottom-3, body main #projects .projects-background-row #border-bottom-3 {
-  background-color: #155fd9;
-  height: 5px;
-}
-html main #projects .projects-background-row #border-bottom-4, body main #projects .projects-background-row #border-bottom-4 {
-  background-color: black;
-  height: 4px;
 }
 html main #contact, body main #contact {
   color: white;
