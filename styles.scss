@@ -590,20 +590,26 @@ html, body {
       }
 
       #intro {
-         background-color: rgba(0, 255, 0, 0.5);
-      }
+         // background: linear-gradient(
+         //    to right, 
+         //    rgba(255, 255, 0, 0.95) 0%, 
+         //    rgba(255, 250, 205, 0.95) 0%, 
+         //    rgba(255, 250, 205, 0.95) 50%, 
+         //    rgba(0, 255, 187, 0.5) 85%,
+         //    rgba(0, 255, 187, 0.9) 100%);
 
-      #skills {
-         background-color: rgba(255, 122, 122, 0.5);
+            background-color: rgba(0, 255, 187, 0.9);
       }
 
       #projects {
-         background-color: rgba(#155FD9, 0.5);
+         background: linear-gradient(to right, rgba(0, 255, 187, 0.95) 0%, rgba(#155FD9, 0.5) 100%);
          display: flex;
          flex-flow: row wrap;
          justify-content: center;
          align-items: center;
          position: relative;
+         border-left: 1px dotted rgba(#155FD9, 0.5);
+         border-right: 1px dotted rgba(#155FD9, 0.5);
 
          .project-block {
             width: 50%;
@@ -613,9 +619,11 @@ html, body {
             justify-content: center;
             align-items: center;
             position: relative;
+            z-index: 0;
 
             .project-background-stripe {
                width: 100%;
+               z-index: 1;
 
                #border-top-1 { background-color: rgba(#FFFFFF, 1.0); min-height: 3px };
                #border-top-2 { background-color: rgba(#64B0FF, 1.0); height: 5px };
@@ -639,227 +647,170 @@ html, body {
                #border-bottom-4 { background-color: rgba(#000000, 1.0); height: 4px };
             }
 
-            .project-wrapper {
+            .project-anchor {
                position: absolute;
                top: 50%;
                left: 50%;
-
-               width: 60%;
+               width: 40%;
                height: 75%;
-               background-color: white;
                transform: translate(-50%, -50%);
-               border: 10px ridge #155FD9;
-               border-radius: 25px;
+               z-index: 3;
 
-               .project-icon {
-                  position: absolute;
-                  top: -40px;
-                  left: -40px;
-                  background-color: white;
-                  border: 10px ridge #155FD9;
-                  border-radius: 25px;
-                  z-index: 5;
-
-                  img {
-                     width: 100px;
-                     height: 100px;
-                  }
-               }
-
-               .project-container {
-                  display: flex;
-                  flex-flow: column nowrap;
-                  justify-content: space-between;
-                  align-items: center;
+               .project-wrapper {
                   position: relative;
                   height: 100%;
+                  width: 100%;
+                  border: 10px ridge #155FD9;
+                  border-radius: 15px;
+                  z-index: 4;
 
-                  .project-title {
-                     width: 100%;
-                     border-bottom: 10px ridge #155FD9;
-                     background-color: rgba(#64B0FF, 0.35);
-                     border-top-right-radius: 10px;
+                  .project-icon {
+                     position: absolute;
+                     top: -35px;
+                     left: -50px;
+                     background-color: white;
+                     border: 10px ridge #155FD9;
+                     border-radius: 25px;
+                     z-index: 5;
 
-                     h3 {
-                        color: rgba(255, 255, 255, 0.95);
-                        font-family: 'Contra', monospace;
-                        text-shadow: 2px 2px 3px black;
-                        font-size: 1rem;
-                        text-align: right;
-                        padding: 0px 25px 0px 0px;
-                        margin: 5px 0px;
+                     img {
+                        width: 75px;
+                        height: 75px;
                      }
                   }
 
-                  .project-links {
-                     width: 100%;
-                     border-top: 10px ridge #155FD9;
-                     background-color: rgba(199, 199, 199, 0.95);
-                     border-bottom-left-radius: 10px;
-                     border-bottom-right-radius: 10px;
+                  .project {
+                     display: flex;
+                     flex-flow: column nowrap;
+                     justify-content: space-between;
+                     align-items: center;
+                     position: relative;
+                     height: 100%;
+                     background-color: white;
+                     z-index: 3;
 
-                     a {
-                        text-decoration: none;
+                     .project-title {
+                        width: 100%;
+                        border-bottom: 10px ridge #155FD9;
+                        background-color: rgb(134, 192, 255);
+
+                        h3 {
+                           color: rgba(255, 255, 255, 0.95);
+                           font-family: 'Contra', monospace;
+                           text-shadow: 2px 2px 3px black;
+                           font-size: 1rem;
+                           text-align: right;
+                           padding: 0px 20px 0px 0px;
+                           margin: 5px 0px;
+                        }
+                     }
+
+                     .project-description {
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.95);
+                        color: white;
+
+                        p {
+                           margin: 40px 10px 10px 25px;
+                           font-family: 'Contra', monospace;
+                           font-weight: 200;
+                           font-size: .65rem;
+                           letter-spacing: 1px;
+                           line-height: .85rem;
+                        }
+                     }
+
+                     .project-links {
+                        width: 100%;
+                        border-top: 10px ridge #155FD9;
+                        background-color: rgb(223, 223, 223);
+
+                        a {
+                           text-decoration: none;
+                           font-family: 'Contra', monospace;
+                           font-weight: 200;
+                           font-size: .55rem;
+                           display: inline-block;
+                           padding: 5px 0px 0px 25px;
+                           color: white;
+                           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+                           cursor: pointer;
+                        }
+
+                        a:first-of-type {
+                           padding: 10px 0px 0px 25px;
+                        }
+
+                        a:last-of-type {
+                           padding: 5px 0px 10px 25px;
+                        }
+
+                        a:hover {
+                           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95), 1px 1px 3px rgba(0, 3, 180, 0.95);
+                        }
+                     }
+                  }
+
+                  .project-techs {
+                     position: absolute;
+                     top: 5px;
+                     left: 0%;
+                     height: 90%;
+                     width: 100px;
+                     border: 10px ridge #155FD9;
+                     // background-color: rgb(223, 222, 222);
+                     background: linear-gradient(
+                        to right,
+                        #333333,
+                        #333333 55%,
+                        #cccccc 98%
+                     );
+                     border-bottom-right-radius: 10px;
+                     border-top-right-radius: 10px;
+                     transition: left 0.3s ease;
+                     z-index: 2;
+                     
+                     figure {
+                        margin: 10px 5px;
                         font-family: 'Contra', monospace;
                         font-weight: 200;
-                        font-size: .55rem;
-                        display: inline-block;
-                        padding: 5px 0px 0px 25px;
-                        width: 100%;
-                        color: white;
-                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
-                     }
+                        font-size: .65rem;
+                        color: rgba(0, 98, 255, 0.95);
+                        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.95);
 
-                     a:first-of-type {
-                        padding: 10px 0px 0px 25px;
-                     }
+                        figcaption {
+                           margin-bottom: 7px;
+                        }
+                        
+                        ul {
+                           margin: 5px;
+                           padding-left: 20px;
+                           font-family: 'Contra', monospace;
+                           font-weight: 200;
+                           font-size: .55rem;
+                           color: white;
 
-                     a:last-of-type {
-                        padding: 5px 0px 10px 25px;
+                           li {
+                              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+                              list-style-type: square;
+                              padding: 2px 0px;
+                           }
+                        }
                      }
                   }
                }
-            }
-         }
 
-         #project-block-3 {
-            bottom: 25%;
-            left: 25%;
-         }
-
-         #project-block-4 {
-            bottom: 25%;
-            right: 25%;
-         }
-
-         .projects-background-row {
-            width: 100%;
-            height: 300px;
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-            align-items: center;  
-            position: relative;
-
-            .project-container {
-               height: 100%;
-               width: 25%;
-               margin: 0 auto;
-               position: absolute;
-               top: 0px;
-               // display: flex;
-               // justify-content: center;
-               // align-items: center;
-
-               background-color: red;
-
-
-
-               .project-title {
-                  position: absolute;
-                  top: -20px;
-                  left: 0px;
+               .project-wrapper:hover .project-techs {
+                  left: 100%; 
+                  transform: translateX(0); 
                }
             }
-
-            .project-container:first-of-type {
-               top: 0px;
-               left: 0px;
-            }
-
-            .project-block-box {
-               height: 100%;
-               width: 50%;
-               // background-color: red;
-               position: absolute;
-               top: 0px;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-
-               .project-block-title {
-                  background-color: red;
-                  position: absolute;
-                  top: -50px;
-                  left: 10px;
-               }
-
-               // .project-block {
-               //    background-image: url('../images/project-block-background.png');
-               //    background-repeat: no-repeat; /* Prevents the image from repeating */
-               //    background-position: center; /* Centers the image */
-               //    background-size: cover; 
-               //    background-color: #000;
-               //    // border-top-right-radius: 10px;
-               //    // border-top-left-radius: 10px;
-               //    // border: 10px ridge #155FD9;
-               //    // border-bottom: none;
-               //    width: 200px;
-               //    height: 200px;
-               //    // position: absolute;
-               //    // transform: translate(-50%, -50%);
-               //    // margin: 0 50%;
-               //    // z-index: 5;
-               //    position: relative;
-               // }
-
-               
-               // #project-block-1::before {
-               //    content: "";
-               //    position: absolute;
-               //    bottom: -100px;
-               //    left: -10px;
-               //    // border-width: 10px;
-               //    border: 10px ridge #155FD9;
-               //    // border-style: ridge;
-               //    // border-image: blue;
-               //    // border-bottom-right-radius: 10px;
-               //    border-bottom-left-radius: 10px;
-               //    // border-top: none;
-               //    width: 200px;
-               //    height: 90px;
-               //    background-color: #000;
-
-               //    // top: 25%;
-               //    // margin: 0 auto;
-               // }
-
-               // #project-block-1::after {
-               //    content: "";
-               //    position: absolute;
-               //    top: -10px;
-               //    right: -220px;
-               //    border: 10px ridge #155FD9;
-               //    border-top-right-radius: 10px;
-               //    border-bottom-right-radius: 10px;
-               //    border-left: none;
-               //    height: 240px;
-               //    width: 200px;
-               //    background-color: #000;
-               // }
-
-               // #project-block-2 {
-               //    // top: 25%;
-               //    // margin: 0 auto;
-               // }
-            }
-            
-            // .project-block-box:first-of-type {
-            //    top: 0px;
-            //    left: 0px;
-            // }
-
-            // .project-block-box:last-of-type {
-            //    top: 0px;
-            //    right: 0px;
-            //    // background-color: green;
-            // }
-
-
-            .projects-background-border {
-               width: 100%;
-            }
          }
+      }
+
+      #skills {
+         background-color: rgba(255, 122, 122, 0.5);
       }
 
       #contact {
