@@ -46,7 +46,7 @@ html nav, body nav {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 4px ridge #888;
+  border-bottom: 5px ridge #888;
 }
 html nav #background-container, body nav #background-container {
   position: absolute;
@@ -156,11 +156,8 @@ html nav::before, body nav::before {
   z-index: 1;
 }
 html main, body main {
-  /* width: 100vw; */
   height: var(--main-height);
   overflow-x: auto;
-  /* scrollbar-width: none; 
-  -ms-overflow-style: none; */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -510,8 +507,6 @@ html main #projects, body main #projects {
   justify-content: center;
   align-items: center;
   position: relative;
-  border-left: 1px dotted rgba(21, 95, 217, 0.5);
-  border-right: 1px dotted rgba(21, 95, 217, 0.5);
 }
 html main #projects .project-block, body main #projects .project-block {
   width: 50%;
@@ -523,143 +518,209 @@ html main #projects .project-block, body main #projects .project-block {
   position: relative;
   z-index: 0;
 }
-html main #projects .project-block .project-background-stripe, body main #projects .project-block .project-background-stripe {
+html main #projects .project-block .project-background-stripe-left,
+html main #projects .project-block .project-background-stripe-right, body main #projects .project-block .project-background-stripe-left,
+body main #projects .project-block .project-background-stripe-right {
   width: 100%;
   z-index: 1;
 }
-html main #projects .project-block .project-background-stripe #border-top-1, body main #projects .project-block .project-background-stripe #border-top-1 {
+html main #projects .project-block .project-background-stripe-left #border-top-1,
+html main #projects .project-block .project-background-stripe-right #border-top-1, body main #projects .project-block .project-background-stripe-left #border-top-1,
+body main #projects .project-block .project-background-stripe-right #border-top-1 {
   background-color: white;
   min-height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-top-2, body main #projects .project-block .project-background-stripe #border-top-2 {
+html main #projects .project-block .project-background-stripe-left #border-top-2,
+html main #projects .project-block .project-background-stripe-right #border-top-2, body main #projects .project-block .project-background-stripe-left #border-top-2,
+body main #projects .project-block .project-background-stripe-right #border-top-2 {
   background-color: #64b0ff;
   height: 5px;
 }
-html main #projects .project-block .project-background-stripe #border-top-3, body main #projects .project-block .project-background-stripe #border-top-3 {
+html main #projects .project-block .project-background-stripe-left #border-top-3,
+html main #projects .project-block .project-background-stripe-right #border-top-3, body main #projects .project-block .project-background-stripe-left #border-top-3,
+body main #projects .project-block .project-background-stripe-right #border-top-3 {
   background-color: #155fd9;
   height: 5px;
 }
-html main #projects .project-block .project-background-stripe #border-top-4, body main #projects .project-block .project-background-stripe #border-top-4 {
+html main #projects .project-block .project-background-stripe-left #border-top-4,
+html main #projects .project-block .project-background-stripe-right #border-top-4, body main #projects .project-block .project-background-stripe-left #border-top-4,
+body main #projects .project-block .project-background-stripe-right #border-top-4 {
   background-color: black;
   height: 4px;
 }
-html main #projects .project-block .project-background-stripe #border-center-1, body main #projects .project-block .project-background-stripe #border-center-1 {
+html main #projects .project-block .project-background-stripe-left #border-center-1,
+html main #projects .project-block .project-background-stripe-right #border-center-1, body main #projects .project-block .project-background-stripe-left #border-center-1,
+body main #projects .project-block .project-background-stripe-right #border-center-1 {
   background-color: #155fd9;
   height: 8px;
 }
-html main #projects .project-block .project-background-stripe #border-center-2, body main #projects .project-block .project-background-stripe #border-center-2 {
+html main #projects .project-block .project-background-stripe-left #border-center-2,
+html main #projects .project-block .project-background-stripe-right #border-center-2, body main #projects .project-block .project-background-stripe-left #border-center-2,
+body main #projects .project-block .project-background-stripe-right #border-center-2 {
   background-color: #64b0ff;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-center-3, body main #projects .project-block .project-background-stripe #border-center-3 {
+html main #projects .project-block .project-background-stripe-left #border-center-3,
+html main #projects .project-block .project-background-stripe-right #border-center-3, body main #projects .project-block .project-background-stripe-left #border-center-3,
+body main #projects .project-block .project-background-stripe-right #border-center-3 {
   background-color: #155fd9;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-center-4, body main #projects .project-block .project-background-stripe #border-center-4 {
+html main #projects .project-block .project-background-stripe-left #border-center-4,
+html main #projects .project-block .project-background-stripe-right #border-center-4, body main #projects .project-block .project-background-stripe-left #border-center-4,
+body main #projects .project-block .project-background-stripe-right #border-center-4 {
   background-color: #64b0ff;
   height: 6px;
 }
-html main #projects .project-block .project-background-stripe #border-center-5, body main #projects .project-block .project-background-stripe #border-center-5 {
+html main #projects .project-block .project-background-stripe-left #border-center-5,
+html main #projects .project-block .project-background-stripe-right #border-center-5, body main #projects .project-block .project-background-stripe-left #border-center-5,
+body main #projects .project-block .project-background-stripe-right #border-center-5 {
   background-color: white;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-center-6, body main #projects .project-block .project-background-stripe #border-center-6 {
+html main #projects .project-block .project-background-stripe-left #border-center-6,
+html main #projects .project-block .project-background-stripe-right #border-center-6, body main #projects .project-block .project-background-stripe-left #border-center-6,
+body main #projects .project-block .project-background-stripe-right #border-center-6 {
   background-color: #64b0ff;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-center-7, body main #projects .project-block .project-background-stripe #border-center-7 {
+html main #projects .project-block .project-background-stripe-left #border-center-7,
+html main #projects .project-block .project-background-stripe-right #border-center-7, body main #projects .project-block .project-background-stripe-left #border-center-7,
+body main #projects .project-block .project-background-stripe-right #border-center-7 {
   background-color: white;
   height: 5px;
 }
-html main #projects .project-block .project-background-stripe #border-center-8, body main #projects .project-block .project-background-stripe #border-center-8 {
+html main #projects .project-block .project-background-stripe-left #border-center-8,
+html main #projects .project-block .project-background-stripe-right #border-center-8, body main #projects .project-block .project-background-stripe-left #border-center-8,
+body main #projects .project-block .project-background-stripe-right #border-center-8 {
   background-color: #64b0ff;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-center-9, body main #projects .project-block .project-background-stripe #border-center-9 {
+html main #projects .project-block .project-background-stripe-left #border-center-9,
+html main #projects .project-block .project-background-stripe-right #border-center-9, body main #projects .project-block .project-background-stripe-left #border-center-9,
+body main #projects .project-block .project-background-stripe-right #border-center-9 {
   background-color: white;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-center-10, body main #projects .project-block .project-background-stripe #border-center-10 {
+html main #projects .project-block .project-background-stripe-left #border-center-10,
+html main #projects .project-block .project-background-stripe-right #border-center-10, body main #projects .project-block .project-background-stripe-left #border-center-10,
+body main #projects .project-block .project-background-stripe-right #border-center-10 {
   background-color: #155fd9;
   height: 5px;
 }
-html main #projects .project-block .project-background-stripe #border-bottom-1, body main #projects .project-block .project-background-stripe #border-bottom-1 {
+html main #projects .project-block .project-background-stripe-left #border-bottom-1,
+html main #projects .project-block .project-background-stripe-right #border-bottom-1, body main #projects .project-block .project-background-stripe-left #border-bottom-1,
+body main #projects .project-block .project-background-stripe-right #border-bottom-1 {
   background-color: white;
   height: 3px;
 }
-html main #projects .project-block .project-background-stripe #border-bottom-2, body main #projects .project-block .project-background-stripe #border-bottom-2 {
+html main #projects .project-block .project-background-stripe-left #border-bottom-2,
+html main #projects .project-block .project-background-stripe-right #border-bottom-2, body main #projects .project-block .project-background-stripe-left #border-bottom-2,
+body main #projects .project-block .project-background-stripe-right #border-bottom-2 {
   background-color: #64b0ff;
   height: 5px;
 }
-html main #projects .project-block .project-background-stripe #border-bottom-3, body main #projects .project-block .project-background-stripe #border-bottom-3 {
+html main #projects .project-block .project-background-stripe-left #border-bottom-3,
+html main #projects .project-block .project-background-stripe-right #border-bottom-3, body main #projects .project-block .project-background-stripe-left #border-bottom-3,
+body main #projects .project-block .project-background-stripe-right #border-bottom-3 {
   background-color: #155fd9;
   height: 5px;
 }
-html main #projects .project-block .project-background-stripe #border-bottom-4, body main #projects .project-block .project-background-stripe #border-bottom-4 {
+html main #projects .project-block .project-background-stripe-left #border-bottom-4,
+html main #projects .project-block .project-background-stripe-right #border-bottom-4, body main #projects .project-block .project-background-stripe-left #border-bottom-4,
+body main #projects .project-block .project-background-stripe-right #border-bottom-4 {
   background-color: black;
   height: 4px;
 }
-html main #projects .project-block .project-anchor, body main #projects .project-block .project-anchor {
+html main #projects .project-block .project-background-stripe-left, body main #projects .project-block .project-background-stripe-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 2%, black 35%, black 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent 0%, transparent 2%, black 35%, black 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+html main #projects .project-block .project-background-stripe-right, body main #projects .project-block .project-background-stripe-right {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, transparent 2%, black 35%, black 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to left, transparent 0%, transparent 2%, black 35%, black 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+html main #projects .project-block .project-anchor-left,
+html main #projects .project-block .project-anchor-right, body main #projects .project-block .project-anchor-left,
+body main #projects .project-block .project-anchor-right {
   position: absolute;
   top: 50%;
-  left: 50%;
   width: 40%;
   height: 75%;
   transform: translate(-50%, -50%);
   z-index: 3;
 }
-html main #projects .project-block .project-anchor .project-wrapper, body main #projects .project-block .project-anchor .project-wrapper {
+html main #projects .project-block .project-anchor-left .project-wrapper,
+html main #projects .project-block .project-anchor-right .project-wrapper, body main #projects .project-block .project-anchor-left .project-wrapper,
+body main #projects .project-block .project-anchor-right .project-wrapper {
   position: relative;
-  height: 100%;
-  width: 100%;
-  border: 10px ridge #155FD9;
+  width: 325px;
+  border: 10px ridge var(--main-color);
   border-radius: 15px;
   z-index: 4;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project-icon, body main #projects .project-block .project-anchor .project-wrapper .project-icon {
+html main #projects .project-block .project-anchor-left .project-wrapper .project-icon,
+html main #projects .project-block .project-anchor-right .project-wrapper .project-icon, body main #projects .project-block .project-anchor-left .project-wrapper .project-icon,
+body main #projects .project-block .project-anchor-right .project-wrapper .project-icon {
   position: absolute;
   top: -35px;
   left: -50px;
   background-color: white;
-  border: 10px ridge #155FD9;
+  border: 10px ridge var(--main-color);
   border-radius: 25px;
   z-index: 5;
-}
-html main #projects .project-block .project-anchor .project-wrapper .project-icon img, body main #projects .project-block .project-anchor .project-wrapper .project-icon img {
   width: 75px;
   height: 75px;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project, body main #projects .project-block .project-anchor .project-wrapper .project {
+html main #projects .project-block .project-anchor-left .project-wrapper .project,
+html main #projects .project-block .project-anchor-right .project-wrapper .project, body main #projects .project-block .project-anchor-left .project-wrapper .project,
+body main #projects .project-block .project-anchor-right .project-wrapper .project {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  height: 100%;
   background-color: white;
   z-index: 3;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-title, body main #projects .project-block .project-anchor .project-wrapper .project .project-title {
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-title,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-title, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-title,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-title {
   width: 100%;
-  border-bottom: 10px ridge #155FD9;
-  background-color: rgb(134, 192, 255);
+  border-bottom: 10px ridge var(--main-color);
+  background-color: white;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-title h3, body main #projects .project-block .project-anchor .project-wrapper .project .project-title h3 {
-  color: rgba(255, 255, 255, 0.95);
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-title h3,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-title h3, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-title h3,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-title h3 {
+  color: var(--main-color);
+  filter: brightness(1.05);
   font-family: "Contra", monospace;
-  text-shadow: 2px 2px 3px black;
+  text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
   font-size: 1rem;
   text-align: right;
   padding: 0px 20px 0px 0px;
   margin: 5px 0px;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-description, body main #projects .project-block .project-anchor .project-wrapper .project .project-description {
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-description,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-description, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-description,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-description {
   width: 100%;
-  height: 100%;
+  height: 175px;
   background-color: rgba(0, 0, 0, 0.95);
   color: white;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-description p, body main #projects .project-block .project-anchor .project-wrapper .project .project-description p {
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-description p,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-description p, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-description p,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-description p {
   margin: 40px 10px 10px 25px;
   font-family: "Contra", monospace;
   font-weight: 200;
@@ -667,56 +728,74 @@ html main #projects .project-block .project-anchor .project-wrapper .project .pr
   letter-spacing: 1px;
   line-height: 0.85rem;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-links, body main #projects .project-block .project-anchor .project-wrapper .project .project-links {
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links {
   width: 100%;
-  border-top: 10px ridge #155FD9;
+  border-top: 10px ridge var(--main-color);
   background-color: rgb(223, 223, 223);
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-links a, body main #projects .project-block .project-anchor .project-wrapper .project .project-links a {
-  text-decoration: none;
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div {
+  color: white;
   font-family: "Contra", monospace;
   font-weight: 200;
   font-size: 0.55rem;
-  display: inline-block;
-  padding: 5px 0px 0px 25px;
-  color: white;
+  padding: 7px 0px 5px 25px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+}
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
   cursor: pointer;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project .project-links a:first-of-type, body main #projects .project-block .project-anchor .project-wrapper .project .project-links a:first-of-type {
-  padding: 10px 0px 0px 25px;
-}
-html main #projects .project-block .project-anchor .project-wrapper .project .project-links a:last-of-type, body main #projects .project-block .project-anchor .project-wrapper .project .project-links a:last-of-type {
-  padding: 5px 0px 10px 25px;
-}
-html main #projects .project-block .project-anchor .project-wrapper .project .project-links a:hover, body main #projects .project-block .project-anchor .project-wrapper .project .project-links a:hover {
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a:hover,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a:hover, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a:hover,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a:hover {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95), 1px 1px 3px rgba(0, 3, 180, 0.95);
 }
-html main #projects .project-block .project-anchor .project-wrapper .project-techs, body main #projects .project-block .project-anchor .project-wrapper .project-techs {
+html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div:last-of-type,
+html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div:last-of-type, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div:last-of-type,
+body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div:last-of-type {
+  padding: 3px 0px 8px 25px;
+}
+html main #projects .project-block .project-anchor-left .project-wrapper .project-techs,
+html main #projects .project-block .project-anchor-right .project-wrapper .project-techs, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs,
+body main #projects .project-block .project-anchor-right .project-wrapper .project-techs {
   position: absolute;
   top: 5px;
   left: 0%;
   height: 90%;
-  width: 100px;
-  border: 10px ridge #155FD9;
+  border: 10px ridge var(--main-color);
   background: linear-gradient(to right, #333333, #333333 55%, #cccccc 98%);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   transition: left 0.3s ease;
+  padding-right: 5px;
   z-index: 2;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project-techs figure, body main #projects .project-block .project-anchor .project-wrapper .project-techs figure {
+html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure,
+html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure,
+body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure {
   margin: 10px 5px;
   font-family: "Contra", monospace;
   font-weight: 200;
   font-size: 0.65rem;
-  color: rgba(0, 98, 255, 0.95);
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.95);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 1px rgba(17, 17, 17, 0.95);
 }
-html main #projects .project-block .project-anchor .project-wrapper .project-techs figure figcaption, body main #projects .project-block .project-anchor .project-wrapper .project-techs figure figcaption {
+html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure figcaption,
+html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure figcaption, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure figcaption,
+body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure figcaption {
   margin-bottom: 7px;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project-techs figure ul, body main #projects .project-block .project-anchor .project-wrapper .project-techs figure ul {
+html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul,
+html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul,
+body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul {
   margin: 5px;
   padding-left: 20px;
   font-family: "Contra", monospace;
@@ -724,21 +803,49 @@ html main #projects .project-block .project-anchor .project-wrapper .project-tec
   font-size: 0.55rem;
   color: white;
 }
-html main #projects .project-block .project-anchor .project-wrapper .project-techs figure ul li, body main #projects .project-block .project-anchor .project-wrapper .project-techs figure ul li {
+html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul li,
+html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul li, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul li,
+body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul li {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
   list-style-type: square;
   padding: 2px 0px;
 }
-html main #projects .project-block .project-anchor .project-wrapper:hover .project-techs, body main #projects .project-block .project-anchor .project-wrapper:hover .project-techs {
+html main #projects .project-block .project-anchor-left .project-wrapper:hover .project-techs,
+html main #projects .project-block .project-anchor-right .project-wrapper:hover .project-techs, body main #projects .project-block .project-anchor-left .project-wrapper:hover .project-techs,
+body main #projects .project-block .project-anchor-right .project-wrapper:hover .project-techs {
   left: 100%;
   transform: translateX(0);
 }
+html main #projects .project-block .project-anchor-left, body main #projects .project-block .project-anchor-left {
+  left: 60%;
+}
+html main #projects .project-block .project-anchor-right, body main #projects .project-block .project-anchor-right {
+  left: 40%;
+}
 html main #skills, body main #skills {
-  background-color: rgba(255, 122, 122, 0.5);
+  background: linear-gradient(to right, #89afec 0%, rgba(48, 0, 110, 0.95) 75%, black 100%);
 }
 html main #contact, body main #contact {
   color: white;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+html main #contact #contact-text p, body main #contact #contact-text p {
+  text-align: center;
+  font-size: 26px;
+  font-family: "Contra", monospace;
+  text-transform: uppercase;
+}
+html main #contact #old-man, body main #contact #old-man {
+  width: 125px;
+  height: 125px;
+}
+html main #contact #link, body main #contact #link {
+  width: 85px;
+  height: 85px;
 }
 html main::-webkit-scrollbar, body main::-webkit-scrollbar {
   display: none;
@@ -746,7 +853,6 @@ html main::-webkit-scrollbar, body main::-webkit-scrollbar {
 html main.paused .pause-mask, body main.paused .pause-mask {
   filter: brightness(60%);
   opacity: 1;
-  /* optional: add a subtle overlay effect */
 }
 html footer, body footer {
   position: fixed;
@@ -763,7 +869,7 @@ html footer, body footer {
   font-size: 10px;
   font-family: "Contra", monospace;
   text-transform: uppercase;
-  border-top: 4px ridge #888;
+  border-top: 5px ridge #888;
 }
 html footer span a, body footer span a {
   color: blue;

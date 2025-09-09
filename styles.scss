@@ -57,7 +57,7 @@ html, body {
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: flex-end;
-      border-bottom: 4px ridge #888;
+      border-bottom: 5px ridge #888;
 
       #background-container {
          position: absolute;  
@@ -178,12 +178,8 @@ html, body {
    }
 
    main {
-      /* width: 100vw; */
       height: var(--main-height);
       overflow-x: auto;
-      /* scrollbar-width: none; 
-      -ms-overflow-style: none; */
-      // position: relative; 
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
@@ -608,8 +604,6 @@ html, body {
          justify-content: center;
          align-items: center;
          position: relative;
-         border-left: 1px dotted rgba(#155FD9, 0.5);
-         border-right: 1px dotted rgba(#155FD9, 0.5);
 
          .project-block {
             width: 50%;
@@ -621,7 +615,8 @@ html, body {
             position: relative;
             z-index: 0;
 
-            .project-background-stripe {
+            .project-background-stripe-left,
+            .project-background-stripe-right {
                width: 100%;
                z-index: 1;
 
@@ -647,10 +642,46 @@ html, body {
                #border-bottom-4 { background-color: rgba(#000000, 1.0); height: 4px };
             }
 
-            .project-anchor {
+            .project-background-stripe-left {
+               -webkit-mask-image: linear-gradient(to right,
+                  transparent 0%,
+                  transparent 2%,
+                  black 35%,
+                  black 100%);
+               -webkit-mask-repeat: no-repeat;
+               -webkit-mask-size: 100% 100%;
+               
+               mask-image: linear-gradient(to right,
+                  transparent 0%,
+                  transparent 2%,
+                  black 35%,
+                  black 100%);
+               mask-repeat: no-repeat;
+               mask-size: 100% 100%;
+            }
+
+            .project-background-stripe-right {
+               -webkit-mask-image: linear-gradient(to left,
+                  transparent 0%,
+                  transparent 2%,
+                  black 35%,
+                  black 100%);
+               -webkit-mask-repeat: no-repeat;
+               -webkit-mask-size: 100% 100%;
+               
+               mask-image: linear-gradient(to left,
+                  transparent 0%,
+                  transparent 2%,
+                  black 35%,
+                  black 100%);
+               mask-repeat: no-repeat;
+               mask-size: 100% 100%;
+            }
+
+            .project-anchor-left, 
+            .project-anchor-right {
                position: absolute;
                top: 50%;
-               left: 50%;
                width: 40%;
                height: 75%;
                transform: translate(-50%, -50%);
@@ -658,9 +689,8 @@ html, body {
 
                .project-wrapper {
                   position: relative;
-                  height: 100%;
-                  width: 100%;
-                  border: 10px ridge #155FD9;
+                  width: 325px;
+                  border: 10px ridge var(--main-color);
                   border-radius: 15px;
                   z-index: 4;
 
@@ -669,14 +699,11 @@ html, body {
                      top: -35px;
                      left: -50px;
                      background-color: white;
-                     border: 10px ridge #155FD9;
+                     border: 10px ridge var(--main-color);
                      border-radius: 25px;
                      z-index: 5;
-
-                     img {
-                        width: 75px;
-                        height: 75px;
-                     }
+                     width: 75px;
+                     height: 75px;
                   }
 
                   .project {
@@ -685,19 +712,19 @@ html, body {
                      justify-content: space-between;
                      align-items: center;
                      position: relative;
-                     height: 100%;
                      background-color: white;
                      z-index: 3;
 
                      .project-title {
                         width: 100%;
-                        border-bottom: 10px ridge #155FD9;
-                        background-color: rgb(134, 192, 255);
+                        border-bottom: 10px ridge var(--main-color);
+                        background-color: white;
 
                         h3 {
-                           color: rgba(255, 255, 255, 0.95);
+                           color: var(--main-color);
+                           filter: brightness(1.05);
                            font-family: 'Contra', monospace;
-                           text-shadow: 2px 2px 3px black;
+                           text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
                            font-size: 1rem;
                            text-align: right;
                            padding: 0px 20px 0px 0px;
@@ -707,7 +734,7 @@ html, body {
 
                      .project-description {
                         width: 100%;
-                        height: 100%;
+                        height: 175px;
                         background-color: rgba(0, 0, 0, 0.95);
                         color: white;
 
@@ -723,31 +750,31 @@ html, body {
 
                      .project-links {
                         width: 100%;
-                        border-top: 10px ridge #155FD9;
+                        border-top: 10px ridge var(--main-color);
                         background-color: rgb(223, 223, 223);
 
-                        a {
-                           text-decoration: none;
+                        div {
+                           color: white;
                            font-family: 'Contra', monospace;
                            font-weight: 200;
                            font-size: .55rem;
-                           display: inline-block;
-                           padding: 5px 0px 0px 25px;
-                           color: white;
+                           padding: 7px 0px 5px 25px;
                            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
-                           cursor: pointer;
+
+                           a {
+                              text-decoration: none;
+                              display: inline-block;
+                              color: white;
+                              cursor: pointer;
+                           }
+
+                           a:hover {
+                              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95), 1px 1px 3px rgba(0, 3, 180, 0.95);
+                           }
                         }
 
-                        a:first-of-type {
-                           padding: 10px 0px 0px 25px;
-                        }
-
-                        a:last-of-type {
-                           padding: 5px 0px 10px 25px;
-                        }
-
-                        a:hover {
-                           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95), 1px 1px 3px rgba(0, 3, 180, 0.95);
+                        div:last-of-type {
+                           padding: 3px 0px 8px 25px;
                         }
                      }
                   }
@@ -757,9 +784,7 @@ html, body {
                      top: 5px;
                      left: 0%;
                      height: 90%;
-                     width: 100px;
-                     border: 10px ridge #155FD9;
-                     // background-color: rgb(223, 222, 222);
+                     border: 10px ridge var(--main-color);
                      background: linear-gradient(
                         to right,
                         #333333,
@@ -769,6 +794,7 @@ html, body {
                      border-bottom-right-radius: 10px;
                      border-top-right-radius: 10px;
                      transition: left 0.3s ease;
+                     padding-right: 5px;
                      z-index: 2;
                      
                      figure {
@@ -776,8 +802,8 @@ html, body {
                         font-family: 'Contra', monospace;
                         font-weight: 200;
                         font-size: .65rem;
-                        color: rgba(0, 98, 255, 0.95);
-                        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.95);
+                        color: rgba(255, 255, 255, 1.0);
+                        text-shadow: 1px 1px 1px rgba(17, 17, 17, 0.95);
 
                         figcaption {
                            margin-bottom: 7px;
@@ -806,16 +832,54 @@ html, body {
                   transform: translateX(0); 
                }
             }
+
+            .project-anchor-left {
+               left: 60%;
+            }
+
+            .project-anchor-right {
+               left: 40%;
+            }
          }
       }
 
       #skills {
-         background-color: rgba(255, 122, 122, 0.5);
+         background: linear-gradient(
+            to right,  
+            rgba(#89afec, 1.0) 0%, 
+            rgba(#30006e, 0.95) 75%,
+            rgba(#000000, 1.0) 100%,
+         );
       }
 
       #contact {
          color: white;
-         background-color: rgba(0, 0, 0, 0.95);
+         background-color: rgba(0, 0, 0, 1.0);
+
+         display: flex;
+         flex-flow: column nowrap;
+         justify-content: flex-start;
+         align-items: center;
+
+         #contact-text {
+
+            p {
+               text-align: center;
+               font-size: 26px;
+               font-family: 'Contra', monospace;
+               text-transform: uppercase;
+            }
+         }
+
+         #old-man {
+            width: 125px;
+            height: 125px;
+         }
+
+         #link {
+            width: 85px;
+            height: 85px;
+         }
       }
    }
 
@@ -826,7 +890,6 @@ html, body {
    main.paused .pause-mask{
       filter: brightness(60%); 
       opacity: 1.0;
-      /* optional: add a subtle overlay effect */
    }
 
    footer {
@@ -844,7 +907,7 @@ html, body {
       font-size: 10px;
       font-family: 'Contra', monospace;
       text-transform: uppercase;
-      border-top: 4px ridge #888;
+      border-top: 5px ridge #888;
 
       span a {
          color: blue;
