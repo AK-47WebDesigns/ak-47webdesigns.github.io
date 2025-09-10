@@ -211,3 +211,14 @@ for(const baButton of baButtons) {
     }, 2000);
   });
 };
+
+const section = document.querySelector("#contact");
+const cursor = document.getElementById("fairy-cursor");
+
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+section.addEventListener("mouseenter", () => cursor.classList.add("active"));
+section.addEventListener("mouseleave", () => cursor.classList.remove("active"));

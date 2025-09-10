@@ -41,6 +41,7 @@
 }
 
 // sass styles.scss assets/css/styles.css --watch
+// https://nesmaps.com/maps/Zelda/sprites/ZeldaSprites.html?utm_source=chatgpt.com
 
 html, body {
     margin: 0;
@@ -855,30 +856,148 @@ html, body {
       #contact {
          color: white;
          background-color: rgba(0, 0, 0, 1.0);
-
          display: flex;
          flex-flow: column nowrap;
          justify-content: flex-start;
          align-items: center;
 
-         #contact-text {
+         #fairy-cursor {
+            position: fixed;   
+            pointer-events: none; 
+            transform: translate(-50%, -50%); 
+            z-index: 10;  
 
-            p {
-               text-align: center;
-               font-size: 26px;
-               font-family: 'Contra', monospace;
-               text-transform: uppercase;
+            img {
+               display: none;
+               width: 32px; 
+               height: 64px; 
+               image-rendering: pixelated;
             }
          }
 
-         #old-man {
-            width: 125px;
-            height: 125px;
+         #fairy-cursor.active {
+            img {
+               display: block;
+            }
          }
 
-         #link {
-            width: 85px;
-            height: 85px;
+         #top {
+            width: 100%;
+            height: calc(16px * 2 * 4); 
+
+            .horizontal-wall {
+               width: 100%;
+               height: calc(16px * 2 * 4);   // base size * # of rows * scalar
+               background-image: url("../images/stone.png");
+               background-size: contain;
+               background-repeat: repeat;
+               background-size: 64px 64px;
+               image-rendering: pixelated;
+            }
+         }
+
+         #middle {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .vertical-wall {
+               width: calc(16px * 2 * 4); 
+               height: 100%;
+               background-image: url('../images/stone.png');
+               background-repeat: repeat;
+               background-size: 64px 64px;
+               image-rendering: pixelated;
+            }
+
+            #middle-content {
+               height: 100%;
+               display: flex;
+               flex-flow: column nowrap;
+               justify-content: flex-start;
+               align-items: center;
+
+               #text-row {
+                  p {
+                     text-align: center;
+                     font-size: 26px;
+                     font-family: 'Contra', monospace;
+                     text-transform: uppercase;
+                  }
+               }
+
+               #fire-row {
+                  width: 100%;
+                  display: flex;
+                  flex-flow: row nowrap;
+                  justify-content: space-around;
+                  align-items: center;
+
+                  #old-man {
+                     width: 105px;
+                     height: 105px;
+                  }
+
+                  #fire {
+                     width: 75px;
+                     height: 75px;
+                  }
+               }
+
+               #icons-row {
+                  width: 80%;
+                  display: flex;
+                  flex-flow: row nowrap;
+                  justify-content: space-around;
+                  align-items: center;
+                  margin-top: 2rem;
+
+                  img {
+                     width: 50px;
+                     height: 50px;
+                     image-rendering: pixelated;
+                  }
+               }
+
+               #link-row {
+                  margin-top: 4rem;
+
+                  #link {
+                     width: 65px;
+                     height: 65px;
+                  }
+               }
+            }
+
+         }
+
+         #bottom {
+            width: 100%;
+            height: calc(16px * 2 * 4); 
+            position: relative;
+
+            .horizontal-wall {
+               width: 100%;
+               height: calc(16px * 2 * 3);   // base size * # of rows * scalar
+               background-image: url("../images/stone.png");
+               background-size: contain;
+               background-repeat: repeat;
+               background-size: 64px 64px;
+               image-rendering: pixelated;
+            }
+
+            #doorway {
+               position: absolute;
+               width: calc(16px * 2 * 7);
+               height: calc(16px * 2 * 3);
+               top: 0px;
+               left: 50%;
+               transform: translate(-50%, 0%);
+               background-color: black;
+            }
          }
       }
    }

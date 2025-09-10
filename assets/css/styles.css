@@ -833,19 +833,120 @@ html main #contact, body main #contact {
   justify-content: flex-start;
   align-items: center;
 }
-html main #contact #contact-text p, body main #contact #contact-text p {
+html main #contact #fairy-cursor, body main #contact #fairy-cursor {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+html main #contact #fairy-cursor img, body main #contact #fairy-cursor img {
+  display: none;
+  width: 32px;
+  height: 64px;
+  image-rendering: pixelated;
+}
+html main #contact #fairy-cursor.active img, body main #contact #fairy-cursor.active img {
+  display: block;
+}
+html main #contact #top, body main #contact #top {
+  width: 100%;
+  height: 128px;
+}
+html main #contact #top .horizontal-wall, body main #contact #top .horizontal-wall {
+  width: 100%;
+  height: 128px;
+  background-image: url("../images/stone.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  image-rendering: pixelated;
+}
+html main #contact #middle, body main #contact #middle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+html main #contact #middle .vertical-wall, body main #contact #middle .vertical-wall {
+  width: 128px;
+  height: 100%;
+  background-image: url("../images/stone.png");
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  image-rendering: pixelated;
+}
+html main #contact #middle #middle-content, body main #contact #middle #middle-content {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+html main #contact #middle #middle-content #text-row p, body main #contact #middle #middle-content #text-row p {
   text-align: center;
   font-size: 26px;
   font-family: "Contra", monospace;
   text-transform: uppercase;
 }
-html main #contact #old-man, body main #contact #old-man {
-  width: 125px;
-  height: 125px;
+html main #contact #middle #middle-content #fire-row, body main #contact #middle #middle-content #fire-row {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
-html main #contact #link, body main #contact #link {
-  width: 85px;
-  height: 85px;
+html main #contact #middle #middle-content #fire-row #old-man, body main #contact #middle #middle-content #fire-row #old-man {
+  width: 105px;
+  height: 105px;
+}
+html main #contact #middle #middle-content #fire-row #fire, body main #contact #middle #middle-content #fire-row #fire {
+  width: 75px;
+  height: 75px;
+}
+html main #contact #middle #middle-content #icons-row, body main #contact #middle #middle-content #icons-row {
+  width: 80%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+}
+html main #contact #middle #middle-content #icons-row img, body main #contact #middle #middle-content #icons-row img {
+  width: 50px;
+  height: 50px;
+  image-rendering: pixelated;
+}
+html main #contact #middle #middle-content #link-row, body main #contact #middle #middle-content #link-row {
+  margin-top: 4rem;
+}
+html main #contact #middle #middle-content #link-row #link, body main #contact #middle #middle-content #link-row #link {
+  width: 65px;
+  height: 65px;
+}
+html main #contact #bottom, body main #contact #bottom {
+  width: 100%;
+  height: 128px;
+  position: relative;
+}
+html main #contact #bottom .horizontal-wall, body main #contact #bottom .horizontal-wall {
+  width: 100%;
+  height: 96px;
+  background-image: url("../images/stone.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  image-rendering: pixelated;
+}
+html main #contact #bottom #doorway, body main #contact #bottom #doorway {
+  position: absolute;
+  width: 224px;
+  height: 96px;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: black;
 }
 html main::-webkit-scrollbar, body main::-webkit-scrollbar {
   display: none;
