@@ -823,7 +823,87 @@ html main #projects .project-block .project-anchor-right, body main #projects .p
   left: 40%;
 }
 html main #skills, body main #skills {
+  width: 100%;
+  height: 100%;
   background: linear-gradient(to right, #89afec 0%, rgba(48, 0, 110, 0.95) 75%, black 100%);
+}
+html main #skills #skills-container, body main #skills #skills-container {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+html main #skills #skills-container #top, body main #skills #skills-container #top {
+  width: 100%;
+  height: 64px;
+}
+html main #skills #skills-container #top #ceiling, body main #skills #skills-container #top #ceiling {
+  width: 100%;
+  height: 64px;
+  background-image: url("../images/ceiling.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-size: 100%;
+  image-rendering: pixelated;
+}
+html main #skills #skills-container #middle, body main #skills #skills-container #middle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+html main #skills #skills-container #middle #pillar-left, html main #skills #skills-container #middle #pillar-right, body main #skills #skills-container #middle #pillar-left, body main #skills #skills-container #middle #pillar-right {
+  height: 100%;
+  width: 64px;
+  background-size: contain;
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+}
+html main #skills #skills-container #middle #pillar-left, body main #skills #skills-container #middle #pillar-left {
+  background-image: url("../images/pillar-left.png");
+}
+html main #skills #skills-container #middle #pillar-right, body main #skills #skills-container #middle #pillar-right {
+  background-image: url("../images/pillar-right.png");
+}
+html main #skills #skills-container #middle #middle-content, body main #skills #skills-container #middle #middle-content {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+html main #skills #skills-container #middle #middle-content #top-half, body main #skills #skills-container #middle #middle-content #top-half {
+  width: 100%;
+  height: 50%;
+}
+html main #skills #skills-container #middle #middle-content #bottom-half, body main #skills #skills-container #middle #middle-content #bottom-half {
+  width: 100%;
+  height: 50%;
+  padding: 0px 5px 10px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+html main #skills #skills-container #middle #middle-content #bottom-half .skill, body main #skills #skills-container #middle #middle-content #bottom-half .skill {
+  color: red;
+  border: 3px ridge red;
+}
+html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
+  width: 100%;
+  height: 64px;
+}
+html main #skills #skills-container #bottom #floor, body main #skills #skills-container #bottom #floor {
+  width: 100%;
+  height: 64px;
+  background-image: url("../images/floor.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-size: 100%;
+  image-rendering: pixelated;
 }
 html main #contact, body main #contact {
   color: white;
