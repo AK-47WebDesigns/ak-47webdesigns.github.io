@@ -222,3 +222,12 @@ document.addEventListener("mousemove", e => {
 
 section.addEventListener("mouseenter", () => cursor.classList.add("active"));
 section.addEventListener("mouseleave", () => cursor.classList.remove("active"));
+
+
+const introContainer = document.getElementById("intro-container");
+// const about = document.getElementById("about");
+
+introContainer.addEventListener("animationend", () => {
+  controller.style.display = "flex";
+  // about.classList.add("visible");
+});
