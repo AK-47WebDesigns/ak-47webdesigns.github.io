@@ -595,6 +595,62 @@ html, body {
             position: relative;
             overflow: hidden;
 
+            #about-container {
+               display: none;
+               position: absolute;
+               top: 15%;
+               left: 24%;
+               width: 42%;
+               height: 20%;
+               z-index: 5;
+               overflow: hidden; 
+
+               -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+               -webkit-mask-repeat: no-repeat;
+               -webkit-mask-size: 100% 100%;
+               mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+               mask-repeat: no-repeat;
+               mask-size: 100% 100%;
+               
+
+               #about {
+                  animation: scrollUp 60s linear forwards;
+
+                  h1 {
+                     text-align: center;
+                     font-family: 'Contra', monospace;
+                     text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
+                     font-size: 1rem;
+                  }
+
+                  p {
+                     color: white;
+                     line-height: 1.75rem;
+                     letter-spacing: 3px;
+                     font-family: 'Contra', monospace;
+                     text-shadow: 1px 1px 3px black, 3px 3px 6px #2038ec, 4px 4px 6px grey;
+                     font-size: 1.25rem;
+
+                     span {
+                        padding: 0;
+                        margin: 0;
+                        letter-spacing: -1em;
+                        display: inline-block;
+                     }
+
+                     .blue   { color: rgba(#009CDA, 1.0) }
+                     .red    { color: rgba(#E71E07, 1.0) }
+                     .green  { color: rgba(#42B132, 1.0) }
+                     .yellow { color: rgba(#FCD000, 1.0) }
+                  }
+               }
+            }
+
+            @keyframes scrollUp {
+               from { transform: translateY(7%); }
+               to   { transform: translateY(-105%); } 
+            }
+
             #castle {
                height: 73%;
                position: absolute;
@@ -1216,7 +1272,7 @@ html, body {
       span a {
          color: blue;
          animation: blink .5s steps(1, start) infinite;
-         text-shadow: 2px 2px 0px #000;
+         text-shadow: 1px 1px 1px rgba(255, 150, 0, 0.95);
          text-decoration: none;
       }
 

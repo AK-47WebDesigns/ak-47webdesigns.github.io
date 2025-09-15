@@ -506,6 +506,65 @@ html main #intro #intro-container, body main #intro #intro-container {
   position: relative;
   overflow: hidden;
 }
+html main #intro #intro-container #about-container, body main #intro #intro-container #about-container {
+  display: none;
+  position: absolute;
+  top: 15%;
+  left: 24%;
+  width: 42%;
+  height: 20%;
+  z-index: 5;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+html main #intro #intro-container #about-container #about, body main #intro #intro-container #about-container #about {
+  animation: scrollUp 60s linear forwards;
+}
+html main #intro #intro-container #about-container #about h1, body main #intro #intro-container #about-container #about h1 {
+  text-align: center;
+  font-family: "Contra", monospace;
+  text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
+  font-size: 1rem;
+}
+html main #intro #intro-container #about-container #about p, body main #intro #intro-container #about-container #about p {
+  color: white;
+  line-height: 1.75rem;
+  letter-spacing: 3px;
+  font-family: "Contra", monospace;
+  text-shadow: 1px 1px 3px black, 3px 3px 6px #2038ec, 4px 4px 6px grey;
+  font-size: 1.25rem;
+}
+html main #intro #intro-container #about-container #about p span, body main #intro #intro-container #about-container #about p span {
+  padding: 0;
+  margin: 0;
+  letter-spacing: -1em;
+  display: inline-block;
+}
+html main #intro #intro-container #about-container #about p .blue, body main #intro #intro-container #about-container #about p .blue {
+  color: #009cda;
+}
+html main #intro #intro-container #about-container #about p .red, body main #intro #intro-container #about-container #about p .red {
+  color: #e71e07;
+}
+html main #intro #intro-container #about-container #about p .green, body main #intro #intro-container #about-container #about p .green {
+  color: #42b132;
+}
+html main #intro #intro-container #about-container #about p .yellow, body main #intro #intro-container #about-container #about p .yellow {
+  color: #fcd000;
+}
+@keyframes scrollUp {
+  from {
+    transform: translateY(7%);
+  }
+  to {
+    transform: translateY(-105%);
+  }
+}
 html main #intro #intro-container #castle, body main #intro #intro-container #castle {
   height: 73%;
   position: absolute;
@@ -1156,7 +1215,7 @@ html footer, body footer {
 html footer span a, body footer span a {
   color: blue;
   animation: blink 0.5s steps(1, start) infinite;
-  text-shadow: 2px 2px 0px #000;
+  text-shadow: 1px 1px 1px rgba(255, 150, 0, 0.95);
   text-decoration: none;
 }
 html footer span a:hover, body footer span a:hover {

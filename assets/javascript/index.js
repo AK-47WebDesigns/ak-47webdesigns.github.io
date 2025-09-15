@@ -225,9 +225,9 @@ section.addEventListener("mouseleave", () => cursor.classList.remove("active"));
 
 
 const introContainer = document.getElementById("intro-container");
-// const about = document.getElementById("about");
+const about = document.getElementById("about-container");
 
 introContainer.addEventListener("animationend", () => {
   controller.style.display = "flex";
-  // about.classList.add("visible");
+  about.style.display = "block";
 });
