@@ -231,3 +231,14 @@ introContainer.addEventListener("animationend", () => {
   controller.style.display = "flex";
   about.style.display = "block";
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.fonts.ready.then(() => {
+    document.querySelectorAll('.skill-box').forEach(box => {
+      const title = box.querySelector('.skill-box-title');
+      if (!title) return; 
+      const gap = title.offsetWidth + 16;
+      box.style.setProperty('--skill-box-title-gap', gap + 'px');
+    });
+  });
+});

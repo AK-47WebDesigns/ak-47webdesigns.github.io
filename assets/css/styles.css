@@ -22,6 +22,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Kid-Icarus-NES";
+  src: url("../fonts/Kid-Icarus-NES.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --nav-bg-image-width: 3456;
   --nav-bg-image-height: 224;
@@ -178,7 +184,7 @@ html main #controller-container, body main #controller-container {
   bottom: calc(var(--footer-height) + 2%);
   right: 2%;
   z-index: 7;
-  display: none;
+  display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
@@ -997,11 +1003,10 @@ html main #skills #skills-container, body main #skills #skills-container {
 }
 html main #skills #skills-container #top, body main #skills #skills-container #top {
   width: 100%;
-  height: 64px;
 }
 html main #skills #skills-container #top #ceiling, body main #skills #skills-container #top #ceiling {
   width: 100%;
-  height: 64px;
+  height: 46px;
   background-image: url("../images/ceiling.png");
   background-size: contain;
   background-repeat: repeat;
@@ -1034,31 +1039,118 @@ html main #skills #skills-container #middle #middle-content, body main #skills #
   height: 100%;
   width: 100%;
   background-color: rgb(0, 0, 0);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("../images/brick.png");
+  background-size: contain;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  position: relative;
 }
-html main #skills #skills-container #middle #middle-content #top-half, body main #skills #skills-container #middle #middle-content #top-half {
+html main #skills #skills-container #middle #middle-content .middle-content-overlay, body main #skills #skills-container #middle #middle-content .middle-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #top-half, body main #skills #skills-container #middle #middle-content .middle-content-overlay #top-half {
   width: 100%;
   height: 50%;
 }
-html main #skills #skills-container #middle #middle-content #bottom-half, body main #skills #skills-container #middle #middle-content #bottom-half {
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half {
   width: 100%;
   height: 50%;
   padding: 0px 5px 10px;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 1rem;
 }
-html main #skills #skills-container #middle #middle-content #bottom-half .skill, body main #skills #skills-container #middle #middle-content #bottom-half .skill {
-  color: red;
-  border: 3px ridge red;
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box {
+  position: relative;
+  background-color: black;
+  flex: 0 1 24%;
+  max-width: 24%;
+  height: 45%;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box::before, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 8px inset white;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  /* Clip out a gap for the title (adjust size as needed) */
+  clip-path: polygon(0% 0%, 50% 0%, calc(50% - var(--skill-box-title-gap) / 2) 0%, calc(50% - var(--skill-box-title-gap) / 2) 10px, calc(50% + var(--skill-box-title-gap) / 2) 10px, calc(50% + var(--skill-box-title-gap) / 2) 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-title, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-title {
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Kid-Icarus-NES";
+  font-size: 1rem;
+  color: white;
+  background: transparent;
+  padding: 0 0.5rem;
+  font-weight: bold;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper {
+  height: 70%;
+  width: 85%;
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  overflow: auto;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+  height: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill {
+  display: flex;
+  flex: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill img, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill img {
+  width: 50px;
+  height: auto;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar {
+  height: 6px;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-track, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb {
+  background: #ffc400;
+  border-radius: 4px;
+}
+html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb:hover, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb:hover {
+  background: #f8f52c;
+  cursor: pointer;
 }
 html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
   width: 100%;
-  height: 64px;
 }
 html main #skills #skills-container #bottom #floor, body main #skills #skills-container #bottom #floor {
   width: 100%;
-  height: 64px;
+  height: 46px;
   background-image: url("../images/floor.png");
   background-size: contain;
   background-repeat: repeat;
