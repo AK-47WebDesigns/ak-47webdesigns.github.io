@@ -420,14 +420,75 @@
           <div id="pillar-left"></div>
 
           <div id="middle-content">
-            <div class="middle-content-overlay">
+            <div class="middle-content-overlay"></div>
+
+            <div id="left-half">
+              <!-- <div id="inventory"> -->
+                <h1 id="inventory-title">Inventory</h1>
+
+                <div class="tabs">
+                  <button class="tab-link active" onclick="openTab(event, 'Core')">Core</button>
+                  <button class="tab-link" onclick="openTab(event, 'Design')">Design</button>
+                  <button class="tab-link" onclick="openTab(event, 'UI')">UI</button>
+                  <button class="tab-link" onclick="openTab(event, 'UX')">UX</button>
+                  <button class="tab-link" onclick="openTab(event, 'Frameworks')">Frameworks</button>
+                  <button class="tab-link" onclick="openTab(event, 'Platforms')">Platforms</button>
+                  <button class="tab-link" onclick="openTab(event, 'Tools')">Tools</button>
+                  <button class="tab-link" onclick="openTab(event, 'Advanced')">Advanced</button>
+                </div>
+
+                <!-- <div id="tab-content-container"> -->
+
+                  <div id="Core" class="tab-content" style="display: flex;">
+                    <div class="skills-box">
+                      <div class="cell">
+                        <span class="skill">
+                          <span class="skill-icon-wrapper">
+                            <img src="./assets/images/html5.png" alt="HTML5" class="skill-icon">
+                            <span class="skill-icon-rank">E</span>
+                          </span>
+                        </span>
+                      </div>
+                      <div class="cell">
+                        <span class="skill">
+                          <span class="skill-icon-wrapper">
+                            <img src="./assets/images/css3.png" alt="CSS3" class="skill-icon">
+                            <span class="skill-icon-rank">E</span>
+                          </span>
+                        </span>
+                      </div>
+                      <div class="cell">HTML</div>
+                      <div class="cell">CSS</div>
+                    </div>
+                  </div>
+
+                  <div id="Design" class="tab-content">
+                    <div class="skills-box">
+                      <div class="cell">Figma</div>
+                      <div class="cell">Adobe</div>
+                      <div class="cell">Canvas</div>
+                      <div class="cell">Whatever</div>
+                    </div>
+                  </div>                  
+                <!-- </div> -->
+
+
+              <!-- </div> -->
+            </div>
+
+            <div id="right-half">
+
+            </div>
+            
+
+            <!-- <div class="middle-content-overlay">
               <div id="top-half"></div>
               <div id="bottom-half">
                 <div class="skill-box">
                   <span class="skill-box-title">Core Weapons</span>
                     <div class="skill-box-list-wrapper">
                       <div class="skill-box-list">
-                        <span class="skill"><img src="./assets/images/html5.png" alt="HTML5"></span>
+                        <span class="skill"><img src="./assets/images/html5.png" alt="HTML5"><span class="rank">5</span></span>
                         <span class="skill"><img src="./assets/images/css3.png" alt="CSS3"></span>
                         <span class="skill"><img src="./assets/images/javascript.png" alt="Javascript"></span>
                         <span class="skill"><img src="./assets/images/typescript.png" alt="Typescript"></span>
@@ -488,10 +549,8 @@
                       </div>
                     </div>
                 </div>
-
-
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div id="pillar-right"></div>

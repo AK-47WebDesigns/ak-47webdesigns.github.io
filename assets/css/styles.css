@@ -28,6 +28,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Diablo";
+  src: url("../fonts/Diablo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --nav-bg-image-width: 3456;
   --nav-bg-image-height: 224;
@@ -182,7 +188,7 @@ html main .pause-mask, body main .pause-mask {
 html main #controller-container, body main #controller-container {
   position: fixed;
   bottom: calc(var(--footer-height) + 2%);
-  right: 2%;
+  left: 2%;
   z-index: 7;
   display: flex;
   flex-flow: row nowrap;
@@ -1039,11 +1045,15 @@ html main #skills #skills-container #middle #middle-content, body main #skills #
   height: 100%;
   width: 100%;
   background-color: rgb(0, 0, 0);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("../images/brick.png");
+  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/brick.png");
   background-size: contain;
   background-repeat: repeat;
   image-rendering: pixelated;
   position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 html main #skills #skills-container #middle #middle-content .middle-content-overlay, body main #skills #skills-container #middle #middle-content .middle-content-overlay {
   position: absolute;
@@ -1051,99 +1061,133 @@ html main #skills #skills-container #middle #middle-content .middle-content-over
   left: 0;
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 0;
 }
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #top-half, body main #skills #skills-container #middle #middle-content .middle-content-overlay #top-half {
-  width: 100%;
-  height: 50%;
+html main #skills #skills-container #middle #middle-content #left-half, body main #skills #skills-container #middle #middle-content #left-half {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding: 0px 20px;
+  height: 100%;
+  width: 50%;
 }
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half {
+html main #skills #skills-container #middle #middle-content #left-half #inventory-title, body main #skills #skills-container #middle #middle-content #left-half #inventory-title {
   width: 100%;
-  height: 50%;
-  padding: 0px 5px 10px;
+  font-family: "Diablo", sans-serif;
+  font-size: 2rem;
+  color: lightgrey;
+  text-align: center;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tabs, body main #skills #skills-container #middle #middle-content #left-half .tabs {
+  width: 100%;
+  overflow-x: auto;
+  border-top: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link {
+  border: 4px ridge grey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: white;
+  font-family: "Diablo";
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link:hover, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link:hover {
+  background-color: #ddd;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link.active, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link.active {
+  background-color: lightgrey;
+  border-bottom: 4px solid lightgrey;
+}
+html main #skills #skills-container #middle #middle-content #left-half #tab-content-container, body main #skills #skills-container #middle #middle-content #left-half #tab-content-container {
+  width: 100%;
+  height: 100%;
+  border: 4px ridge grey;
+  box-shadow: 1px 1px 2px grey;
+  border-top: none;
   box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content, body main #skills #skills-container #middle #middle-content #left-half .tab-content {
+  flex: 1;
+  display: none;
+  border: 4px ridge grey;
+  border-top: none;
+  box-shadow: 1px 1px 2px grey;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box {
+  height: 100%;
+  width: 100%;
+  flex: 1;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  row-gap: 1rem;
+  background-image: url("../images/marble.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box {
-  position: relative;
-  background-color: black;
-  flex: 0 1 24%;
-  max-width: 24%;
-  height: 45%;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box::before, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 8px inset white;
-  border-radius: 0.5rem;
-  pointer-events: none;
-  /* Clip out a gap for the title (adjust size as needed) */
-  clip-path: polygon(0% 0%, 50% 0%, calc(50% - var(--skill-box-title-gap) / 2) 0%, calc(50% - var(--skill-box-title-gap) / 2) 10px, calc(50% + var(--skill-box-title-gap) / 2) 10px, calc(50% + var(--skill-box-title-gap) / 2) 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-title, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-title {
-  display: inline-block;
-  white-space: nowrap;
-  position: absolute;
-  top: 2px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Kid-Icarus-NES";
-  font-size: 1rem;
-  color: white;
-  background: transparent;
-  padding: 0 0.5rem;
-  font-weight: bold;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper {
-  height: 70%;
-  width: 85%;
-  position: absolute;
-  top: 15px;
-  left: 25px;
-  overflow: auto;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list {
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell {
+  box-sizing: border-box;
+  width: 50%;
+  height: 50%;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: 10px;
-  height: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill {
-  display: flex;
-  flex: column nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  background-color: black;
+  border: 4px inset lightgrey;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper {
+  width: 50px;
+  height: auto;
+  position: relative;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon {
   width: 100%;
   height: 100%;
 }
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill img, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list .skill img {
-  width: 50px;
-  height: auto;
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-rank, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-rank {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(50%, 50%);
+  font-size: 1rem;
+  color: white;
+  background-color: red;
+  border: 3px outset lightgrey;
+  border-radius: 50%;
+  padding: 2px 6px;
 }
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar {
-  height: 6px;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-track, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border-radius: 4px;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb {
-  background: #ffc400;
-  border-radius: 4px;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb:hover, body main #skills #skills-container #middle #middle-content .middle-content-overlay #bottom-half .skill-box-list-wrapper .skill-box-list::-webkit-scrollbar-thumb:hover {
-  background: #f8f52c;
-  cursor: pointer;
+html main #skills #skills-container #middle #middle-content #right-half, body main #skills #skills-container #middle #middle-content #right-half {
+  height: 100%;
+  width: 50%;
+  border: 1px solid red;
 }
 html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
   width: 100%;
