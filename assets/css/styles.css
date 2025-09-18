@@ -1045,10 +1045,9 @@ html main #skills #skills-container #middle #middle-content, body main #skills #
   height: 100%;
   width: 100%;
   background-color: rgb(0, 0, 0);
-  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/brick.png");
-  background-size: contain;
-  background-repeat: repeat;
-  image-rendering: pixelated;
+  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -1061,8 +1060,8 @@ html main #skills #skills-container #middle #middle-content .middle-content-over
   left: 0;
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   z-index: 0;
 }
 html main #skills #skills-container #middle #middle-content #left-half, body main #skills #skills-container #middle #middle-content #left-half {
@@ -1073,13 +1072,12 @@ html main #skills #skills-container #middle #middle-content #left-half, body mai
   position: relative;
   padding: 0px 20px;
   height: 100%;
-  width: 50%;
 }
-html main #skills #skills-container #middle #middle-content #left-half #inventory-title, body main #skills #skills-container #middle #middle-content #left-half #inventory-title {
+html main #skills #skills-container #middle #middle-content #left-half #title, body main #skills #skills-container #middle #middle-content #left-half #title {
   width: 100%;
   font-family: "Diablo", sans-serif;
   font-size: 2rem;
-  color: lightgrey;
+  color: white;
   text-align: center;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
@@ -1096,75 +1094,54 @@ html main #skills #skills-container #middle #middle-content #left-half .tabs .ta
   border: 4px ridge grey;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: white;
+  background-color: lightgrey;
   font-family: "Diablo";
   font-size: 0.85rem;
-  padding: 5px 10px;
+  padding: 4px 12px;
   cursor: pointer;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link:hover, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link:hover {
   background-color: #ddd;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link.active, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link.active {
-  background-color: lightgrey;
-  border-bottom: 4px solid lightgrey;
-}
-html main #skills #skills-container #middle #middle-content #left-half #tab-content-container, body main #skills #skills-container #middle #middle-content #left-half #tab-content-container {
-  width: 100%;
-  height: 100%;
-  border: 4px ridge grey;
-  box-shadow: 1px 1px 2px grey;
-  border-top: none;
-  box-sizing: border-box;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  background: linear-gradient(to top, #8c8c8c 0%, white 65%);
+  border-bottom: 4px solid #8c8c8c;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tab-content, body main #skills #skills-container #middle #middle-content #left-half .tab-content {
-  flex: 1;
   display: none;
   border: 4px ridge grey;
   border-top: none;
   box-shadow: 1px 1px 2px grey;
-  height: 100%;
   width: 100%;
   margin-bottom: 20px;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box {
   height: 100%;
   width: 100%;
-  flex: 1;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-image: url("../images/marble.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  image-rendering: pixelated;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  background-color: #d3d3d3;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell {
   box-sizing: border-box;
-  width: 50%;
-  height: 50%;
+  width: 106px;
+  height: 106px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  background-color: rgba(54, 36, 4, 0.95);
+  border: 5px inset lightgrey;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 50%;
-  background-color: black;
-  border: 4px inset lightgrey;
+  aspect-ratio: 1/1;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper {
-  width: 50px;
+  width: 50%;
   height: auto;
   position: relative;
 }
@@ -1177,17 +1154,16 @@ html main #skills #skills-container #middle #middle-content #left-half .tab-cont
   bottom: 0px;
   right: 0px;
   transform: translate(50%, 50%);
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: white;
   background-color: red;
   border: 3px outset lightgrey;
   border-radius: 50%;
-  padding: 2px 6px;
+  padding: 1px 5px;
 }
 html main #skills #skills-container #middle #middle-content #right-half, body main #skills #skills-container #middle #middle-content #right-half {
   height: 100%;
   width: 50%;
-  border: 1px solid red;
 }
 html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
   width: 100%;
