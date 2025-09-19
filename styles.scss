@@ -1044,6 +1044,10 @@ html, body {
                flex-flow: row nowrap;
                justify-content: space-between;
                align-items: center;
+               background-color: rgba(0, 0, 0, 1.0);
+               background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.jpeg");
+               background-size: cover;
+               background-repeat: no-repeat;
 
                #pillar-left, #pillar-right {
                   height: 100%;
@@ -1065,10 +1069,6 @@ html, body {
                #middle-content {
                   height: 100%;
                   width: 100%;
-                  background-color: rgba(0, 0, 0, 1.0);
-                  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.jpeg");
-                  background-size: cover;
-                  background-repeat: no-repeat;
                   position: relative;
                   display: flex;
                   flex-flow: row nowrap;
@@ -1199,6 +1199,11 @@ html, body {
                   #right-half {
                      height: 100%;
                      width: 50%;
+
+                     .tab-info {
+                        display: none;
+                        color: white;
+                     }
                   }
                }
             }

@@ -1026,6 +1026,10 @@ html main #skills #skills-container #middle, body main #skills #skills-container
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(0, 0, 0);
+  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 html main #skills #skills-container #middle #pillar-left, html main #skills #skills-container #middle #pillar-right, body main #skills #skills-container #middle #pillar-left, body main #skills #skills-container #middle #pillar-right {
   height: 100%;
@@ -1044,10 +1048,6 @@ html main #skills #skills-container #middle #pillar-right, body main #skills #sk
 html main #skills #skills-container #middle #middle-content, body main #skills #skills-container #middle #middle-content {
   height: 100%;
   width: 100%;
-  background-color: rgb(0, 0, 0);
-  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -1164,6 +1164,10 @@ html main #skills #skills-container #middle #middle-content #left-half .tab-cont
 html main #skills #skills-container #middle #middle-content #right-half, body main #skills #skills-container #middle #middle-content #right-half {
   height: 100%;
   width: 50%;
+}
+html main #skills #skills-container #middle #middle-content #right-half .tab-info, body main #skills #skills-container #middle #middle-content #right-half .tab-info {
+  display: none;
+  color: white;
 }
 html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
   width: 100%;

@@ -250,11 +250,20 @@ function openTab(event, tab) {
     tabContent[i].style.display = "none";
   }
 
+  let tabInfo = document.getElementsByClassName("tab-info");
+  for (let i = 0; i < tabInfo.length; i++) {
+    tabInfo[i].style.display = "none";
+  }
+
   let tabLinks = document.getElementsByClassName("tab-link");
   for (let i = 0; i < tabLinks.length; i++) {
     tabLinks[i].className = tabLinks[i].className.replace(" active", "");
   }
 
-  document.getElementById(tab).style.display = "block";
+  let elements = document.querySelectorAll(`#${tab}`);
+  for(let node of elements) {
+    node.style.display = "block";
+  }
+
   event.currentTarget.className += " active";
 } 
