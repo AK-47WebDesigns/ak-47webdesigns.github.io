@@ -1094,6 +1094,7 @@ html, body {
                      position: relative;
                      padding: 0px 20px;
                      height: 100%;
+                     width: 45%;
 
                      #title {
                         width: 100%;
@@ -1183,12 +1184,25 @@ html, body {
                                        bottom: 0px;
                                        right: 0px;
                                        transform: translate(50%, 50%);
+                                       font-family: 'Diablo', sans-serif;
                                        font-size: 0.85rem;
+                                       font-weight: 600;
                                        color: white;
-                                       background-color: red;
                                        border: 3px outset lightgrey;
                                        border-radius: 50%;
-                                       padding: 1px 5px;
+                                       padding: 1px 6px;
+                                    }
+
+                                    .expert {
+                                       background-color: purple;
+                                    }
+
+                                    .intermediate {
+                                       background-color: blue;
+                                    }  
+
+                                    .basic {
+                                       background-color: green;
                                     }
 
                                     .skill-icon-tooltip {
@@ -1220,12 +1234,118 @@ html, body {
                   }
 
                   #right-half {
+                     position: relative;
                      height: 100%;
-                     width: 50%;
+                     width: 55%;
 
-                     .tab-info {
-                        display: none;
-                        color: white;
+                     #right-half-top {
+                        width: 100%;
+                        margin-top: 20px;
+
+                        #fieldsets {
+                           margin: 10px 10px 0px 20px;
+                           display: flex;
+                           flex-flow: row nowrap;
+                           justify-content: space-between;
+                           align-items: center;
+                           column-gap: 10px;
+
+                           #description {
+                              width: 75%;
+                              align-self: stretch;
+                              border: 3px solid white; 
+                              background-color: #3e2d0f;
+
+                              legend {
+                                 font-family: 'Diablo', sans-serif;
+                                 font-size: 1.25rem;
+                                 color: white;
+                                 text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                              }
+
+                              p {
+                                 display: none;
+                                 font-family: 'Diablo', sans-serif;
+                                 font-size: .95rem;
+                                 text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                                 line-height: 1.35rem;
+                                 letter-spacing: 1px;
+                                 color: white;
+                                 padding: 10px 5px;
+                                 margin: 0;
+                              }
+                           }
+
+                           #legend {
+                              width: 25%; 
+                              border: 3px solid white; 
+                              background-color: #3e2d0f;
+
+                              legend {
+                                 font-family: 'Diablo', sans-serif;
+                                 font-size: 1.25rem;
+                                 color: white;
+                                 text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                              }
+
+                              p {
+                                 font-family: 'Diablo', sans-serif;
+                                 text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                                 color: white;
+                                 font-size: 0.85rem;
+
+                                 .skill-icon-rank {
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    color: white;
+                                    border: 3px outset lightgrey;
+                                    border-radius: 50%;
+                                    padding: 1px 6px;
+                                    text-shadow: none;
+                                 }
+
+                                 .expert {
+                                    background-color: purple;
+                                 }
+
+                                 .intermediate {
+                                    background-color: blue;
+                                 }  
+
+                                 .basic {
+                                    background-color: green;
+                                 }
+                              }
+                           }
+                        }
+                     }
+
+                     #right-half-bottom {
+                        width: 100%;
+                        height: 65%;
+
+                        #projects-container {
+                           margin: 20px 10px 20px 20px;
+
+                           fieldset {
+                              border: 3px solid white; 
+                              background-color: #3e2d0f;
+                              padding: 10px 10px;
+                              margin: 0;
+
+                              legend {
+                                 font-family: 'Diablo', sans-serif;
+                                 font-size: 1.25rem;
+                                 color: white;
+                                 text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                              }
+
+                              div {
+                                 padding: 10px 5px;
+                                 color: white;
+                              }
+                           }
+                        }
                      }
                   }
                }

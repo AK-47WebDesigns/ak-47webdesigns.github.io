@@ -1072,6 +1072,7 @@ html main #skills #skills-container #middle #middle-content #left-half, body mai
   position: relative;
   padding: 0px 20px;
   height: 100%;
+  width: 45%;
 }
 html main #skills #skills-container #middle #middle-content #left-half #title, body main #skills #skills-container #middle #middle-content #left-half #title {
   width: 100%;
@@ -1155,12 +1156,22 @@ html main #skills #skills-container #middle #middle-content #left-half .tab-cont
   bottom: 0px;
   right: 0px;
   transform: translate(50%, 50%);
+  font-family: "Diablo", sans-serif;
   font-size: 0.85rem;
+  font-weight: 600;
   color: white;
-  background-color: red;
   border: 3px outset lightgrey;
   border-radius: 50%;
-  padding: 1px 5px;
+  padding: 1px 6px;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .expert, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .expert {
+  background-color: purple;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .intermediate, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .intermediate {
+  background-color: blue;
+}
+html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .basic, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .basic {
+  background-color: green;
 }
 html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-tooltip, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-tooltip {
   visibility: hidden;
@@ -1183,11 +1194,101 @@ html main #skills #skills-container #middle #middle-content #left-half .tab-cont
   visibility: visible;
 }
 html main #skills #skills-container #middle #middle-content #right-half, body main #skills #skills-container #middle #middle-content #right-half {
+  position: relative;
   height: 100%;
-  width: 50%;
+  width: 55%;
 }
-html main #skills #skills-container #middle #middle-content #right-half .tab-info, body main #skills #skills-container #middle #middle-content #right-half .tab-info {
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top, body main #skills #skills-container #middle #middle-content #right-half #right-half-top {
+  width: 100%;
+  margin-top: 20px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets {
+  margin: 10px 10px 0px 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description {
+  width: 75%;
+  align-self: stretch;
+  border: 3px solid white;
+  background-color: #3e2d0f;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description legend {
+  font-family: "Diablo", sans-serif;
+  font-size: 1.25rem;
+  color: white;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description p, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description p {
   display: none;
+  font-family: "Diablo", sans-serif;
+  font-size: 0.95rem;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+  line-height: 1.35rem;
+  letter-spacing: 1px;
+  color: white;
+  padding: 10px 5px;
+  margin: 0;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend {
+  width: 25%;
+  border: 3px solid white;
+  background-color: #3e2d0f;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend legend {
+  font-family: "Diablo", sans-serif;
+  font-size: 1.25rem;
+  color: white;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p {
+  font-family: "Diablo", sans-serif;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+  color: white;
+  font-size: 0.85rem;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .skill-icon-rank, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .skill-icon-rank {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  border: 3px outset lightgrey;
+  border-radius: 50%;
+  padding: 1px 6px;
+  text-shadow: none;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .expert, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .expert {
+  background-color: purple;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .intermediate, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .intermediate {
+  background-color: blue;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .basic, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend p .basic {
+  background-color: green;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom {
+  width: 100%;
+  height: 65%;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container {
+  margin: 20px 10px 20px 20px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset {
+  border: 3px solid white;
+  background-color: #3e2d0f;
+  padding: 10px 10px;
+  margin: 0;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset legend {
+  font-family: "Diablo", sans-serif;
+  font-size: 1.25rem;
+  color: white;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset div, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset div {
+  padding: 10px 5px;
   color: white;
 }
 html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
