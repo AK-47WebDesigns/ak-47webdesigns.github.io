@@ -997,7 +997,7 @@ html main #projects .project-block .project-anchor-right, body main #projects .p
 html main #skills, body main #skills {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #89afec 0%, rgba(48, 0, 110, 0.95) 75%, black 100%);
+  background: linear-gradient(to right, #5c94fc 0%, rgba(48, 0, 110, 0.95) 75%, black 100%);
 }
 html main #skills #skills-container, body main #skills #skills-container {
   width: 90%;
@@ -1047,7 +1047,7 @@ html main #skills #skills-container #middle #pillar-right, body main #skills #sk
 }
 html main #skills #skills-container #middle #middle-content, body main #skills #skills-container #middle #middle-content {
   height: 100%;
-  width: 100%;
+  align-self: stretch;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -1226,6 +1226,7 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   display: none;
   font-family: "Diablo", sans-serif;
   font-size: 0.95rem;
+  text-transform: uppercase;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
   line-height: 1.35rem;
   letter-spacing: 1px;
@@ -1269,27 +1270,34 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   background-color: green;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom {
-  width: 100%;
   height: 65%;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container {
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests {
   margin: 20px 10px 20px 20px;
-}
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset {
   border: 3px solid white;
   background-color: #3e2d0f;
   padding: 10px 10px;
-  margin: 0;
+  height: 100%;
+  min-inline-size: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset legend {
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests legend {
   font-family: "Diablo", sans-serif;
   font-size: 1.25rem;
   color: white;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset div, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #projects-container fieldset div {
-  padding: 10px 5px;
-  color: white;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests .project-card, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests .project-card {
+  display: inline-block;
+  width: 500px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  align-self: stretch;
+  transition: transform 0.3s ease, z-index 0.3s ease;
 }
 html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
   width: 100%;
