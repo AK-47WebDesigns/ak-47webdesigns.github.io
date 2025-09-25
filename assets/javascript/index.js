@@ -245,9 +245,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function openTab(event, tab) {
-  let tabContent = document.getElementsByClassName("tab-content");
-  for (let i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = "none";
+  let grids = document.getElementsByClassName("grid");
+  for (let i = 0; i < grids.length; i++) {
+    grids[i].style.display = "none";
   }
 
   let tabInfo = document.getElementsByClassName("tab-info");
@@ -262,7 +262,7 @@ function openTab(event, tab) {
 
   let elements = document.querySelectorAll(`#${tab}`);
   for(let node of elements) {
-    node.style.display = "block";
+    node.style.display = "grid";
   }
 
   event.currentTarget.className += " active";

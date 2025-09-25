@@ -1023,18 +1023,14 @@ html, body {
             justify-content: space-between;
             align-items: center;
 
-            #top {
+            #top, #bottom {
                width: 100%;
-
-               #ceiling {
-                  width: 100%;
-                  height: 46px;  
-                  background-image: url("../images/ceiling.png");
-                  background-size: contain;
-                  background-repeat: repeat;
-                  background-size: 100%;
-                  image-rendering: pixelated;
-               }
+               height: 46px;  
+               background-image: url("../images/brick.png");
+               background-size: contain;
+               background-repeat: repeat-x;
+               background-size: auto 100%;
+               image-rendering: pixelated;
             }
 
             #middle {
@@ -1044,18 +1040,16 @@ html, body {
                flex-flow: row nowrap;
                justify-content: space-between;
                align-items: center;
-               background-color: rgba(0, 0, 0, 1.0);
-               background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.png");
-               background-size: cover;
-               background-repeat: no-repeat;
+               position: relative;
 
                #pillar-left, #pillar-right {
                   height: 100%;
-                  width: calc(16px * 4);   
+                  width: calc(16px * 3);   
                   background-size: contain;
                   background-repeat: repeat;
                   background-size: 100% 100%;
                   image-rendering: pixelated;
+                  z-index: 2;
                }
 
                #pillar-left {
@@ -1068,34 +1062,21 @@ html, body {
 
                #middle-content {
                   height: 100%;
-                  // width: 100%;
-                  align-self: stretch;
-                  position: relative;
+                  width: 100%;
                   display: flex;
                   flex-flow: row nowrap;
                   justify-content: space-between;
                   align-items: center;
-
-                  .middle-content-overlay {
-                     position: absolute;
-                     top: 0;
-                     left: 0;
-                     height: 100%;
-                     width: 100%;
-                     backdrop-filter: blur(1px); 
-                     -webkit-backdrop-filter: blur(1px); 
-                     z-index: 0;
-                  }
 
                   #left-half {
                      display: flex;
                      flex-flow: column nowrap;
                      justify-content: flex-start;
                      align-items: center;
-                     position: relative;
                      padding: 0px 20px;
                      height: 100%;
                      width: 45%;
+                     z-index: 2;
 
                      #title {
                         width: 100%;
@@ -1104,130 +1085,130 @@ html, body {
                         color: white;
                         text-align: center;
                         text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                        margin: 30px 0px;
                      }
 
-                     .tabs {
+                     #content {
                         width: 100%;
-                        overflow-x: auto;
-                        border-top: none;
-                        display: flex;
-                        flex-flow: row nowrap;
-                        justify-content: space-between;
-                        align-items: flex-end;
 
-                        .tab-link {
-                           border: 4px ridge grey;
-                           border-top-left-radius: 10px;
-                           border-top-right-radius: 10px;
-                           background-color: lightgrey;
-                           font-family: 'Diablo';
-                           font-size: 0.85rem;
-                           padding: 4px 12px;
-                           cursor: pointer;
-                        }
-
-                        .tab-link:hover {
-                           background-color: #ddd;
-                        }
-
-                        .tab-link.active {
-                           background: linear-gradient(to top, #8c8c8c 0%, white 65%);
-                           border-bottom: 4px solid #8c8c8c;
-                        }
-                     }
-
-                     .tab-content {           
-                        display: none;
-                        border: 4px ridge grey;
-                        border-top: none;
-                        box-shadow: 1px 1px 2px grey;
-                        width: 100%;
-                        margin-bottom: 20px;
-
-                        .skills-box {
-                           height: 100%;
+                        #tabs {
                            width: 100%;
-                           display: grid;
-                           grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                           overflow-x: auto;
+                           border-top: none;
+                           display: flex;
+                           flex-flow: row nowrap;
+                           justify-content: space-between;
+                           align-items: flex-end;
+
+                           .tab-link {
+                              border: 4px ridge grey;
+                              border-top-left-radius: 10px;
+                              border-top-right-radius: 10px;
+                              background-color: lightgrey;
+                              font-family: 'Diablo';
+                              font-size: 0.85rem;
+                              padding: 4px 12px;
+                              cursor: pointer;
+                           }
+
+                           .tab-link:hover {
+                              background-color: #ddd;
+                           }
+
+                           .tab-link.active {
+                              background: linear-gradient(to top, #8c8c8c 0%, white 65%);
+                              border-bottom: 4px solid #8c8c8c;
+                           }
+                        }
+
+                        .grid{ 
+                           width: 100%;          
+                           display: none;
+                           box-sizing: border-box;
+                           box-shadow: 1px 1px 2px grey;
+                           border: 4px ridge grey;
+                           border-top: none;                           
+                           grid-template-columns: repeat(7, 1fr);
+                           grid-template-rows: repeat(4, 1fr);
                            background-color: #d3d3d3;
+                           overflow: auto;
 
                            .cell {
-                              box-sizing: border-box;
-                              width: 106px;
-                              height: 106px;
                               display: flex;
                               flex-flow: column nowrap;
                               justify-content: center;
                               align-items: center;
                               background-color: rgba(54, 36, 4, 0.95);
                               border: 5px inset lightgrey;
-                              
-                              .skill {
+                              box-sizing: border-box;
+                              aspect-ratio: 1 / 1;
+                              min-width: 85px;  
+                              min-height: 85px;
+                            
+                              .skill-icon-wrapper {
                                  display: flex;
                                  flex-flow: column nowrap;
                                  justify-content: center;
                                  align-items: center;
-                                 aspect-ratio: 1 / 1;
-
-                                 .skill-icon-wrapper {
-                                    width: 50%;
-                                    height: auto;
-                                    position: relative;
-                                    cursor: pointer;
-                                    
-                                    .skill-icon {
-                                       width: 100%;
-                                       height: 100%;
-                                    }
-
-                                    .skill-icon-rank {
-                                       position: absolute;
-                                       bottom: 0px;
-                                       right: 0px;
-                                       transform: translate(50%, 50%);
-                                       font-family: 'Diablo', sans-serif;
-                                       font-size: 0.85rem;
-                                       font-weight: 600;
-                                       color: white;
-                                       border: 3px outset lightgrey;
-                                       border-radius: 50%;
-                                       padding: 1px 6px;
-                                    }
-
-                                    .expert {
-                                       background-color: purple;
-                                    }
-
-                                    .intermediate {
-                                       background-color: blue;
-                                    }  
-
-                                    .basic {
-                                       background-color: green;
-                                    }
-
-                                    .skill-icon-tooltip {
-                                       visibility: hidden;
-                                       background-color: white;
-                                       color: rgb(105, 105, 105);
-                                       text-align: center;
-                                       border-radius: 5px;
-                                       padding: 5px;
-                                       position: absolute;
-                                       top: 50%;
-                                       left: 50%;
-                                       transform: translate(-50%, -50%);
-                                       letter-spacing: 1px;
-                                       font-family: Arial, Helvetica, sans-serif;
-                                       font-weight: 800;
-                                       font-size: .75rem;
-                                       z-index: 1;
-                                    }
+                                 width: 50%;
+                                 height: 50%;
+                                 position: relative;
+                                 cursor: pointer;
+                                 
+                                 img.skill-icon {
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                    object-fit: contain; 
                                  }
 
-                                 .skill-icon-wrapper:hover .skill-icon-tooltip {
-                                    visibility: visible;
+                                 .skill-icon-rank {
+                                    position: absolute;
+                                    bottom: 0px;
+                                    right: 0px;
+                                    transform: translate(50%, 50%);
+                                    font-family: 'Diablo', sans-serif;
+                                    font-size: 0.95rem;
+                                    font-weight: 600;
+                                    color: white;
+                                    border: 3px outset lightgrey;
+                                    border-radius: 50%;
+                                    padding: 1px 6px;
                                  }
+
+                                 .expert {
+                                    background-color: purple;
+                                 }
+
+                                 .intermediate {
+                                    background-color: blue;
+                                 }  
+
+                                 .basic {
+                                    background-color: green;
+                                 }
+
+                                 .skill-icon-tooltip {
+                                    visibility: hidden;
+                                    background-color: white;
+                                    color: rgb(105, 105, 105);
+                                    text-align: center;
+                                    border-radius: 5px;
+                                    padding: 5px;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    letter-spacing: 1px;
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    font-weight: 800;
+                                    font-size: .75rem;
+                                    z-index: 1;
+                                 }
+                              }
+
+                              .skill-icon-wrapper:hover .skill-icon-tooltip {
+                                 visibility: visible;
                               }
                            }
                         }
@@ -1407,18 +1388,15 @@ html, body {
                }
             }
 
-            #bottom {
-               width: 100%;
-
-               #floor {
-                  width: 100%;
-                  height: 46px;    
-                  background-image: url("../images/floor.png");
-                  background-size: contain;
-                  background-repeat: repeat;
-                  background-size: 100%;
-                  image-rendering: pixelated;
-               }
+            #middle::before {
+               content: "";
+               position: absolute;
+               inset: 0 4px 0 4px;
+               background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.png");
+               background-size: cover;
+               background-repeat: no-repeat;
+               filter: blur(1px);
+               z-index: 0; 
             }
          }
       }

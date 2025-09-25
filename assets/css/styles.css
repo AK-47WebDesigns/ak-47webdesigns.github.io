@@ -1007,16 +1007,13 @@ html main #skills #skills-container, body main #skills #skills-container {
   justify-content: space-between;
   align-items: center;
 }
-html main #skills #skills-container #top, body main #skills #skills-container #top {
-  width: 100%;
-}
-html main #skills #skills-container #top #ceiling, body main #skills #skills-container #top #ceiling {
+html main #skills #skills-container #top, html main #skills #skills-container #bottom, body main #skills #skills-container #top, body main #skills #skills-container #bottom {
   width: 100%;
   height: 46px;
-  background-image: url("../images/ceiling.png");
+  background-image: url("../images/brick.png");
   background-size: contain;
-  background-repeat: repeat;
-  background-size: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
   image-rendering: pixelated;
 }
 html main #skills #skills-container #middle, body main #skills #skills-container #middle {
@@ -1026,18 +1023,16 @@ html main #skills #skills-container #middle, body main #skills #skills-container
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(0, 0, 0);
-  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
 }
 html main #skills #skills-container #middle #pillar-left, html main #skills #skills-container #middle #pillar-right, body main #skills #skills-container #middle #pillar-left, body main #skills #skills-container #middle #pillar-right {
   height: 100%;
-  width: 64px;
+  width: 48px;
   background-size: contain;
   background-repeat: repeat;
   background-size: 100% 100%;
   image-rendering: pixelated;
+  z-index: 2;
 }
 html main #skills #skills-container #middle #pillar-left, body main #skills #skills-container #middle #pillar-left {
   background-image: url("../images/pillar-left.png");
@@ -1047,32 +1042,21 @@ html main #skills #skills-container #middle #pillar-right, body main #skills #sk
 }
 html main #skills #skills-container #middle #middle-content, body main #skills #skills-container #middle #middle-content {
   height: 100%;
-  align-self: stretch;
-  position: relative;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-}
-html main #skills #skills-container #middle #middle-content .middle-content-overlay, body main #skills #skills-container #middle #middle-content .middle-content-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  z-index: 0;
 }
 html main #skills #skills-container #middle #middle-content #left-half, body main #skills #skills-container #middle #middle-content #left-half {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  position: relative;
   padding: 0px 20px;
   height: 100%;
   width: 45%;
+  z-index: 2;
 }
 html main #skills #skills-container #middle #middle-content #left-half #title, body main #skills #skills-container #middle #middle-content #left-half #title {
   width: 100%;
@@ -1081,8 +1065,12 @@ html main #skills #skills-container #middle #middle-content #left-half #title, b
   color: white;
   text-align: center;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+  margin: 30px 0px;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tabs, body main #skills #skills-container #middle #middle-content #left-half .tabs {
+html main #skills #skills-container #middle #middle-content #left-half #content, body main #skills #skills-container #middle #middle-content #left-half #content {
+  width: 100%;
+}
+html main #skills #skills-container #middle #middle-content #left-half #content #tabs, body main #skills #skills-container #middle #middle-content #left-half #content #tabs {
   width: 100%;
   overflow-x: auto;
   border-top: none;
@@ -1091,7 +1079,7 @@ html main #skills #skills-container #middle #middle-content #left-half .tabs, bo
   justify-content: space-between;
   align-items: flex-end;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link {
+html main #skills #skills-container #middle #middle-content #left-half #content #tabs .tab-link, body main #skills #skills-container #middle #middle-content #left-half #content #tabs .tab-link {
   border: 4px ridge grey;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -1101,79 +1089,76 @@ html main #skills #skills-container #middle #middle-content #left-half .tabs .ta
   padding: 4px 12px;
   cursor: pointer;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link:hover, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link:hover {
+html main #skills #skills-container #middle #middle-content #left-half #content #tabs .tab-link:hover, body main #skills #skills-container #middle #middle-content #left-half #content #tabs .tab-link:hover {
   background-color: #ddd;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link.active, body main #skills #skills-container #middle #middle-content #left-half .tabs .tab-link.active {
+html main #skills #skills-container #middle #middle-content #left-half #content #tabs .tab-link.active, body main #skills #skills-container #middle #middle-content #left-half #content #tabs .tab-link.active {
   background: linear-gradient(to top, #8c8c8c 0%, white 65%);
   border-bottom: 4px solid #8c8c8c;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content, body main #skills #skills-container #middle #middle-content #left-half .tab-content {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid, body main #skills #skills-container #middle #middle-content #left-half #content .grid {
+  width: 100%;
   display: none;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 2px grey;
   border: 4px ridge grey;
   border-top: none;
-  box-shadow: 1px 1px 2px grey;
-  width: 100%;
-  margin-bottom: 20px;
-}
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   background-color: #d3d3d3;
+  overflow: auto;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell {
-  box-sizing: border-box;
-  width: 106px;
-  height: 106px;
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   background-color: rgba(54, 36, 4, 0.95);
   border: 5px inset lightgrey;
+  box-sizing: border-box;
+  aspect-ratio: 1/1;
+  min-width: 85px;
+  min-height: 85px;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1/1;
-}
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper {
   width: 50%;
-  height: auto;
+  height: 50%;
   position: relative;
   cursor: pointer;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper img.skill-icon, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper img.skill-icon {
   width: 100%;
   height: 100%;
+  display: block;
+  object-fit: contain;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-rank, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-rank {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .skill-icon-rank, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .skill-icon-rank {
   position: absolute;
   bottom: 0px;
   right: 0px;
   transform: translate(50%, 50%);
   font-family: "Diablo", sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: white;
   border: 3px outset lightgrey;
   border-radius: 50%;
   padding: 1px 6px;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .expert, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .expert {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .expert, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .expert {
   background-color: purple;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .intermediate, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .intermediate {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .intermediate, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .intermediate {
   background-color: blue;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .basic, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .basic {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .basic, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .basic {
   background-color: green;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-tooltip, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper .skill-icon-tooltip {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .skill-icon-tooltip, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper .skill-icon-tooltip {
   visibility: hidden;
   background-color: white;
   color: rgb(105, 105, 105);
@@ -1190,7 +1175,7 @@ html main #skills #skills-container #middle #middle-content #left-half .tab-cont
   font-size: 0.75rem;
   z-index: 1;
 }
-html main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper:hover .skill-icon-tooltip, body main #skills #skills-container #middle #middle-content #left-half .tab-content .skills-box .cell .skill .skill-icon-wrapper:hover .skill-icon-tooltip {
+html main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper:hover .skill-icon-tooltip, body main #skills #skills-container #middle #middle-content #left-half #content .grid .cell .skill-icon-wrapper:hover .skill-icon-tooltip {
   visibility: visible;
 }
 html main #skills #skills-container #middle #middle-content #right-half, body main #skills #skills-container #middle #middle-content #right-half {
@@ -1299,17 +1284,15 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   align-self: stretch;
   transition: transform 0.3s ease, z-index 0.3s ease;
 }
-html main #skills #skills-container #bottom, body main #skills #skills-container #bottom {
-  width: 100%;
-}
-html main #skills #skills-container #bottom #floor, body main #skills #skills-container #bottom #floor {
-  width: 100%;
-  height: 46px;
-  background-image: url("../images/floor.png");
-  background-size: contain;
-  background-repeat: repeat;
-  background-size: 100%;
-  image-rendering: pixelated;
+html main #skills #skills-container #middle::before, body main #skills #skills-container #middle::before {
+  content: "";
+  position: absolute;
+  inset: 0 4px 0 4px;
+  background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(0, 255, 255, 0.2)), url("../images/marble.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  z-index: 0;
 }
 html main #contact, body main #contact {
   color: white;
