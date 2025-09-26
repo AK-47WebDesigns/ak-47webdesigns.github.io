@@ -1216,21 +1216,26 @@ html, body {
                   }
 
                   #right-half {
-                     position: relative;
+                     display: flex;
+                     flex-flow: column nowrap;
+                     justify-content: flex-start;
+                     align-items: center;
+                     row-gap: 25px;
                      height: 100%;
                      width: 55%;
+                     z-index: 2;
 
                      #right-half-top {
                         width: 100%;
-                        margin-top: 20px;
+                        padding: 30px 20px 0px 20px;
 
                         #fieldsets {
-                           margin: 10px 10px 0px 20px;
+                           margin: 0px 20px;
                            display: flex;
                            flex-flow: row nowrap;
                            justify-content: space-between;
                            align-items: center;
-                           column-gap: 10px;
+                           column-gap: 30px;
 
                            #description {
                               width: 75%;
@@ -1261,6 +1266,7 @@ html, body {
 
                            #legend {
                               width: 25%; 
+                              align-self: stretch;
                               border: 3px solid white; 
                               background-color: #3e2d0f;
 
@@ -1304,22 +1310,21 @@ html, body {
                      }
 
                      #right-half-bottom {
-                        // width: 100%;
-                        height: 65%;
-
-
+                        width: 100%;
+                        padding: 0px 20px 30px 20px;
+                        display: flex; 
+                        flex: 1 1 auto;  
+                        min-height: 0;
 
                         #quests {
-                           margin: 20px 10px 20px 20px;
+                           margin: 0px 20px;
                            border: 3px solid white; 
                            background-color: #3e2d0f;
                            padding: 10px 10px;
-                           height: 100%;
                            min-inline-size: 0;
-                                  overflow-y: auto;
-                              overflow-x: auto;
-                              white-space: nowrap;  
-                              // width: 100%;
+                           overflow-x: visible;
+                           flex: 1 1 auto;
+                           min-height: 0;
 
                            legend {
                               font-family: 'Diablo', sans-serif;
@@ -1328,18 +1333,84 @@ html, body {
                               text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
                            }
 
-                           .project-card {
-                              // min-width: 200px;
-                              display: inline-block;
-                              width: 500px;
+                           #projects-container {
+                              display: flex;
+                              flex-flow: row nowrap;
+                              justify-content: center;
+                              align-items: center;
                               height: 100%;
-                              background: #fff;
-                              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                              border-radius: 10px;
-                              align-self: stretch;
-                              // flex: 0 4 200px; 
-                              transition: transform 0.3s ease, z-index 0.3s ease;
+
+                              .scene {
+                                 width: 40px;
+                                 height: 200px;
+                                 perspective: 800px; /* enables 3D depth */
+                                 border: 1px solid red;   
+                              }
+
+                              // apparent angle offset ≈ arctan(W / (P - Z))
+                              // Box width = W
+                              // How far it’s shifted toward/away from you = Z (via translateZ)
+                              // perspective = p
+                              // this is why rotateY() isn't an even 90deg to look at its edge dead-on (as you would expect)
+                              .box {
+                                 width: 40px;  /* X-axis */
+                                 height: 200px; /* Y-axis */
+                                 transform-style: preserve-3d;
+                                 // transform-origin: left center;
+                                 // transform: rotateY(30deg) rotateX(10deg); /* initial rotation to see 3D */
+                                 transform: rotateY(90deg) rotateX(0deg);
+                                 transition: transform 0.5s;
+
+                                 .face {
+                                    position: absolute;
+                                    width: 100px;
+                                    height: 150px;
+                                    background: rgba(100, 150, 200, 0.7);
+                                    border: 1px solid #333;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: bold;
+                                 }
+
+                                 /* Position each face */
+                                 .front  { transform: translateZ(5px); }
+                                 .back   { transform: rotateY(180deg) translateZ(5px); }
+                                 .left   { transform: rotateY(-90deg) translateZ(5px); width: 5px; }
+                                 .right  { transform: rotateY(90deg) translateZ(95px); width: 5px; }
+                                 .top    { transform: rotateX(90deg) translateZ(5px); height: 5px; }
+                                 .bottom { transform: rotateX(-90deg) translateZ(145px); height: 5px; }
+                              }
+
+
+                              .box:hover {
+                                 cursor: pointer;
+                              }
+
+                              .box.pulled { 
+                                 transform: translateZ(500px) translateX(-40px);
+                                 z-index: 100;
+                                 
+                                 .face {
+                                    // height: 100px;
+                                    background-color: red;
+                                 }
+                              }
                            }
+
+
+                           // .project-card {
+                           //    // min-width: 200px;
+                           //    display: inline-block;
+                           //    width: 500px;
+                           //    height: 100%;
+                           //    background: #fff;
+                           //    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                           //    border-radius: 10px;
+                           //    align-self: stretch;
+                           //    // flex: 0 4 200px; 
+                           //    transition: transform 0.3s ease, z-index 0.3s ease;
+                           // }
 
                            // .project-card:hover {
                            //    transform: translateY(-20px) scale(1.05);

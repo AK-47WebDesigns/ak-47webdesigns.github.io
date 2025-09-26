@@ -267,3 +267,18 @@ function openTab(event, tab) {
 
   event.currentTarget.className += " active";
 } 
+
+
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+  box.addEventListener('click', () => {
+    // Optional: close other boxes if you want only one open at a time
+    boxes.forEach(b => {
+      if (b !== box) b.classList.remove('pulled');
+    });
+
+    // Toggle the clicked box
+    box.classList.toggle('pulled');
+  });
+});

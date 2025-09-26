@@ -1179,21 +1179,26 @@ html main #skills #skills-container #middle #middle-content #left-half #content 
   visibility: visible;
 }
 html main #skills #skills-container #middle #middle-content #right-half, body main #skills #skills-container #middle #middle-content #right-half {
-  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 25px;
   height: 100%;
   width: 55%;
+  z-index: 2;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-top, body main #skills #skills-container #middle #middle-content #right-half #right-half-top {
   width: 100%;
-  margin-top: 20px;
+  padding: 30px 20px 0px 20px;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets {
-  margin: 10px 10px 0px 20px;
+  margin: 0px 20px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 30px;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #description {
   width: 75%;
@@ -1221,6 +1226,7 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-top #fieldsets #legend {
   width: 25%;
+  align-self: stretch;
   border: 3px solid white;
   background-color: #3e2d0f;
 }
@@ -1255,18 +1261,21 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   background-color: green;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom {
-  height: 65%;
+  width: 100%;
+  padding: 0px 20px 30px 20px;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests {
-  margin: 20px 10px 20px 20px;
+  margin: 0px 20px;
   border: 3px solid white;
   background-color: #3e2d0f;
   padding: 10px 10px;
-  height: 100%;
   min-inline-size: 0;
-  overflow-y: auto;
-  overflow-x: auto;
-  white-space: nowrap;
+  overflow-x: visible;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests legend, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests legend {
   font-family: "Diablo", sans-serif;
@@ -1274,15 +1283,69 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   color: white;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests .project-card, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests .project-card {
-  display: inline-block;
-  width: 500px;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  align-self: stretch;
-  transition: transform 0.3s ease, z-index 0.3s ease;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene {
+  width: 40px;
+  height: 200px;
+  perspective: 800px; /* enables 3D depth */
+  border: 1px solid red;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box {
+  width: 40px; /* X-axis */
+  height: 200px; /* Y-axis */
+  transform-style: preserve-3d;
+  transform: rotateY(90deg) rotateX(0deg);
+  transition: transform 0.5s;
+  /* Position each face */
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .face {
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  background: rgba(100, 150, 200, 0.7);
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .front, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .front {
+  transform: translateZ(5px);
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .back, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .back {
+  transform: rotateY(180deg) translateZ(5px);
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .left, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .left {
+  transform: rotateY(-90deg) translateZ(5px);
+  width: 5px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .right, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .right {
+  transform: rotateY(90deg) translateZ(95px);
+  width: 5px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .top, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .top {
+  transform: rotateX(90deg) translateZ(5px);
+  height: 5px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .bottom, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .bottom {
+  transform: rotateX(-90deg) translateZ(145px);
+  height: 5px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box:hover, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box:hover {
+  cursor: pointer;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled {
+  transform: translateZ(500px) translateX(-40px);
+  z-index: 100;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled .face {
+  background-color: red;
 }
 html main #skills #skills-container #middle::before, body main #skills #skills-container #middle::before {
   content: "";
