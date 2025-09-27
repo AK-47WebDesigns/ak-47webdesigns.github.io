@@ -52,6 +52,10 @@
    --footer-height: 30px;
    --main-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 8px);  // 8px -> total height for navbar and footer borders
    --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
+
+
+   --face-width: 150px; 
+   --face-depth: 5px;
 }
 
 // sass styles.scss assets/css/styles.css --watch
@@ -1338,122 +1342,79 @@ html, body {
                               flex-flow: row nowrap;
                               justify-content: center;
                               align-items: center;
+                              column-gap: 20px;
                               height: 100%;
 
                               .scene {
-                                 width: 40px;
-                                 height: 200px;
+                                 width: 100%;
+                                 height: 100%;
                                  perspective: 800px; /* enables 3D depth */
                                  border: 1px solid red;   
-                              }
+                                 display: flex;
+                                 flex-flow: row nowrap;
+                                 justify-content: center;
+                                 align-items: center;
+                                 
+                                 // apparent angle offset ≈ arctan(W / (P - Z))
+                                 // Box width = W
+                                 // How far it’s shifted toward/away from you = Z (via translateZ)
+                                 // perspective = p
+                                 // this is why rotateY() isn't an even 90deg to look at its edge dead-on (as you would expect)
+                                 .box {
+                                    width: 85px;  /* X-axis */
+                                    height: 100%; /* Y-axis */
+                                    transform-style: preserve-3d;
+                                    // transform-origin: left center;
+                                    transform: rotateY(50deg) rotateX(10deg); /* initial rotation to see 3D */
+                                    // transform: rotateY(90deg) rotateX(0deg);
+                                    transition: transform 0.5s;
+                                                            display: flex;
+                                 flex-flow: row nowrap;
+                                 justify-content: center;
+                                 align-items: center;
+        
+                                    z-index: 2;
+                                    position: relative;
 
-                              // apparent angle offset ≈ arctan(W / (P - Z))
-                              // Box width = W
-                              // How far it’s shifted toward/away from you = Z (via translateZ)
-                              // perspective = p
-                              // this is why rotateY() isn't an even 90deg to look at its edge dead-on (as you would expect)
-                              .box {
-                                 width: 40px;  /* X-axis */
-                                 height: 200px; /* Y-axis */
-                                 transform-style: preserve-3d;
-                                 // transform-origin: left center;
-                                 // transform: rotateY(30deg) rotateX(10deg); /* initial rotation to see 3D */
-                                 transform: rotateY(90deg) rotateX(0deg);
-                                 transition: transform 0.5s;
+                                    .face {
+                                       position: absolute;
+                                       width: var(--face-width);
+                                       height: var(--face-height);
+                                       background: rgba(100, 150, 200, 0.7);
+                                       border: 1px solid #333;
+                                       display: flex;
+                                       align-items: center;
+                                       justify-content: center;
+                                       font-weight: bold;
+                                    }
 
-                                 .face {
-                                    position: absolute;
-                                    width: 100px;
-                                    height: 150px;
-                                    background: rgba(100, 150, 200, 0.7);
-                                    border: 1px solid #333;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-weight: bold;
+                                    /* Position each face */
+                                    .front  { transform: translateZ(calc(var(--face-depth))); }
+                                    .back   { transform: rotateY(180deg) translateZ(calc(var(--face-depth))); }
+                                    .left   { transform: rotateY(-90deg) translateZ(calc(var(--face-width) / 2)); width: calc(var(--face-depth)); }
+                                    .right  { transform: rotateY(90deg) translateZ(calc(var(--face-width) / 2)); width: calc(var(--face-depth)); }
+                                    .top    { transform: rotateX(90deg) translateZ(calc(var(--face-height) / 2)); height: calc(var(--face-depth)); }
+                                    .bottom { transform: rotateX(-90deg) translateZ(calc(var(--face-height) / 2)); height: calc(var(--face-depth)); }
                                  }
 
-                                 /* Position each face */
-                                 .front  { transform: translateZ(5px); }
-                                 .back   { transform: rotateY(180deg) translateZ(5px); }
-                                 .left   { transform: rotateY(-90deg) translateZ(5px); width: 5px; }
-                                 .right  { transform: rotateY(90deg) translateZ(95px); width: 5px; }
-                                 .top    { transform: rotateX(90deg) translateZ(5px); height: 5px; }
-                                 .bottom { transform: rotateX(-90deg) translateZ(145px); height: 5px; }
-                              }
 
+                                 .box:hover {
+                                    cursor: pointer;
+                                 }
 
-                              .box:hover {
-                                 cursor: pointer;
-                              }
-
-                              .box.pulled { 
-                                 transform: translateZ(500px) translateX(-40px);
-                                 z-index: 100;
-                                 
-                                 .face {
-                                    // height: 100px;
-                                    background-color: red;
+                                 .box.pulled { 
+                                    transform: translateZ(250px) translateX(-80px) translateY(-50px) ;
+                                    z-index: 100;
+                                    
+                                    .face {
+                                       // height: 100px;
+                                       background-color: red;
+                                       z-index: 100;
+                                    }
                                  }
                               }
                            }
-
-
-                           // .project-card {
-                           //    // min-width: 200px;
-                           //    display: inline-block;
-                           //    width: 500px;
-                           //    height: 100%;
-                           //    background: #fff;
-                           //    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                           //    border-radius: 10px;
-                           //    align-self: stretch;
-                           //    // flex: 0 4 200px; 
-                           //    transition: transform 0.3s ease, z-index 0.3s ease;
-                           // }
-
-                           // .project-card:hover {
-                           //    transform: translateY(-20px) scale(1.05);
-                           //    z-index: 10; /* brings the hovered card above the others */
-                           // }
-
-                           // .projects-container {
-                           //    display: flex;
-                           //    flex-flow: row nowrap;
-                           //    // gap: -50px; /* negative gap for overlap */
-                           //    overflow-y: auto;
-                           //    overflow-x: auto;
-                           //    // padding: 20px;
-                           //    scroll-behavior: smooth;
-                           //    height: 100%;
-                           //    // width: 100%;
-
-
-                           //    .project-card {
-                           //    // min-width: 200px;
-                           //    display: inline-block;
-                           //    width: 200px;
-                           //    height: 100%;
-                           //    background: #fff;
-                           //    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                           //    border-radius: 10px;
-                           //    align-self: stretch;
-                           //    // flex: 0 4 200px; 
-                           //    transition: transform 0.3s ease, z-index 0.3s ease;
-                           // }
-
-                           // // .project-card:hover {
-                           // //    transform: translateY(-20px) scale(1.05);
-                           // //    z-index: 10; /* brings the hovered card above the others */
-                           // // }
-            
-                           // }
-
-   
                         }
-
-
-
                      }
                   }
                }

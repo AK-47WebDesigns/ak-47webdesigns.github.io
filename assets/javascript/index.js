@@ -282,3 +282,8 @@ boxes.forEach(box => {
     box.classList.toggle('pulled');
   });
 });
+
+
+const scene = document.querySelector('.scene');
+const faceHeight = scene.offsetHeight * 0.85; // in pixels
+document.documentElement.style.setProperty('--face-height', `${faceHeight}px`);

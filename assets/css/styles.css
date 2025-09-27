@@ -41,6 +41,8 @@
   --footer-height: 30px;
   --main-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 8px);
   --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
+  --face-width: 150px;
+  --face-depth: 5px;
 }
 
 html, body {
@@ -1288,26 +1290,37 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  column-gap: 20px;
   height: 100%;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene {
-  width: 40px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   perspective: 800px; /* enables 3D depth */
   border: 1px solid red;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box {
-  width: 40px; /* X-axis */
-  height: 200px; /* Y-axis */
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box {
+  width: 85px; /* X-axis */
+  height: 100%; /* Y-axis */
   transform-style: preserve-3d;
-  transform: rotateY(90deg) rotateX(0deg);
+  transform: rotateY(50deg) rotateX(10deg); /* initial rotation to see 3D */
   transition: transform 0.5s;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
   /* Position each face */
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .face {
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .face {
   position: absolute;
-  width: 100px;
-  height: 150px;
+  width: var(--face-width);
+  height: var(--face-height);
   background: rgba(100, 150, 200, 0.7);
   border: 1px solid #333;
   display: flex;
@@ -1315,37 +1328,38 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
   justify-content: center;
   font-weight: bold;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .front, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .front {
-  transform: translateZ(5px);
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front {
+  transform: translateZ(calc(var(--face-depth)));
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .back, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .back {
-  transform: rotateY(180deg) translateZ(5px);
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .back, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .back {
+  transform: rotateY(180deg) translateZ(calc(var(--face-depth)));
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .left, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .left {
-  transform: rotateY(-90deg) translateZ(5px);
-  width: 5px;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .left, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .left {
+  transform: rotateY(-90deg) translateZ(calc(var(--face-width) / 2));
+  width: calc(var(--face-depth));
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .right, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .right {
-  transform: rotateY(90deg) translateZ(95px);
-  width: 5px;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .right, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .right {
+  transform: rotateY(90deg) translateZ(calc(var(--face-width) / 2));
+  width: calc(var(--face-depth));
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .top, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .top {
-  transform: rotateX(90deg) translateZ(5px);
-  height: 5px;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .top, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .top {
+  transform: rotateX(90deg) translateZ(calc(var(--face-height) / 2));
+  height: calc(var(--face-depth));
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .bottom, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box .bottom {
-  transform: rotateX(-90deg) translateZ(145px);
-  height: 5px;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .bottom, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--face-height) / 2));
+  height: calc(var(--face-depth));
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box:hover, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box:hover {
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box:hover, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box:hover {
   cursor: pointer;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled {
-  transform: translateZ(500px) translateX(-40px);
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled {
+  transform: translateZ(250px) translateX(-80px) translateY(-50px);
   z-index: 100;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .box.pulled .face {
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled .face {
   background-color: red;
+  z-index: 100;
 }
 html main #skills #skills-container #middle::before, body main #skills #skills-container #middle::before {
   content: "";
