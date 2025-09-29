@@ -41,7 +41,7 @@
   --footer-height: 30px;
   --main-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 8px);
   --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
-  --face-width: 150px;
+  --face-width: 325px;
   --face-depth: 5px;
 }
 
@@ -674,328 +674,6 @@ html main #intro #intro-container #mount-container #ninja, body main #intro #int
     transform: translateX(100%);
   }
 }
-html main #projects, body main #projects {
-  background: linear-gradient(to right, rgba(0, 255, 187, 0.95) 0%, rgba(21, 95, 217, 0.5) 100%);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-html main #projects .project-block, body main #projects .project-block {
-  width: 50%;
-  height: 50%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 0;
-}
-html main #projects .project-block .project-background-stripe-left,
-html main #projects .project-block .project-background-stripe-right, body main #projects .project-block .project-background-stripe-left,
-body main #projects .project-block .project-background-stripe-right {
-  width: 100%;
-  z-index: 1;
-}
-html main #projects .project-block .project-background-stripe-left #border-top-1,
-html main #projects .project-block .project-background-stripe-right #border-top-1, body main #projects .project-block .project-background-stripe-left #border-top-1,
-body main #projects .project-block .project-background-stripe-right #border-top-1 {
-  background-color: white;
-  min-height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-top-2,
-html main #projects .project-block .project-background-stripe-right #border-top-2, body main #projects .project-block .project-background-stripe-left #border-top-2,
-body main #projects .project-block .project-background-stripe-right #border-top-2 {
-  background-color: #64b0ff;
-  height: 5px;
-}
-html main #projects .project-block .project-background-stripe-left #border-top-3,
-html main #projects .project-block .project-background-stripe-right #border-top-3, body main #projects .project-block .project-background-stripe-left #border-top-3,
-body main #projects .project-block .project-background-stripe-right #border-top-3 {
-  background-color: #155fd9;
-  height: 5px;
-}
-html main #projects .project-block .project-background-stripe-left #border-top-4,
-html main #projects .project-block .project-background-stripe-right #border-top-4, body main #projects .project-block .project-background-stripe-left #border-top-4,
-body main #projects .project-block .project-background-stripe-right #border-top-4 {
-  background-color: black;
-  height: 4px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-1,
-html main #projects .project-block .project-background-stripe-right #border-center-1, body main #projects .project-block .project-background-stripe-left #border-center-1,
-body main #projects .project-block .project-background-stripe-right #border-center-1 {
-  background-color: #155fd9;
-  height: 8px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-2,
-html main #projects .project-block .project-background-stripe-right #border-center-2, body main #projects .project-block .project-background-stripe-left #border-center-2,
-body main #projects .project-block .project-background-stripe-right #border-center-2 {
-  background-color: #64b0ff;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-3,
-html main #projects .project-block .project-background-stripe-right #border-center-3, body main #projects .project-block .project-background-stripe-left #border-center-3,
-body main #projects .project-block .project-background-stripe-right #border-center-3 {
-  background-color: #155fd9;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-4,
-html main #projects .project-block .project-background-stripe-right #border-center-4, body main #projects .project-block .project-background-stripe-left #border-center-4,
-body main #projects .project-block .project-background-stripe-right #border-center-4 {
-  background-color: #64b0ff;
-  height: 6px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-5,
-html main #projects .project-block .project-background-stripe-right #border-center-5, body main #projects .project-block .project-background-stripe-left #border-center-5,
-body main #projects .project-block .project-background-stripe-right #border-center-5 {
-  background-color: white;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-6,
-html main #projects .project-block .project-background-stripe-right #border-center-6, body main #projects .project-block .project-background-stripe-left #border-center-6,
-body main #projects .project-block .project-background-stripe-right #border-center-6 {
-  background-color: #64b0ff;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-7,
-html main #projects .project-block .project-background-stripe-right #border-center-7, body main #projects .project-block .project-background-stripe-left #border-center-7,
-body main #projects .project-block .project-background-stripe-right #border-center-7 {
-  background-color: white;
-  height: 5px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-8,
-html main #projects .project-block .project-background-stripe-right #border-center-8, body main #projects .project-block .project-background-stripe-left #border-center-8,
-body main #projects .project-block .project-background-stripe-right #border-center-8 {
-  background-color: #64b0ff;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-9,
-html main #projects .project-block .project-background-stripe-right #border-center-9, body main #projects .project-block .project-background-stripe-left #border-center-9,
-body main #projects .project-block .project-background-stripe-right #border-center-9 {
-  background-color: white;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-center-10,
-html main #projects .project-block .project-background-stripe-right #border-center-10, body main #projects .project-block .project-background-stripe-left #border-center-10,
-body main #projects .project-block .project-background-stripe-right #border-center-10 {
-  background-color: #155fd9;
-  height: 5px;
-}
-html main #projects .project-block .project-background-stripe-left #border-bottom-1,
-html main #projects .project-block .project-background-stripe-right #border-bottom-1, body main #projects .project-block .project-background-stripe-left #border-bottom-1,
-body main #projects .project-block .project-background-stripe-right #border-bottom-1 {
-  background-color: white;
-  height: 3px;
-}
-html main #projects .project-block .project-background-stripe-left #border-bottom-2,
-html main #projects .project-block .project-background-stripe-right #border-bottom-2, body main #projects .project-block .project-background-stripe-left #border-bottom-2,
-body main #projects .project-block .project-background-stripe-right #border-bottom-2 {
-  background-color: #64b0ff;
-  height: 5px;
-}
-html main #projects .project-block .project-background-stripe-left #border-bottom-3,
-html main #projects .project-block .project-background-stripe-right #border-bottom-3, body main #projects .project-block .project-background-stripe-left #border-bottom-3,
-body main #projects .project-block .project-background-stripe-right #border-bottom-3 {
-  background-color: #155fd9;
-  height: 5px;
-}
-html main #projects .project-block .project-background-stripe-left #border-bottom-4,
-html main #projects .project-block .project-background-stripe-right #border-bottom-4, body main #projects .project-block .project-background-stripe-left #border-bottom-4,
-body main #projects .project-block .project-background-stripe-right #border-bottom-4 {
-  background-color: black;
-  height: 4px;
-}
-html main #projects .project-block .project-background-stripe-left, body main #projects .project-block .project-background-stripe-left {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 2%, black 35%, black 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-image: linear-gradient(to right, transparent 0%, transparent 2%, black 35%, black 100%);
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-}
-html main #projects .project-block .project-background-stripe-right, body main #projects .project-block .project-background-stripe-right {
-  -webkit-mask-image: linear-gradient(to left, transparent 0%, transparent 2%, black 35%, black 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-image: linear-gradient(to left, transparent 0%, transparent 2%, black 35%, black 100%);
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-}
-html main #projects .project-block .project-anchor-left,
-html main #projects .project-block .project-anchor-right, body main #projects .project-block .project-anchor-left,
-body main #projects .project-block .project-anchor-right {
-  position: absolute;
-  top: 50%;
-  width: 40%;
-  height: 75%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper,
-html main #projects .project-block .project-anchor-right .project-wrapper, body main #projects .project-block .project-anchor-left .project-wrapper,
-body main #projects .project-block .project-anchor-right .project-wrapper {
-  position: relative;
-  width: 325px;
-  border: 10px ridge var(--main-color);
-  border-radius: 15px;
-  z-index: 4;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project-icon,
-html main #projects .project-block .project-anchor-right .project-wrapper .project-icon, body main #projects .project-block .project-anchor-left .project-wrapper .project-icon,
-body main #projects .project-block .project-anchor-right .project-wrapper .project-icon {
-  position: absolute;
-  top: -35px;
-  left: -50px;
-  background-color: white;
-  border: 10px ridge var(--main-color);
-  border-radius: 25px;
-  z-index: 5;
-  width: 75px;
-  height: 75px;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project,
-html main #projects .project-block .project-anchor-right .project-wrapper .project, body main #projects .project-block .project-anchor-left .project-wrapper .project,
-body main #projects .project-block .project-anchor-right .project-wrapper .project {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  background-color: white;
-  z-index: 3;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-title,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-title, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-title,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-title {
-  width: 100%;
-  border-bottom: 10px ridge var(--main-color);
-  background-color: white;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-title h3,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-title h3, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-title h3,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-title h3 {
-  color: var(--main-color);
-  filter: brightness(1.05);
-  font-family: "Contra", monospace;
-  text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
-  font-size: 1rem;
-  text-align: right;
-  padding: 0px 20px 0px 0px;
-  margin: 5px 0px;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-description,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-description, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-description,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-description {
-  width: 100%;
-  height: 175px;
-  background-color: rgba(0, 0, 0, 0.95);
-  color: white;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-description p,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-description p, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-description p,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-description p {
-  margin: 40px 10px 10px 25px;
-  font-family: "Contra", monospace;
-  font-weight: 200;
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-  line-height: 0.85rem;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links {
-  width: 100%;
-  border-top: 10px ridge var(--main-color);
-  background-color: rgb(223, 223, 223);
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div {
-  color: white;
-  font-family: "Contra", monospace;
-  font-weight: 200;
-  font-size: 0.55rem;
-  padding: 7px 0px 5px 25px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a {
-  text-decoration: none;
-  display: inline-block;
-  color: white;
-  cursor: pointer;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a:hover,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a:hover, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div a:hover,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div a:hover {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95), 1px 1px 3px rgba(0, 3, 180, 0.95);
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div:last-of-type,
-html main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div:last-of-type, body main #projects .project-block .project-anchor-left .project-wrapper .project .project-links div:last-of-type,
-body main #projects .project-block .project-anchor-right .project-wrapper .project .project-links div:last-of-type {
-  padding: 3px 0px 8px 25px;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project-techs,
-html main #projects .project-block .project-anchor-right .project-wrapper .project-techs, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs,
-body main #projects .project-block .project-anchor-right .project-wrapper .project-techs {
-  position: absolute;
-  top: 5px;
-  left: 0%;
-  height: 90%;
-  border: 10px ridge var(--main-color);
-  background: linear-gradient(to right, #333333, #333333 55%, #cccccc 98%);
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  transition: left 0.3s ease;
-  padding-right: 5px;
-  z-index: 2;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure,
-html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure,
-body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure {
-  margin: 10px 5px;
-  font-family: "Contra", monospace;
-  font-weight: 200;
-  font-size: 0.65rem;
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 1px rgba(17, 17, 17, 0.95);
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure figcaption,
-html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure figcaption, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure figcaption,
-body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure figcaption {
-  margin-bottom: 7px;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul,
-html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul,
-body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul {
-  margin: 5px;
-  padding-left: 20px;
-  font-family: "Contra", monospace;
-  font-weight: 200;
-  font-size: 0.55rem;
-  color: white;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul li,
-html main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul li, body main #projects .project-block .project-anchor-left .project-wrapper .project-techs figure ul li,
-body main #projects .project-block .project-anchor-right .project-wrapper .project-techs figure ul li {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
-  list-style-type: square;
-  padding: 2px 0px;
-}
-html main #projects .project-block .project-anchor-left .project-wrapper:hover .project-techs,
-html main #projects .project-block .project-anchor-right .project-wrapper:hover .project-techs, body main #projects .project-block .project-anchor-left .project-wrapper:hover .project-techs,
-body main #projects .project-block .project-anchor-right .project-wrapper:hover .project-techs {
-  left: 100%;
-  transform: translateX(0);
-}
-html main #projects .project-block .project-anchor-left, body main #projects .project-block .project-anchor-left {
-  left: 60%;
-}
-html main #projects .project-block .project-anchor-right, body main #projects .project-block .project-anchor-right {
-  left: 40%;
-}
 html main #skills, body main #skills {
   width: 100%;
   height: 100%;
@@ -1296,42 +974,162 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene {
   width: 100%;
   height: 100%;
-  perspective: 800px; /* enables 3D depth */
+  perspective: 900px;
+  perspective-origin: center center;
   border: 1px solid red;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box {
-  width: 85px; /* X-axis */
-  height: 100%; /* Y-axis */
+  width: 100%;
   transform-style: preserve-3d;
-  transform: rotateY(50deg) rotateX(10deg); /* initial rotation to see 3D */
+  transform-origin: center center;
+  transform: rotateY(60deg) rotateX(0deg); /* initial rotation to see 3D */
   transition: transform 0.5s;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  z-index: 2;
   position: relative;
-  /* Position each face */
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .face {
   position: absolute;
   width: var(--face-width);
-  height: var(--face-height);
-  background: rgba(100, 150, 200, 0.7);
-  border: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  background: var(--main-color);
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front {
+  border: 10px ridge var(--main-color);
   transform: translateZ(calc(var(--face-depth)));
+  border-radius: 10px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper {
+  width: 100%;
+  background-color: black;
+  backface-visibility: hidden;
+  will-change: transform;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-icon, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-icon {
+  position: absolute;
+  top: -35px;
+  left: -50px;
+  background-color: white;
+  border: 10px ridge var(--main-color);
+  border-radius: 25px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-title, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-title {
+  width: 100%;
+  border-bottom: 8px ridge var(--main-color);
+  background-color: white;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-title h3, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-title h3 {
+  color: var(--main-color);
+  filter: brightness(1.05);
+  font-family: "Contra", monospace;
+  text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
+  font-size: 1rem;
+  text-align: right;
+  padding: 0px 20px 0px 0px;
+  margin: 5px 0px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-description, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-description {
+  width: 100%;
+  backface-visibility: hidden;
+  will-change: transform;
+  background-color: black;
+  color: white;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-description p, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-description p {
+  margin: 10px 25px 10px 25px;
+  font-family: "Contra", monospace;
+  font-weight: 200;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  line-height: 0.85rem;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links {
+  width: 100%;
+  border-top: 8px ridge var(--main-color);
+  background-color: rgb(223, 223, 223);
+  padding: 5px 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  row-gap: 7px;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links div, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links div {
+  color: white;
+  font-family: "Contra", monospace;
+  font-weight: 200;
+  font-size: 0.55rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+  padding-left: 25px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links div a, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links div a {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  cursor: pointer;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links div a:hover, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-links div a:hover {
+  text-shadow: 1px 1px 3px rgba(0, 3, 180, 0.95);
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  border: 8px ridge var(--main-color);
+  background: linear-gradient(to right, #333333, #333333 55%, #cccccc 98%);
+  backface-visibility: hidden;
+  will-change: transform;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: left 0.3s ease;
+  padding: 0px 5px 5px 0px;
+  z-index: -1;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure {
+  margin: 10px 5px;
+  font-family: "Contra", monospace;
+  font-weight: 200;
+  font-size: 0.65rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 1px rgba(17, 17, 17, 0.95);
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure figcaption, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure figcaption {
+  margin-bottom: 7px;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure ul, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure ul {
+  margin: 5px;
+  padding-left: 20px;
+  font-family: "Contra", monospace;
+  font-weight: 200;
+  font-size: 0.55rem;
+  color: white;
+}
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure ul li, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .front #project-wrapper #project-techs figure ul li {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+  list-style-type: square;
+  padding: 2px 0px;
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .back, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .back {
+  border: 5px ridge var(--main-color);
+  border-radius: 10px;
   transform: rotateY(180deg) translateZ(calc(var(--face-depth)));
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .left, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box .left {
@@ -1355,11 +1153,10 @@ html main #skills #skills-container #middle #middle-content #right-half #right-h
 }
 html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled {
   transform: translateZ(250px) translateX(-80px) translateY(-50px);
-  z-index: 100;
 }
-html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled .face, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled .face {
-  background-color: red;
-  z-index: 100;
+html main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled .front #project-wrapper #project-description:hover ~ #project-techs, body main #skills #skills-container #middle #middle-content #right-half #right-half-bottom #quests #projects-container .scene .box.pulled .front #project-wrapper #project-description:hover ~ #project-techs {
+  left: 100%;
+  transform: translateX(0);
 }
 html main #skills #skills-container #middle::before, body main #skills #skills-container #middle::before {
   content: "";

@@ -270,20 +270,17 @@ function openTab(event, tab) {
 
 
 const boxes = document.querySelectorAll('.box');
-
 boxes.forEach(box => {
   box.addEventListener('click', () => {
-    // Optional: close other boxes if you want only one open at a time
     boxes.forEach(b => {
       if (b !== box) b.classList.remove('pulled');
     });
 
-    // Toggle the clicked box
     box.classList.toggle('pulled');
   });
 });
 
 
 const scene = document.querySelector('.scene');
-const faceHeight = scene.offsetHeight * 0.85; // in pixels
+const faceHeight = scene.offsetHeight * 1;
 document.documentElement.style.setProperty('--face-height', `${faceHeight}px`);
