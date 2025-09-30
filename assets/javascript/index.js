@@ -117,13 +117,13 @@ let fadeTimeout;
 let activeTimeout;
 const marios = document.getElementsByClassName("mario");
 const baButtons = document.getElementsByClassName("ba-button");
-const container = document.getElementById("bullet-holes-container");
+const bhContainer = document.getElementById("bullet-holes-container");
 const letters = document.querySelectorAll(".letter");
 
 for(const baButton of baButtons) {
   baButton.addEventListener('click', () => {
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
+    const width = bhContainer.offsetWidth;
+    const height = bhContainer.offsetHeight;
 
     const img = document.createElement("img");
     let randPic = Math.floor(Math.random() * 6) + 1;
@@ -138,7 +138,7 @@ for(const baButton of baButtons) {
     img.style.top = `${randY}px`;
     img.style.opacity = '1';
     img.style.transition = 'opacity 3s ease'; 
-    container.appendChild(img);
+    bhContainer.appendChild(img);
 
     const bulletRect = img.getBoundingClientRect();
     const bulletX = bulletRect.left + bulletRect.width / 2;
@@ -198,7 +198,7 @@ for(const baButton of baButtons) {
 
     clearTimeout(fadeTimeout);
     fadeTimeout = setTimeout(() => {
-      const images = container.querySelectorAll('img');
+      const images = bhContainer.querySelectorAll('img');
       images.forEach(image => {
         image.style.opacity = '0';
 
@@ -224,10 +224,10 @@ section.addEventListener("mouseenter", () => cursor.classList.add("active"));
 section.addEventListener("mouseleave", () => cursor.classList.remove("active"));
 
 
-const introContainer = document.getElementById("intro-container");
+const intro = document.getElementById("intro-container");
 const about = document.getElementById("about-container");
 
-introContainer.addEventListener("animationend", () => {
+intro.addEventListener("animationend", () => {
   controller.style.display = "flex";
   about.style.display = "block";
 });
@@ -269,18 +269,27 @@ function openTab(event, tab) {
 } 
 
 
-const boxes = document.querySelectorAll('.box');
-boxes.forEach(box => {
-  box.addEventListener('click', () => {
-    boxes.forEach(b => {
-      if (b !== box) b.classList.remove('pulled');
+const container = document.getElementById('projects-container');
+const wrappers = document.querySelectorAll('.scene-wrapper');
+wrappers.forEach(wrapper => {
+  wrapper.addEventListener('click', () => {
+    wrappers.forEach(w => {
+      if (w !== wrapper) w.classList.remove('pulled');
     });
 
-    box.classList.toggle('pulled');
+    const containerRect = container.getBoundingClientRect();
+    const wrapperRect = wrapper.getBoundingClientRect();
+
+    const deltaX = containerRect.left - (wrapperRect.left + wrapperRect.width / 2);
+    const deltaY = (containerRect.top - wrapperRect.top) / 2;
+
+    wrapper.classList.toggle('pulled');
+    wrapper.style.setProperty('--pull-delta-x', `${deltaX}px`);
+    wrapper.style.setProperty('--pull-delta-y', `${deltaY}px`);
   });
 });
 
 
-const scene = document.querySelector('.scene');
-const faceHeight = scene.offsetHeight * 1;
+const sceneWrapper = document.querySelector('.scene-wrapper');
+const faceHeight = sceneWrapper.offsetHeight * 0.8;
 document.documentElement.style.setProperty('--face-height', `${faceHeight}px`);
