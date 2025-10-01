@@ -54,8 +54,9 @@
    --nav-bg-scroll: calc(100vw - (var(--navbar-height) * (var(--nav-bg-image-width) / var(--nav-bg-image-height))));
 
 
-   --face-width: 325; 
-   --face-depth: 25px;
+   --face-width: 325px; 
+   --face-height: 220px;
+   --face-depth: 10px;
 }
 
 // sass styles.scss assets/css/styles.css --watch
@@ -1310,7 +1311,7 @@ html, body {
                         #quests {
                            margin: 0px 20px;
                            border: 3px solid white; 
-                           background-color: #3e2d0f;
+                           // background-color: #3e2d0f;
                            min-inline-size: 0;
                            overflow-x: visible;
                            flex: 1 1 auto;
@@ -1327,236 +1328,246 @@ html, body {
                            #projects-container {
                               display: flex;
                               flex-flow: row nowrap;
-                              justify-content: center;
+                              justify-content: flex-end;
                               align-items: center;
                               column-gap: 20px;
                               height: 100%;
-                              margin: 0px 20px;
+  
+                              .scene {
+                                 width: 20%;
+                                 perspective: 1000px;
+                                 perspective-origin: center left;
 
-                              .scene-wrapper {
-                                 width: 200px;
-                                 height: 100%;
-                                 position: relative;
-                                 z-index: 0; 
-                              
-                                 .scene {
-                                    
-                                    height: 100%;
-                                    perspective: 900px; 
-                                    perspective-origin: center center;
-                                    display: flex;
-                                    flex-flow: row nowrap;
-                                    justify-content: flex-start;
-                                    align-items: center;
-                                    
-                                    // apparent angle offset ≈ arctan(W / (P - Z))
-                                    // Box width = W
-                                    // How far it’s shifted toward/away from you = Z (via translateZ)
-                                    // perspective = p
-                                    // this is why rotateY() isn't an even 90deg to look at its edge dead-on (as you would expect)
-                                    .box {
-                                       width: 100%;
-                                       height: 100%;
-                                       transform-style: preserve-3d;
+                                 .cube {
+                                    position: relative;
+                                    width: var(--face-width);
+                                    height: var(--face-height);
+                                    transform-style: preserve-3d;
+                                    transform-origin: center center;
+                                    transform: rotateY(50deg) rotateX(0deg);
+                                    transition: transform 0.5s;
+                                    left: 0; 
+
+                                    .face {
+                                       position: absolute;
+                                       top: 50%;
+                                       left: 0%;
                                        transform-origin: center center;
-                                       transform: rotateY(60deg) rotateX(0deg); /* initial rotation to see 3D */
-                                       transition: transform 0.5s;
+                                       background: var(--main-color); 
                                        display: flex;
-                                       flex-flow: row nowrap;
                                        justify-content: center;
                                        align-items: center;
-                                       position: relative;
-                                       isolation: isolate;
+                                       box-sizing: border-box; 
+                                       backface-visibility: visible; 
+                                       border-radius: 10px;
+                                    }
 
-                                       .face {
-                                          position: absolute;
-                                          background: var(--main-color);
-                                       }
+                                    .front {
+                                       width: var(--face-width);
+                                       height: var(--face-height);
+                                       transform: translate(-50%, -50%) translateZ(calc(var(--face-depth) / 2));
+                                       border: 10px ridge var(--main-color);
 
-                                       .front  { 
-                                          width: var(--face-width);
-                                          height: var(--face-height);
-                                          transform: translateZ(var(--face-depth)); 
-                                          border-radius: 10px;
-                                          border: 10px ridge var(--main-color);
-                                          
-                                          #project-wrapper {
-                                             height: 100%;
-                                             background-color: black;
+                                        #project-wrapper {
+                                          height: 100%;
+                                          background-color: black;
+                                          backface-visibility: hidden;
+                                          will-change: transform; 
+                                          display: flex;
+                                          flex-flow: column nowrap;
+                                          justify-content: space-between;
+                                          align-items: center;
+                                          position: relative;
+                                          z-index: 0;
+
+                                          #project-icon {
+                                             position: absolute;
+                                             top: -35px;
+                                             left: -55px;
+                                             background-color: white;
+                                             border: 10px ridge var(--main-color);
+                                             border-radius: 25px;
+                                             width: 75px;
+                                             height: 75px;
+                                             z-index: 2;
+                                          }
+
+                                          #project-title {
+                                             width: 100%;
+                                             border-bottom: 8px ridge var(--main-color);
+                                             background-color: white;
                                              backface-visibility: hidden;
                                              will-change: transform; 
+
+                                             h3 {
+                                                color: var(--main-color);
+                                                filter: brightness(1.05);
+                                                font-family: 'Contra', monospace;
+                                                text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
+                                                font-size: 1rem;
+                                                text-align: right;
+                                                padding: 0px 20px 0px 0px;
+                                                margin: 5px 0px;
+                                             }
+                                          }
+               
+                                          #project-description {
+                                             width: 100%;
+                                             height: 100%; 
+                                             overflow: auto;
+                                             backface-visibility: hidden;
+                                             will-change: transform; 
+                                             background-color: black;
+                                             color: white;
+                                             user-select: none;       // standard
+                                             -webkit-user-select: none; // Safari/Chrome
+                                             -moz-user-select: none;    // Firefox
+                                             -ms-user-select: none;     // IE/Edge
+
+                                             p {
+                                                margin: 15px 10px 10px 50px;
+                                                font-family: 'Contra', monospace;
+                                                font-weight: 200;
+                                                font-size: .65rem;
+                                                letter-spacing: 1px;
+                                                line-height: .85rem;
+                                             }
+                                          }
+
+                                          #project-links {
+                                             width: 100%;
+                                             border-top: 8px ridge var(--main-color);
+                                             background-color: rgb(223, 223, 223);
+                                             padding: 5px 0px;
                                              display: flex;
                                              flex-flow: column nowrap;
-                                             justify-content: space-between;
-                                             align-items: center;
-                                             position: relative;
-                                             z-index: 0;
+                                             justify-content: space-around;
+                                             align-items: flex-start;
+                                             row-gap: 7px;
+                                             backface-visibility: hidden;
+                                             will-change: transform; 
 
-                                             #project-icon {
-                                                position: absolute;
-                                                top: -35px;
-                                                left: -55px;
-                                                background-color: white;
-                                                border: 10px ridge var(--main-color);
-                                                border-radius: 25px;
-                                                width: 75px;
-                                                height: 75px;
-                                                z-index: 2;
-                                             }
-
-                                             #project-title {
-                                                width: 100%;
-                                                border-bottom: 8px ridge var(--main-color);
-                                                background-color: white;
-                                                backface-visibility: hidden;
-                                                will-change: transform; 
-
-                                                h3 {
-                                                   color: var(--main-color);
-                                                   filter: brightness(1.05);
-                                                   font-family: 'Contra', monospace;
-                                                   text-shadow: 1px 1px 1px white, 1px 1px 1px grey;
-                                                   font-size: 1rem;
-                                                   text-align: right;
-                                                   padding: 0px 20px 0px 0px;
-                                                   margin: 5px 0px;
-                                                }
-                                             }
-                  
-                                             #project-description {
-                                                width: 100%;
-                                                height: 100%; 
-                                                overflow: auto;
-                                                backface-visibility: hidden;
-                                                will-change: transform; 
-                                                background-color: black;
+                                             div {
                                                 color: white;
+                                                font-family: 'Contra', monospace;
+                                                font-weight: 200;
+                                                font-size: .55rem;
+                                                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+                                                padding-left: 25px;
 
-                                                p {
-                                                   margin: 15px 10px 10px 50px;
-                                                   font-family: 'Contra', monospace;
-                                                   font-weight: 200;
-                                                   font-size: .65rem;
-                                                   letter-spacing: 1px;
-                                                   line-height: .85rem;
+                                                a {
+                                                   pointer-events: none;
+                                                   text-decoration: none;
+                                                   display: inline-block;
+                                                   color: white;
+                                                   cursor: pointer;
+                                                }
+
+                                                a:hover {
+                                                   text-shadow: 1px 1px 3px rgba(0, 3, 180, 0.95);
                                                 }
                                              }
+                                          }
 
-                                             #project-links {
-                                                width: 100%;
-                                                border-top: 8px ridge var(--main-color);
-                                                background-color: rgb(223, 223, 223);
-                                                padding: 5px 0px;
-                                                display: flex;
-                                                flex-flow: column nowrap;
-                                                justify-content: space-around;
-                                                align-items: flex-start;
-                                                row-gap: 7px;
-                                                backface-visibility: hidden;
-                                                will-change: transform; 
+                                          #project-techs {
+                                             position: absolute;
+                                             bottom: 0px;
+                                             left: 0;
+                                             border: 8px ridge var(--main-color);
+                                             background: linear-gradient(
+                                                to right,
+                                                #333333,
+                                                #333333 55%,
+                                                #cccccc 98%
+                                             );
+                                             backface-visibility: hidden;
+                                             will-change: transform;    
+                                             border-bottom-right-radius: 10px;
+                                             border-top-right-radius: 10px;
+                                             transition: left 0.3s ease;
+                                             padding: 0px 5px 5px 0px;
+                                             z-index: -1;
+                                             
+                                             figure {
+                                                margin: 10px 5px;
+                                                font-family: 'Contra', monospace;
+                                                font-weight: 200;
+                                                font-size: .65rem;
+                                                color: rgba(255, 255, 255, 1.0);
+                                                text-shadow: 1px 1px 1px rgba(17, 17, 17, 0.95);
 
-                                                div {
-                                                   color: white;
+                                                figcaption {
+                                                   margin-bottom: 7px;
+                                                }
+                                                
+                                                ul {
+                                                   margin: 5px;
+                                                   padding-left: 20px;
                                                    font-family: 'Contra', monospace;
                                                    font-weight: 200;
                                                    font-size: .55rem;
-                                                   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
-                                                   padding-left: 25px;
+                                                   color: white;
 
-                                                   a {
-                                                      text-decoration: none;
-                                                      display: inline-block;
-                                                      color: white;
-                                                      cursor: pointer;
-                                                   }
-
-                                                   a:hover {
-                                                      text-shadow: 1px 1px 3px rgba(0, 3, 180, 0.95);
+                                                   li {
+                                                      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
+                                                      list-style-type: square;
+                                                      padding: 2px 0px;
                                                    }
                                                 }
                                              }
-
-                                             #project-techs {
-                                                position: absolute;
-                                                bottom: 0px;
-                                                left: 0;
-                                                border: 8px ridge var(--main-color);
-                                                background: linear-gradient(
-                                                   to right,
-                                                   #333333,
-                                                   #333333 55%,
-                                                   #cccccc 98%
-                                                );
-                                                backface-visibility: hidden;
-                                                will-change: transform;    
-                                                border-bottom-right-radius: 10px;
-                                                border-top-right-radius: 10px;
-                                                transition: left 0.3s ease;
-                                                padding: 0px 5px 5px 0px;
-                                                z-index: -1;
-                                                
-                                                figure {
-                                                   margin: 10px 5px;
-                                                   font-family: 'Contra', monospace;
-                                                   font-weight: 200;
-                                                   font-size: .65rem;
-                                                   color: rgba(255, 255, 255, 1.0);
-                                                   text-shadow: 1px 1px 1px rgba(17, 17, 17, 0.95);
-
-                                                   figcaption {
-                                                      margin-bottom: 7px;
-                                                   }
-                                                   
-                                                   ul {
-                                                      margin: 5px;
-                                                      padding-left: 20px;
-                                                      font-family: 'Contra', monospace;
-                                                      font-weight: 200;
-                                                      font-size: .55rem;
-                                                      color: white;
-
-                                                      li {
-                                                         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.95);
-                                                         list-style-type: square;
-                                                         padding: 2px 0px;
-                                                      }
-                                                   }
-                                                }
-                                             }
-                                          }  
-                                       }
-
-                                       .back { 
-                                          width: var(--face-width);
-                                          height: var(--face-height);
-                                          border: 10px ridge var(--main-color);
-                                          border-radius: 10px;
-                                          transform: rotateY(180deg) 
-                                          translateZ(var(--face-depth)); 
-                                       }
-                                       
-                                       .left   { transform: rotateY(-90deg) translateZ(calc(var(--face-width) / 2)); width: var(--face-depth); height: var(--face-height); }
-                                       .right  { transform: rotateY(90deg) translateZ(var(--face-width)); width: var(--face-depth); }
-                                       .top    { transform: rotateX(90deg) translateZ(var(--face-height)); height: var(--face-depth); }
-                                       .bottom { transform: rotateX(-90deg) translateZ(var(--face-height)); height: var(--face-depth); }
+                                          }
+                                       }  
                                     }
 
-                                    .box:hover {
-                                       cursor: pointer;
+                                    // .back {
+                                    //    width: var(--face-width);
+                                    //    height: var(--face-height);
+                                    //    transform: translate(-50%, -50%) rotateY(180deg) translateZ(calc(var(--face-depth) / 2));
+                                    // }
+
+                                    .left {
+                                       width: var(--face-depth);
+                                       height: var(--face-height);
+                                       transform: translate(-50%, -50%) rotateY(-90deg) translateZ(calc(var(--face-width) / 2));
                                     }
+
+                                    // .right {
+                                    //    width: var(--face-depth);
+                                    //    height: var(--face-height);
+                                    //    transform: translate(-50%, -50%) rotateY(90deg) translateZ(calc(var(--face-width) / 2));
+                                    // }
+
+                                    // .top {
+                                    //    width: var(--face-width);
+                                    //    height: var(--face-depth);
+                                    //    transform: translate(-50%, -50%) rotateX(90deg) translateZ(calc(var(--face-height) / 2));
+                                    // }
+
+                                    // .bottom {
+                                    //    width: var(--face-width);
+                                    //    height: var(--face-depth);
+                                    //    transform: translate(-50%, -50%) rotateX(-90deg) translateZ(calc(var(--face-height) / 2));
+                                    // }
                                  }
                               }
 
-                              .scene-wrapper.pulled {
+                              .scene.pulled {
                                  z-index: 100; 
 
-                                 .box {
-                                    transform: translateX(var(--pull-delta-x)) translateY(var(--pull-delta-y)) scale(1.4);
+                                 .cube {
+                                    transform: translateX(var(--pull-delta-x)) translateY(var(--pull-delta-y)) scale(1.35);
 
-                                    .front  #project-wrapper #project-description:hover ~ #project-techs {
-                                       left: 100%; 
-                                       transform: translateX(0); 
-                                    }
+                                    .front #project-wrapper {
+
+                                       #project-description:hover ~ #project-techs {
+                                          left: 100%; 
+                                          transform: translateX(0); 
+                                       }
+
+                                       #project-links a {
+                                          pointer-events: all;
+                                       }
+                                    }  
                                  }
                               }
                            }

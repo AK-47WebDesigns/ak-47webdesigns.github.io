@@ -270,26 +270,21 @@ function openTab(event, tab) {
 
 
 const container = document.getElementById('projects-container');
-const wrappers = document.querySelectorAll('.scene-wrapper');
-wrappers.forEach(wrapper => {
-  wrapper.addEventListener('click', () => {
-    wrappers.forEach(w => {
-      if (w !== wrapper) w.classList.remove('pulled');
+const scenes = document.querySelectorAll('.scene');
+scenes.forEach(scene => {
+  scene.addEventListener('click', () => {
+    scenes.forEach(s => {
+      if (s !== scene) s.classList.remove('pulled');
     });
 
     const containerRect = container.getBoundingClientRect();
-    const wrapperRect = wrapper.getBoundingClientRect();
+    const sceneRect = scene.getBoundingClientRect();
 
-    const deltaX = containerRect.left - (wrapperRect.left + wrapperRect.width / 2);
-    const deltaY = (containerRect.top - wrapperRect.top) / 2;
+    const deltaX = containerRect.left - sceneRect.left;
+    const deltaY = (containerRect.top - sceneRect.top) / 2;
 
-    wrapper.classList.toggle('pulled');
-    wrapper.style.setProperty('--pull-delta-x', `${deltaX}px`);
-    wrapper.style.setProperty('--pull-delta-y', `${deltaY}px`);
+    scene.classList.toggle('pulled');
+    scene.style.setProperty('--pull-delta-x', `${deltaX}px`);
+    scene.style.setProperty('--pull-delta-y', `${deltaY}px`);
   });
 });
-
-
-const sceneWrapper = document.querySelector('.scene-wrapper');
-const faceHeight = sceneWrapper.offsetHeight * 0.8;
-document.documentElement.style.setProperty('--face-height', `${faceHeight}px`);
